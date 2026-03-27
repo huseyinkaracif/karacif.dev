@@ -1,6 +1,9 @@
 import React from "react";
+import { graphql } from "gatsby";
 
-export default function Projects() {
+export default function Projects({ data }) {
+  const projects = data.allProjectsJson.nodes;
+
   return (
     <div className="bg-background font-body text-on-background antialiased selection:bg-primary-container selection:text-on-primary-container">
       {/* Nav */}
@@ -47,75 +50,77 @@ export default function Projects() {
 
         {/* Projects Grid */}
         <div className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8">
-          {/* Project 1 */}
-          <div className="md:col-span-8 group cursor-pointer">
-            <div className="relative overflow-hidden rounded-xl bg-surface-container-low mb-5 md:mb-6 aspect-[16/10]">
-              <img className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB8FDu3zQmlaVTaOwbpva9uzrykC_XeJQ8YCGxvgj_18CpJvjdQ-EwlL6UNneg7mN9O1MS2TCfh9h96IlJyf9Yv_1srAwKujsuwYa7Hp71GPS_4gaKWpLjw0j4_yje7uSOqksQGEjhp2IF4MmqpKdGnE409Ovakj0ETQR7Tn9alNOJbECZC5KbbvNqzah8oBnx5vzvtNRnOGIMusZpeeZKYka_5pKqVffBdjEU9_F7s-A_badKAKi88ndtIdloPizOjihMApvOZNWU" alt="NomadFlow OS" />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
-            </div>
-            <div className="flex flex-col md:flex-row md:items-end justify-between gap-3 md:gap-4">
-              <div>
-                <div className="flex gap-2 mb-2 md:mb-3">
-                  <span className="text-[10px] font-black tracking-widest uppercase bg-surface-container-highest px-2 py-1 rounded">Product Design</span>
-                  <span className="text-[10px] font-black tracking-widest uppercase bg-surface-container-highest px-2 py-1 rounded">2024</span>
+          {projects.map((project, index) => {
+            const isWide = project.colSpan >= 7;
+            const isFullWidth = project.colSpan === 12;
+
+            if (isFullWidth) {
+              return (
+                <div key={project.id} className="md:col-span-12 group cursor-pointer">
+                  <a href={project.link || "#"} className="block bg-surface-container p-8 md:p-12 rounded-xl flex flex-col md:flex-row gap-6 md:gap-8 items-center justify-between group-hover:bg-primary-container transition-colors">
+                    <div className="max-w-md">
+                      <div className="flex gap-2 mb-3">
+                        <span className="text-[10px] font-black tracking-widest uppercase bg-surface-container-highest px-2 py-1 rounded">{project.category}</span>
+                        <span className="text-[10px] font-black tracking-widest uppercase bg-surface-container-highest px-2 py-1 rounded">{project.year}</span>
+                      </div>
+                      <h3 className="text-3xl font-black font-headline mb-3 md:mb-4">{project.title}</h3>
+                      <p className="text-on-surface-variant group-hover:text-on-primary-container">{project.description}</p>
+                    </div>
+                    <span className="material-symbols-outlined text-6xl group-hover:rotate-45 transition-transform">travel_explore</span>
+                  </a>
                 </div>
-                <h3 className="text-3xl md:text-4xl font-black font-headline tracking-tight group-hover:text-primary transition-colors">NomadFlow OS</h3>
-                <p className="text-on-surface-variant mt-2 max-w-md">The world's first productivity suite optimized for asynchronous deep work across timezones.</p>
-              </div>
-              <div className="flex items-center gap-2">
-                <span className="text-sm font-bold font-headline underline decoration-4 decoration-primary-container underline-offset-4">View Case</span>
-                <span className="material-symbols-outlined text-primary">arrow_outward</span>
-              </div>
-            </div>
-          </div>
+              );
+            }
 
-          {/* Project 2 */}
-          <div className="md:col-span-4 group cursor-pointer md:mt-12">
-            <div className="relative overflow-hidden rounded-xl bg-surface-container-low mb-5 md:mb-6 aspect-[4/5]">
-              <img className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBWK5uGTMtxujwshZX1OsxNqW8AYxJ5qA4gpXOn0YHOxeRq8I0JpFmqBZuVjw8BrJj2JcOI_lk0HMq14PsG2kSbuc9rhjjtOTOSbPJVuaCJDoNWZEJAegZoGs6KY-BA-brI50xNrcNHHIoRbt0PQObmy8rsZQf1AayKLDQNytPZTNOX-XBU7Awrfl9fZpCY_hzjoTz7tB1wSiNlC0-YX1eSlNi1qr9BWq8_8B0YfTyrAQ7aYP3dTwS3iu4jMtbhlHcug7jnuyR6v68" alt="Kinetic Shapes" />
-            </div>
-            <div>
-              <div className="flex gap-2 mb-2 md:mb-3">
-                <span className="text-[10px] font-black tracking-widest uppercase bg-surface-container-highest px-2 py-1 rounded">3D Visuals</span>
+            return (
+              <div
+                key={project.id}
+                className={`${isWide ? "md:col-span-8" : "md:col-span-4"} group cursor-pointer ${index % 2 === 1 && isWide ? "" : index % 2 === 1 ? "md:mt-12" : ""}`}
+              >
+                {project.image ? (
+                  <>
+                    <div className={`relative overflow-hidden rounded-xl bg-surface-container-low mb-5 md:mb-6 ${isWide ? "aspect-[16/10]" : "aspect-[4/5]"}`}>
+                      <img
+                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                        src={project.image}
+                        alt={project.title}
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                    </div>
+                    <div className={`flex ${isWide ? "flex-col md:flex-row md:items-end justify-between" : "flex-col"} gap-3 md:gap-4`}>
+                      <div>
+                        <div className="flex gap-2 mb-2 md:mb-3">
+                          <span className="text-[10px] font-black tracking-widest uppercase bg-surface-container-highest px-2 py-1 rounded">{project.category}</span>
+                          <span className="text-[10px] font-black tracking-widest uppercase bg-surface-container-highest px-2 py-1 rounded">{project.year}</span>
+                        </div>
+                        <h3 className={`${isWide ? "text-3xl md:text-4xl" : "text-2xl md:text-3xl"} font-black font-headline tracking-tight group-hover:text-primary transition-colors`}>{project.title}</h3>
+                        <p className="text-on-surface-variant mt-2 max-w-md">{project.description}</p>
+                      </div>
+                      {isWide && (
+                        <a href={project.link || "#"} className="flex items-center gap-2">
+                          <span className="text-sm font-bold font-headline underline decoration-4 decoration-primary-container underline-offset-4">View Case</span>
+                          <span className="material-symbols-outlined text-primary">arrow_outward</span>
+                        </a>
+                      )}
+                    </div>
+                  </>
+                ) : (
+                  <div className="bg-surface-container p-8 rounded-xl group-hover:bg-primary-container transition-colors h-full flex flex-col justify-between min-h-[200px]">
+                    <div>
+                      <div className="flex gap-2 mb-3">
+                        <span className="text-[10px] font-black tracking-widest uppercase bg-surface-container-highest px-2 py-1 rounded">{project.category}</span>
+                      </div>
+                      <h3 className="text-2xl md:text-3xl font-black font-headline tracking-tight group-hover:text-primary transition-colors">{project.title}</h3>
+                      <p className="text-on-surface-variant mt-2">{project.description}</p>
+                    </div>
+                    <a href={project.link || "#"} className="mt-6 inline-flex items-center gap-2 font-headline font-bold text-sm">
+                      View Project <span className="material-symbols-outlined text-primary">arrow_outward</span>
+                    </a>
+                  </div>
+                )}
               </div>
-              <h3 className="text-2xl md:text-3xl font-black font-headline tracking-tight group-hover:text-primary transition-colors">Kinetic Shapes</h3>
-              <p className="text-on-surface-variant mt-2">Exploring the tension between static geometry and digital momentum.</p>
-            </div>
-          </div>
-
-          {/* Project 3 */}
-          <div className="md:col-span-5 group cursor-pointer">
-            <div className="relative overflow-hidden rounded-xl bg-surface-container-low mb-5 md:mb-6 aspect-square">
-              <img className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDg6tUJTwPQDb6wWCl74kdjfI9yQOgVwyw1RKdvJa-pVETqDvtsvW0CO1hR2RpBsFZ5CTUg7ykkrXCLPrtIg8uJg5tKUBiXB5WlvBLLdKN6_4sGD2094Rd7_swWHwhQ80-T3srCFoCrtPAgNP_wMLNB1o64_inkmzEtgBTjIiKiB2xJK6oUmvu1ozsmqwQfBf6Y2Xofa3JeSu3TLgezt54QWiDEEGmBY1t3wmY0vCmtuFSVIeOCkOIsTMH6EOjo8BawzU0gC8QkZ2c" alt="Atlas Identity" />
-            </div>
-            <div>
-              <div className="flex gap-2 mb-2 md:mb-3">
-                <span className="text-[10px] font-black tracking-widest uppercase bg-surface-container-highest px-2 py-1 rounded">Branding</span>
-              </div>
-              <h3 className="text-2xl md:text-3xl font-black font-headline tracking-tight group-hover:text-primary transition-colors">Atlas Identity</h3>
-              <p className="text-on-surface-variant mt-2">A heritage-inspired brand system for a modern travel tech startup.</p>
-            </div>
-          </div>
-
-          {/* Project 4 */}
-          <div className="md:col-span-7 group cursor-pointer md:mt-12">
-            <div className="relative overflow-hidden rounded-xl bg-surface-container-low mb-5 md:mb-6 aspect-[16/11]">
-              <img className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBhF28JFtB9skUuCGa95Yk2kL1chiKZhpjm_KCNIxWT175CZx0aQCZS9aA84knqZ7pdwg5lDb2aMMPs3wOD7CgINe7L5YgWWiFD9LL8PcP744ZdxEqOYCLyWfvlrpqDidV7MCr6Yt6fyFvQuzarZZsLsqySH-cPMqoYoGqAJFnpG9V2HqJMoRDFahO3MgxFISOTr7ZJVYKyO4oipe75sfO4f5mnUX0DHoFJ4RlG996dvE51SmPuva33_r2bxzmVch79KS3zzw9NEo9Q" alt="DASH_V3" />
-            </div>
-            <div className="flex flex-col md:flex-row md:items-end justify-between gap-3 md:gap-4">
-              <div>
-                <div className="flex gap-2 mb-2 md:mb-3">
-                  <span className="text-[10px] font-black tracking-widest uppercase bg-surface-container-highest px-2 py-1 rounded">UI Design</span>
-                </div>
-                <h3 className="text-3xl md:text-4xl font-black font-headline tracking-tight group-hover:text-primary transition-colors">DASH_V3</h3>
-                <p className="text-on-surface-variant mt-2 max-w-sm">Reimagining financial analytics for the crypto-native generation.</p>
-              </div>
-              <div className="flex items-center gap-2">
-                <span className="text-sm font-bold font-headline underline decoration-4 decoration-primary-container underline-offset-4">View Case</span>
-                <span className="material-symbols-outlined text-primary">arrow_outward</span>
-              </div>
-            </div>
-          </div>
+            );
+          })}
         </div>
 
         {/* CTA */}
@@ -126,11 +131,8 @@ export default function Projects() {
               Let's build the <span className="text-primary-container">Next Big Thing</span> together.
             </h2>
             <div className="flex flex-col md:flex-row gap-4 md:gap-6 items-center">
-              <a className="inline-flex items-center justify-center h-14 md:h-16 px-8 md:px-10 bg-primary-container text-on-primary-container rounded-xl font-black font-headline text-base md:text-lg active:scale-95 transition-all w-full md:w-auto" href="#">
+              <a className="inline-flex items-center justify-center h-14 md:h-16 px-8 md:px-10 bg-primary-container text-on-primary-container rounded-xl font-black font-headline text-base md:text-lg active:scale-95 transition-all w-full md:w-auto" href="mailto:karacif.dev@gmail.com">
                 Get in Touch
-              </a>
-              <a className="inline-flex items-center justify-center h-14 md:h-16 px-8 md:px-10 border border-white/20 text-white rounded-xl font-bold font-headline text-base md:text-lg hover:bg-white/10 transition-all w-full md:w-auto" href="#">
-                Download Portfolio
               </a>
             </div>
           </div>
@@ -142,10 +144,9 @@ export default function Projects() {
         <div className="flex flex-col md:flex-row justify-between items-center gap-4 md:gap-6 max-w-7xl mx-auto">
           <div className="flex flex-col gap-2">
             <span className="font-black text-zinc-900 dark:text-zinc-50 font-headline text-xl">Karacif.dev</span>
-            <p className="font-['Inter'] text-sm tracking-wide text-zinc-500 dark:text-zinc-400">© 2024 Hüseyin Karacif. Senior Software Developer.</p>
+            <p className="font-['Inter'] text-sm tracking-wide text-zinc-500 dark:text-zinc-400">© 2026 Hüseyin Karacif. Senior Software Developer.</p>
           </div>
           <div className="flex gap-8">
-            <a className="text-zinc-500 dark:text-zinc-400 hover:text-yellow-500 underline decoration-2 underline-offset-4 transition-all text-sm font-['Inter'] tracking-wide" href="#">Twitter</a>
             <a className="text-[#0077B5] hover:text-[#005582] flex items-center gap-2 underline decoration-2 underline-offset-4 transition-all text-sm font-['Inter'] tracking-wide" href="https://linkedin.com/in/huseyinkaracif" target="_blank" rel="noopener noreferrer">
               <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
               LinkedIn
@@ -188,3 +189,21 @@ export default function Projects() {
     </div>
   );
 }
+
+export const query = graphql`
+  query ProjectsListQuery {
+    allProjectsJson {
+      nodes {
+        id
+        title
+        category
+        year
+        description
+        image
+        featured
+        colSpan
+        link
+      }
+    }
+  }
+`;

@@ -1,0 +1,57 @@
+[
+  {
+    "id": "vela-financial",
+    "title": "Vela Financial",
+    "category": "Fintech",
+    "year": "2024",
+    "description": "A comprehensive identity & dashboard design for a fintech startup, focusing on clarity and trust in financial data visualization.",
+    "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuDy4pqqUK_CIdsuoEvPjPoDCIPb3IZnnhQlh2nsXyE8jTN9WJtXMoPY_qGm70Hu2fWCVhkAwaF9qhqw2_I-FKpTD3YLuQx_YKMm-0Zz84BAQFH2NBq6uiNGS-4RjTt9BUzbTZ2y-eo60znzjczado4S8SakXUCuEAHtq0Net96zdnwOx8hKPSNGhur7Om7EKArQooj3o8JZcA2urloj6m6oXhRDojmYQLSotHsfzUs5_5o4ZEHJ1omGWBTC9y_yd-Gt2OUDXDko_eA",
+    "featured": true,
+    "colSpan": 8,
+    "link": "#"
+  },
+  {
+    "id": "filtresiz",
+    "title": "Filtresiz",
+    "category": "Content Strategy",
+    "year": "2024",
+    "description": "A bold content platform built around unfiltered opinions and authentic storytelling in the tech space.",
+    "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuC5NaKtorwT2kPKxm3WUgZO70WA_UdYKOdghqYWaIVmcP9r-U-cnUT9QN3tCidV30ZMalP6yEbgEYY2Lv9KAXoPIHlMR0rplIB4dMWj7Rco2zJaXREqY37I3r8edFBsfcABNMTHrpAwD4MFx1LxlD8sf2XAYkirJp2knmhqJsurI7w-YSRdh8USDJgbhRkZwS-OAa2DiPy6A4hcYO9OtA_1bWvO5Y7FpSioT5nGlk_TlqiutGWEsbjL7wRhWJHuhMsIQ5hRAFVmM6U",
+    "featured": true,
+    "colSpan": 4,
+    "link": "#"
+  },
+  {
+    "id": "nomad-os",
+    "title": "Nomad OS",
+    "category": "Productivity",
+    "year": "2023",
+    "description": "A bespoke Notion system for digital nomads to track client work, flights, and local coffee haunts.",
+    "image": "",
+    "featured": true,
+    "colSpan": 12,
+    "link": "#"
+  },
+  {
+    "id": "nomadflow-os",
+    "title": "NomadFlow OS",
+    "category": "Product Design",
+    "year": "2024",
+    "description": "The world's first productivity suite optimized for asynchronous deep work across timezones.",
+    "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuB8FDu3zQmlaVTaOwbpva9uzrykC_XeJQ8YCGxvgj_18CpJvjdQ-EwlL6UNneg7mN9O1MS2TCfh9h96IlJyf9Yv_1srAwKujsuwYa7Hp71GPS_4gaKWpLjw0j4_yje7uSOqksQGEjhp2IF4MmqpKdGnE409Ovakj0ETQR7Tn9alNOJbECZC5KbbvNqzah8oBnx5vzvtNRnOGIMusZpeeZKYka_5pKqVffBdjEU9_F7s-A_badKAKi88ndtIdloPizOjihMApvOZNWU",
+    "featured": false,
+    "colSpan": 8,
+    "link": "#"
+  },
+  {
+    "id": "dash-v3",
+    "title": "DASH_V3",
+    "category": "UI Design",
+    "year": "2023",
+    "description": "Reimagining financial analytics for the crypto-native generation.",
+    "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuBhF28JFtB9skUuCGa95Yk2kL1chiKZhpjm_KCNIxWT175CZx0aQCZS9aA84knqZ7pdwg5lDb2aMMPs3wOD7CgINe7L5YgWWiFD9LL8PcP744ZdxEqOYCLyWfvlrpqDidV7MCr6Yt6fyFvQuzarZZsLsqySH-cPMqoYoGqAJFnpG9V2HqJMoRDFahO3MgxFISOTr7ZJVYKyO4oipe75sfO4f5mnUX0DHoFJ4RlG996dvE51SmPuva33_r2bxzmVch79KS3zzw9NEo9Q",
+    "featured": false,
+    "colSpan": 7,
+    "link": "#"
+  }
+]

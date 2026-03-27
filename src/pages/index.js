@@ -1,6 +1,10 @@
 import React from "react";
+import { graphql } from "gatsby";
 
-export default function Home() {
+export default function Home({ data }) {
+  const latestPosts = data.allMarkdownRemark.nodes;
+  const featuredProjects = data.allProjectsJson.nodes.filter((p) => p.featured);
+
   return (
     <div className="bg-background font-body text-on-background antialiased">
       {/* Nav */}
@@ -93,38 +97,41 @@ export default function Home() {
             </a>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
-            {/* Project 1 */}
-            <div className="md:col-span-8 group cursor-pointer">
-              <div className="relative overflow-hidden rounded-xl aspect-video bg-zinc-200">
-                <img alt="Fintech Dashboard" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDy4pqqUK_CIdsuoEvPjPoDCIPb3IZnnhQlh2nsXyE8jTN9WJtXMoPY_qGm70Hu2fWCVhkAwaF9qhqw2_I-FKpTD3YLuQx_YKMm-0Zz84BAQFH2NBq6uiNGS-4RjTt9BUzbTZ2y-eo60znzjczado4S8SakXUCuEAHtq0Net96zdnwOx8hKPSNGhur7Om7EKArQooj3o8JZcA2urloj6m6oXhRDojmYQLSotHsfzUs5_5o4ZEHJ1omGWBTC9y_yd-Gt2OUDXDko_eA" />
-                <div className="absolute inset-0 bg-gradient-to-t from-zinc-900/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-8">
-                  <div className="text-white">
-                    <h3 className="text-2xl font-bold font-headline">Vela Financial</h3>
-                    <p className="text-zinc-300">Identity & Dashboard Design</p>
+            {featuredProjects.slice(0, 3).map((project, index) => {
+              if (project.colSpan === 12) {
+                return (
+                  <div key={project.id} className="md:col-span-12 group cursor-pointer">
+                    <div className="bg-surface-container p-8 md:p-12 rounded-xl flex flex-col md:flex-row gap-6 md:gap-8 items-center justify-between group-hover:bg-primary-container transition-colors">
+                      <div className="max-w-md">
+                        <h3 className="text-3xl font-black font-headline mb-3 md:mb-4">{project.title}</h3>
+                        <p className="text-on-surface-variant group-hover:text-on-primary-container">{project.description}</p>
+                      </div>
+                      <span className="material-symbols-outlined text-6xl group-hover:rotate-45 transition-transform">travel_explore</span>
+                    </div>
+                  </div>
+                );
+              }
+              const isWide = project.colSpan >= 7;
+              return (
+                <div key={project.id} className={`${isWide ? "md:col-span-8" : "md:col-span-4"} group cursor-pointer`}>
+                  <div className={`relative overflow-hidden rounded-xl ${isWide ? "aspect-video" : "h-full min-h-[240px] md:min-h-[300px]"} ${!project.image ? "bg-primary" : "bg-zinc-200"}`}>
+                    {project.image && (
+                      <img
+                        alt={project.title}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                        src={project.image}
+                      />
+                    )}
+                    <div className="absolute inset-0 bg-gradient-to-t from-zinc-900/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-8">
+                      <div className="text-white">
+                        <h3 className="text-2xl font-bold font-headline">{project.title}</h3>
+                        <p className="text-zinc-300">{project.category}</p>
+                      </div>
+                    </div>
                   </div>
                 </div>
-              </div>
-            </div>
-            {/* Project 2 */}
-            <div className="md:col-span-4 group cursor-pointer">
-              <div className="relative overflow-hidden rounded-xl h-full min-h-[240px] md:min-h-[300px] bg-primary">
-                <img alt="Editorial Layout" className="w-full h-full object-cover mix-blend-multiply opacity-80 group-hover:scale-105 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC5NaKtorwT2kPKxm3WUgZO70WA_UdYKOdghqYWaIVmcP9r-U-cnUT9QN3tCidV30ZMalP6yEbgEYY2Lv9KAXoPIHlMR0rplIB4dMWj7Rco2zJaXREqY37I3r8edFBsfcABNMTHrpAwD4MFx1LxlD8sf2XAYkirJp2knmhqJsurI7w-YSRdh8USDJgbhRkZwS-OAa2DiPy6A4hcYO9OtA_1bWvO5Y7FpSioT5nGlk_TlqiutGWEsbjL7wRhWJHuhMsIQ5hRAFVmM6U" />
-                <div className="absolute inset-0 flex flex-col justify-end p-8 text-on-primary-container">
-                  <h3 className="text-2xl font-black font-headline">Filtresiz</h3>
-                  <p className="font-bold opacity-80">Content Strategy</p>
-                </div>
-              </div>
-            </div>
-            {/* Project 3 */}
-            <div className="md:col-span-12 group cursor-pointer">
-              <div className="bg-surface-container p-8 md:p-12 rounded-xl flex flex-col md:flex-row gap-6 md:gap-8 items-center justify-between group-hover:bg-primary-container transition-colors">
-                <div className="max-w-md">
-                  <h3 className="text-3xl font-black font-headline mb-3 md:mb-4">Nomad OS</h3>
-                  <p className="text-on-surface-variant group-hover:text-on-primary-container">A bespoke Notion system for digital nomads to track client work, flights, and local coffee haunts.</p>
-                </div>
-                <span className="material-symbols-outlined text-6xl group-hover:rotate-45 transition-transform">travel_explore</span>
-              </div>
-            </div>
+              );
+            })}
           </div>
         </section>
 
@@ -141,54 +148,23 @@ export default function Home() {
               </a>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
-              <a className="group relative flex flex-col h-full bg-zinc-900 rounded-2xl overflow-hidden border border-zinc-800 transition-all hover:border-primary/50" href="/blog">
-                <div className="aspect-[16/10] overflow-hidden relative">
-                  <img alt="Workspace" className="w-full h-full object-cover grayscale opacity-50 group-hover:scale-110 group-hover:opacity-100 transition-all duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCRQo_75hC65ux5Q5ibyxjfOWdCzDfB3xXNVZQ2tEd35ofZPbMkkYd3LML47PWr-9RwDy6nmzgCmAn3eo-2mkEs7UigLJQ6JrQrLGwQWMmxvHri8fCmRD-7VgHZPzFniws_ZiRPHkqNilKx7vlUygrCrApTAjOX7SUBSKcnCIbaL6jnq-zN5y9fMJml_yytSamylFvRGAQbIBoZ7zK1HF5zA7527Oq7T8JTYl1KUvZSVnt8RZvAVeFruY-KFsGnZacveMzJHD-Z5Hk" />
-                  <div className="absolute top-4 left-4">
-                    <span className="px-3 py-1 bg-primary text-on-primary text-[10px] font-black tracking-widest uppercase font-label rounded-full">Development</span>
+              {latestPosts.slice(0, 3).map((post) => (
+                <a key={post.fields.slug} className="group relative flex flex-col h-full bg-zinc-900 rounded-2xl overflow-hidden border border-zinc-800 transition-all hover:border-primary/50" href={post.fields.slug}>
+                  <div className="p-6 md:p-8 flex flex-col flex-grow">
+                    <div className="mb-3 text-zinc-500 text-xs font-bold font-label uppercase tracking-widest">
+                      {new Date(post.frontmatter.date).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" })}
+                    </div>
+                    <div className="mb-3">
+                      <span className="px-3 py-1 bg-primary text-on-primary text-[10px] font-black tracking-widest uppercase font-label rounded-full">{post.frontmatter.category}</span>
+                    </div>
+                    <h3 className="text-xl md:text-2xl font-black font-headline text-white mb-3 leading-tight group-hover:text-primary transition-colors">{post.frontmatter.title}</h3>
+                    <p className="text-zinc-400 font-body text-sm line-clamp-3 mb-6">{post.frontmatter.excerpt}</p>
+                    <div className="mt-auto flex items-center gap-2 text-primary font-bold text-sm uppercase tracking-wider">
+                      Read Post <span className="material-symbols-outlined text-sm">north_east</span>
+                    </div>
                   </div>
-                </div>
-                <div className="p-6 md:p-8 flex flex-col flex-grow">
-                  <div className="mb-3 text-zinc-500 text-xs font-bold font-label uppercase tracking-widest">Mar 24, 2024</div>
-                  <h3 className="text-xl md:text-2xl font-black font-headline text-white mb-3 leading-tight group-hover:text-primary transition-colors">Kendi Yapay Zeka Ekibinizi Nasıl Kurarsınız?</h3>
-                  <p className="text-zinc-400 font-body text-sm line-clamp-3 mb-6">Modern yazılım dünyasında otonom agent'lar ve AI asistanlarıyla nasıl senkronize çalışılır.</p>
-                  <div className="mt-auto flex items-center gap-2 text-primary font-bold text-sm uppercase tracking-wider">
-                    Read Post <span className="material-symbols-outlined text-sm">north_east</span>
-                  </div>
-                </div>
-              </a>
-              <a className="group relative flex flex-col h-full bg-zinc-900 rounded-2xl overflow-hidden border border-zinc-800 transition-all hover:border-primary/50" href="/blog">
-                <div className="aspect-[16/10] overflow-hidden relative">
-                  <img alt="Movement" className="w-full h-full object-cover grayscale opacity-50 group-hover:scale-110 group-hover:opacity-100 transition-all duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuARSstzxb15tvI7hvhF6ej7dQr2yJjhFhhdFm2ojzWJ2lPnOqS8jHF-Vvp0vIN50XUiHGw6nMh6-hMHzazfLBViQj8_Y85Gj36d6aPw0soHHGw-GCP8kCFdzq-bL4J7BfVNp09vnyIxUxY4zfmMknp-ts1UWIQ_0h_qh8dh2goYk6UUTO0zcpG7VmtC1b7CIhA7nWZ9HH2vxOT-nlJf4nBgAlCgXOiC63_XuArf_mQ6dk1iwqVchHDHqkPgqxCQid5gACDhLMxaFTs" />
-                  <div className="absolute top-4 left-4">
-                    <span className="px-3 py-1 bg-primary text-on-primary text-[10px] font-black tracking-widest uppercase font-label rounded-full">Engineering</span>
-                  </div>
-                </div>
-                <div className="p-6 md:p-8 flex flex-col flex-grow">
-                  <div className="mb-3 text-zinc-500 text-xs font-bold font-label uppercase tracking-widest">Feb 12, 2024</div>
-                  <h3 className="text-xl md:text-2xl font-black font-headline text-white mb-3 leading-tight group-hover:text-primary transition-colors">SOLID Nedir?</h3>
-                  <p className="text-zinc-400 font-body text-sm line-clamp-3 mb-6">Yazılım mimarisinin beş temel prensibi ve kodunuzun neden kırılgan olduğu.</p>
-                  <div className="mt-auto flex items-center gap-2 text-primary font-bold text-sm uppercase tracking-wider">
-                    Read Post <span className="material-symbols-outlined text-sm">north_east</span>
-                  </div>
-                </div>
-              </a>
-              <a className="group relative flex flex-col h-full bg-zinc-900 rounded-2xl overflow-hidden border border-zinc-800 transition-all hover:border-primary/50" href="/blog">
-                <div className="aspect-[16/10] overflow-hidden relative">
-                  <img alt="Clean Code" className="w-full h-full object-cover grayscale opacity-50 group-hover:scale-110 group-hover:opacity-100 transition-all duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBEwq3P95nd6MfojVuiUAeJQ9tFPI9gDY7DP-Yu_JlmQ1yc803biyXBKPIOfEP0H-aRtnNkShw-u4QeNGgeUatkTEP5aSg_eeuOm3CRoLMJCylJGLskJ7OFxshsAgAVuifKdJhShr-1aweDpstiBZVS-DWVN-S_dYgkXSmL1f6qXZqEGaIvmc6gfN_nDITk4j4_U3IzVnHHdxCo2V0h6PFXXVZ-FQS6o8LFPA5ehKobAfjyn_wZqf2VBBBaKG7cM-ce17X4LNO4rG8" />
-                  <div className="absolute top-4 left-4">
-                    <span className="px-3 py-1 bg-primary text-on-primary text-[10px] font-black tracking-widest uppercase font-label rounded-full">Design</span>
-                  </div>
-                </div>
-                <div className="p-6 md:p-8 flex flex-col flex-grow">
-                  <div className="mb-3 text-zinc-500 text-xs font-bold font-label uppercase tracking-widest">Jan 05, 2024</div>
-                  <h3 className="text-xl md:text-2xl font-black font-headline text-white mb-3 leading-tight group-hover:text-primary transition-colors">Clean Code Prensipleri</h3>
-                  <p className="text-zinc-400 font-body text-sm line-clamp-3 mb-6">Okunabilir ve sürdürülebilir kod yazmanın incelikleri.</p>
-                  <div className="mt-auto flex items-center gap-2 text-primary font-bold text-sm uppercase tracking-wider">
-                    Read Post <span className="material-symbols-outlined text-sm">north_east</span>
-                  </div>
-                </div>
-              </a>
+                </a>
+              ))}
             </div>
           </div>
         </section>
@@ -244,3 +220,34 @@ export default function Home() {
     </div>
   );
 }
+
+export const query = graphql`
+  query HomePageQuery {
+    allMarkdownRemark(sort: { frontmatter: { date: DESC } }, limit: 3) {
+      nodes {
+        fields {
+          slug
+        }
+        frontmatter {
+          title
+          date
+          category
+          excerpt
+        }
+      }
+    }
+    allProjectsJson(filter: { featured: { eq: true } }) {
+      nodes {
+        id
+        title
+        category
+        year
+        description
+        image
+        featured
+        colSpan
+        link
+      }
+    }
+  }
+`;
