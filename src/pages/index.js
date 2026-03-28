@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { graphql } from "gatsby";
 import { useSite } from "../context/SiteContext";
 import { translations } from "../translations";
@@ -16,6 +16,13 @@ export default function Home({ data }) {
   const dragStartX = useRef(0);
   const dragScrollLeft = useRef(0);
   const didDrag = useRef(false);
+
+  // Animation refs + state
+  const photoWrapRef = useRef(null);
+  const counterRef   = useRef(null);
+  const ctaRef       = useRef(null);
+  const [scrolled,  setScrolled]  = useState(false);
+  const [scrollPct, setScrollPct] = useState(0);
 
   const scrollCarousel = (ref, dir) => {
     const el = ref.current;
@@ -72,10 +79,99 @@ export default function Home({ data }) {
     return () => observer.disconnect();
   }, []);
 
+  // ── Scroll state + progress bar ─────────────────────────────
+  useEffect(() => {
+    const onScroll = () => {
+      setScrolled(window.scrollY > 50);
+      const total = document.documentElement.scrollHeight - window.innerHeight;
+      setScrollPct(total > 0 ? Math.min((window.scrollY / total) * 100, 100) : 0);
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  // ── Counter animation for experience badge ───────────────────
+  useEffect(() => {
+    const el = counterRef.current;
+    if (!el) return;
+    const obs = new IntersectionObserver(([entry]) => {
+      if (!entry.isIntersecting) return;
+      obs.disconnect();
+      let start = null;
+      const run = (ts) => {
+        if (!start) start = ts;
+        const p = Math.min((ts - start) / 1000, 1);
+        const eased = 1 - Math.pow(1 - p, 3);
+        el.textContent = Math.floor(eased * 6) + "+";
+        if (p < 1) requestAnimationFrame(run);
+        else el.textContent = "6+";
+      };
+      requestAnimationFrame(run);
+    }, { threshold: 0.6 });
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, []);
+
+  // ── Mouse parallax on hero photo (desktop only) ──────────────
+  useEffect(() => {
+    const onMove = (e) => {
+      const wrap = photoWrapRef.current;
+      if (!wrap || window.innerWidth < 768) return;
+      const x = (e.clientX / window.innerWidth  - 0.5) * 18;
+      const y = (e.clientY / window.innerHeight - 0.5) * 12;
+      wrap.style.transform  = `translateX(${x}px) translateY(${y}px)`;
+      wrap.style.transition = "transform 0.1s cubic-bezier(0.22,1,0.36,1)";
+    };
+    const onLeave = () => {
+      const wrap = photoWrapRef.current;
+      if (!wrap) return;
+      wrap.style.transform  = "";
+      wrap.style.transition = "transform 0.8s cubic-bezier(0.22,1,0.36,1)";
+    };
+    window.addEventListener("mousemove", onMove,  { passive: true });
+    document.addEventListener("mouseleave", onLeave);
+    return () => {
+      window.removeEventListener("mousemove", onMove);
+      document.removeEventListener("mouseleave", onLeave);
+    };
+  }, []);
+
+  // ── Magnetic CTA button ──────────────────────────────────────
+  const handleMagnet = (e) => {
+    const btn = ctaRef.current;
+    if (!btn) return;
+    const r = btn.getBoundingClientRect();
+    const x = (e.clientX - r.left - r.width  / 2) * 0.28;
+    const y = (e.clientY - r.top  - r.height / 2) * 0.28;
+    btn.style.transform  = `translate(${x}px, ${y}px)`;
+    btn.style.transition = "transform 0.1s cubic-bezier(0.22,1,0.36,1)";
+  };
+  const resetMagnet = () => {
+    const btn = ctaRef.current;
+    if (!btn) return;
+    btn.style.transform  = "";
+    btn.style.transition = "transform 0.55s cubic-bezier(0.22,1,0.36,1)";
+  };
+
+  // ── 3D tilt for cards ────────────────────────────────────────
+  const handleTilt = (e, el) => {
+    const rect = el.getBoundingClientRect();
+    const x = ((e.clientX - rect.left) / rect.width  - 0.5) * 14;
+    const y = ((e.clientY - rect.top)  / rect.height - 0.5) * 10;
+    el.style.transform  = `perspective(900px) rotateY(${x}deg) rotateX(${-y}deg) translateY(-4px)`;
+    el.style.transition = "transform 0.1s cubic-bezier(0.22,1,0.36,1)";
+  };
+  const resetTilt = (el) => {
+    el.style.transform  = "";
+    el.style.transition = "transform 0.55s cubic-bezier(0.22,1,0.36,1)";
+  };
+
   return (
     <div className="bg-background font-body text-on-background antialiased">
       {/* Nav */}
-      <nav className="fixed top-0 w-full z-50 bg-white/80 dark:bg-zinc-900/80 backdrop-blur-xl shadow-[0_8px_32px_rgba(109,94,0,0.08)]">
+      <nav className={`fixed top-0 w-full z-50 backdrop-blur-xl transition-all duration-300 ${scrolled ? "bg-white/96 dark:bg-zinc-900/96 shadow-[0_1px_20px_rgba(109,94,0,0.10)]" : "bg-white/70 dark:bg-zinc-900/70 shadow-none"}`}>
+        {/* Scroll progress */}
+        <div className="scroll-progress-bar" style={{ width: `${scrollPct}%` }} />
         <div className="flex justify-between items-center px-6 py-4 max-w-7xl mx-auto">
           <a className="text-2xl font-black tracking-tighter text-zinc-900 dark:text-zinc-50 hover:text-yellow-500 transition-colors font-headline" href="/">
             Karacif.dev
@@ -105,18 +201,22 @@ export default function Home({ data }) {
               {t.hero.body}
             </p>
             <div className="hero-cta flex flex-wrap gap-3 md:gap-4 pt-2 md:pt-4">
-              <a href="/projeler" className="bg-primary-container text-on-primary-container px-6 py-3 md:px-8 md:py-4 rounded-xl text-base md:text-lg font-headline font-extrabold shadow-[0_20px_40px_rgba(109,94,0,0.15)] hover:shadow-[0_28px_56px_rgba(109,94,0,0.28)] hover:scale-[1.03] active:scale-95 transition-all duration-200 inline-block">
+              <a ref={ctaRef} href="/projeler" onMouseMove={handleMagnet} onMouseLeave={resetMagnet} className="bg-primary-container text-on-primary-container px-6 py-3 md:px-8 md:py-4 rounded-xl text-base md:text-lg font-headline font-extrabold shadow-[0_20px_40px_rgba(109,94,0,0.15)] hover:shadow-[0_28px_56px_rgba(109,94,0,0.28)] active:scale-95 transition-shadow duration-200 inline-block will-change-transform">
                 {t.hero.cta}
               </a>
             </div>
           </div>
           <div className="hero-photo md:col-span-5 relative mt-4 md:mt-0">
-            <div className="photo-float aspect-[4/5] rounded-xl overflow-hidden bg-primary shadow-2xl">
-              <img alt="Professional Portrait" className="w-full h-full object-cover grayscale hover:grayscale-0 mix-blend-multiply opacity-90 contrast-125 transition-all duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDrOdEuc_6J0ImQ9cEjrmHswhd182_Fl1EywXcMk4bPd7nTuUo0dHXA4GE11QleXoXqBxVyAavcWhIGFJ_jcxXDwUkJS5vYZHR228uJCuNsFtNJ6zV0Avc6NR9u-7nJrgD4tEdjJo9m672iFGpvz0sLpgJx0xHRtnUG3nCM8jRtCEXlmuTUfjcp61OxqCA5SkyV2gsLy0mdM0Ta8QaUHmquuqD6rWUezX2KPB_h7MvafIontphvBrdj2644j2guoGoMl3tmYcpkbBQ" />
-            </div>
-            <div className="hero-exp absolute -bottom-6 -left-6 bg-surface-bright p-5 md:p-6 rounded-xl shadow-xl -rotate-2 border border-outline-variant/10">
-              <p className="font-headline font-black text-xl md:text-2xl leading-none">{t.hero.exp}</p>
-              <p className="text-sm font-bold text-on-surface-variant tracking-wider uppercase mt-1">{t.hero.expLabel}</p>
+            <div ref={photoWrapRef} className="relative will-change-transform">
+              <div className="photo-float aspect-[4/5] rounded-xl overflow-hidden bg-primary shadow-2xl">
+                <img alt="Professional Portrait" className="w-full h-full object-cover grayscale hover:grayscale-0 mix-blend-multiply opacity-90 contrast-125 transition-all duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDrOdEuc_6J0ImQ9cEjrmHswhd182_Fl1EywXcMk4bPd7nTuUo0dHXA4GE11QleXoXqBxVyAavcWhIGFJ_jcxXDwUkJS5vYZHR228uJCuNsFtNJ6zV0Avc6NR9u-7nJrgD4tEdjJo9m672iFGpvz0sLpgJx0xHRtnUG3nCM8jRtCEXlmuTUfjcp61OxqCA5SkyV2gsLy0mdM0Ta8QaUHmquuqD6rWUezX2KPB_h7MvafIontphvBrdj2644j2guoGoMl3tmYcpkbBQ" />
+              </div>
+              <div className="hero-exp absolute -bottom-6 -left-6 bg-surface-bright p-5 md:p-6 rounded-xl shadow-xl -rotate-2 border border-outline-variant/10">
+                <p className="font-headline font-black text-xl md:text-2xl leading-none">
+                  <span ref={counterRef}>6+</span> {lang === "tr" ? "Yıl" : "Years"}
+                </p>
+                <p className="text-sm font-bold text-on-surface-variant tracking-wider uppercase mt-1">{t.hero.expLabel}</p>
+              </div>
             </div>
           </div>
         </section>
@@ -138,7 +238,12 @@ export default function Home({ data }) {
                 </p>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
                   {t.about.cards.map((card, i) => (
-                    <div key={i} className={`reveal reveal-d${i + 1} bg-surface-container-lowest p-5 rounded-xl border border-outline-variant/10 hover:-translate-y-1 hover:shadow-md transition-all duration-300`}>
+                    <div
+                      key={i}
+                      onMouseMove={(e) => handleTilt(e, e.currentTarget)}
+                      onMouseLeave={(e) => resetTilt(e.currentTarget)}
+                      className={`reveal reveal-d${i + 1} bg-surface-container-lowest p-5 rounded-xl border border-outline-variant/10 transition-colors duration-300 will-change-transform`}
+                    >
                       <span className="material-symbols-outlined text-3xl text-primary mb-3">{card.icon}</span>
                       <h3 className="text-base font-bold font-headline mb-2">{card.title}</h3>
                       <p className="text-on-surface-variant text-sm">{card.body}</p>
@@ -186,7 +291,9 @@ export default function Home({ data }) {
                 href={project.link || "/projeler"}
                 onClick={blockIfDrag}
                 draggable={false}
-                className="group snap-start shrink-0 w-[calc(100vw-3rem)] md:w-[42vw] lg:w-[36vw] max-w-[600px]"
+                onMouseMove={(e) => handleTilt(e, e.currentTarget)}
+                onMouseLeave={(e) => resetTilt(e.currentTarget)}
+                className="group snap-start shrink-0 w-[calc(100vw-3rem)] md:w-[42vw] lg:w-[36vw] max-w-[600px] will-change-transform"
               >
                 <div className="relative overflow-hidden rounded-2xl aspect-[4/3] bg-surface-container mb-4">
                   <img src={project.image} alt={lang === "en" ? (project.title_en || project.title) : project.title} draggable={false} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 pointer-events-none" />
@@ -252,7 +359,9 @@ export default function Home({ data }) {
                 href={post.fields.slug}
                 onClick={blockIfDrag}
                 draggable={false}
-                className="group snap-start shrink-0 w-[calc(100vw-3rem)] md:w-[32vw] lg:w-[25vw] max-w-[420px] bg-surface-container border border-outline-variant/15 hover:border-primary/40 rounded-2xl overflow-hidden flex flex-col transition-all duration-300 hover:-translate-y-1"
+                onMouseMove={(e) => handleTilt(e, e.currentTarget)}
+                onMouseLeave={(e) => resetTilt(e.currentTarget)}
+                className="group snap-start shrink-0 w-[calc(100vw-3rem)] md:w-[32vw] lg:w-[25vw] max-w-[420px] bg-surface-container border border-outline-variant/15 hover:border-primary/40 rounded-2xl overflow-hidden flex flex-col will-change-transform"
               >
                 {/* Cover image */}
                 <div className="relative aspect-[16/9] overflow-hidden shrink-0">

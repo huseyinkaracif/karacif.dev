@@ -165,14 +165,53 @@ body { scroll-behavior: smooth; }
 /* ─── Scroll Reveal ──────────────────────────────────── */
 .reveal {
   opacity: 0;
-  transform: translateY(18px);
-  transition: opacity 0.55s cubic-bezier(0.22,1,0.36,1),
-              transform 0.55s cubic-bezier(0.22,1,0.36,1);
+  transform: translateY(28px) scale(0.97);
+  transition: opacity 0.65s cubic-bezier(0.22,1,0.36,1),
+              transform 0.65s cubic-bezier(0.22,1,0.36,1);
 }
-.reveal.visible       { opacity: 1; transform: translateY(0); }
+.reveal.visible       { opacity: 1; transform: translateY(0) scale(1); }
 .reveal-d1            { transition-delay: 80ms;  }
 .reveal-d2            { transition-delay: 160ms; }
-.reveal-d3            { transition-delay: 240ms; }
+.reveal-d3            { transition-delay: 260ms; }
+.reveal-d4            { transition-delay: 360ms; }
+.reveal-d5            { transition-delay: 460ms; }
+
+/* ─── Scroll progress bar ────────────────────────────── */
+.scroll-progress-bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  background: linear-gradient(90deg, rgb(var(--primary)), rgb(var(--primary_container)), rgb(var(--primary)));
+  background-size: 200% 100%;
+  animation: shimmer-progress 2s linear infinite;
+  box-shadow: 0 0 8px rgb(var(--primary) / 0.5);
+  pointer-events: none;
+  transition: width 0.08s linear;
+}
+
+/* ─── Gold shimmer for progress bar ─────────────────── */
+@keyframes shimmer-progress {
+  0%   { background-position: 0% center; }
+  100% { background-position: 200% center; }
+}
+
+/* ─── Kinetic highlight text ─────────────────────────── */
+.kinetic-mark {
+  position: relative;
+  display: inline;
+}
+.kinetic-mark::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: rgb(var(--primary));
+  transition: width 0.6s cubic-bezier(0.22,1,0.36,1) 0.3s;
+}
+.reveal.visible .kinetic-mark::after { width: 100%; }
 
 /* ─── Nav link animated underline ───────────────────── */
 .nav-link {
@@ -203,4 +242,6 @@ body { scroll-behavior: smooth; }
   .photo-float { animation: none; transform: rotate(3deg) translateX(1rem); }
   .reveal, .reveal.visible { opacity: 1; transform: none; transition: none; }
   .nav-link::after { transition: none; }
+  .scroll-progress-bar { display: none; }
+  .kinetic-mark::after { transition: none; width: 100%; }
 }

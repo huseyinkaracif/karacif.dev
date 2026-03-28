@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { graphql } from "gatsby";
 import { useSite } from "../context/SiteContext";
 import { translations } from "../translations";
@@ -8,6 +8,13 @@ export default function Projects({ data }) {
   const { lang } = useSite();
   const t = translations[lang] || translations.tr;
   const projects = data.allProjectsJson.nodes;
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 50);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -21,7 +28,7 @@ export default function Projects({ data }) {
   return (
     <div className="bg-background font-body text-on-background antialiased selection:bg-primary-container selection:text-on-primary-container min-h-screen flex flex-col">
       {/* Nav */}
-      <nav className="fixed top-0 w-full z-50 bg-white/80 dark:bg-zinc-900/80 backdrop-blur-xl shadow-[0_8px_32px_rgba(109,94,0,0.08)]">
+      <nav className={`fixed top-0 w-full z-50 backdrop-blur-xl transition-all duration-300 ${scrolled ? "bg-white/96 dark:bg-zinc-900/96 shadow-[0_1px_20px_rgba(109,94,0,0.10)]" : "bg-white/70 dark:bg-zinc-900/70 shadow-none"}`}>
         <div className="flex justify-between items-center px-6 py-4 max-w-7xl mx-auto">
           <a className="text-2xl font-black tracking-tighter text-zinc-900 dark:text-zinc-50 hover:text-yellow-500 transition-colors font-headline" href="/">
             Karacif.dev
