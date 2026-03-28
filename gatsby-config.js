@@ -27,7 +27,7 @@ module.exports = {
         background_color: `#ffffff`,
         theme_color: `#FFD700`,
         display: `minimal-ui`,
-        icon: `src/images/icon.png`, // Buraya daha sonra kendi logonuzu ekleyebilirsiniz
+        icon: `src/images/icon.svg`, // Buraya daha sonra kendi logonuzu ekleyebilirsiniz
       },
     },
     `gatsby-transformer-json`,
