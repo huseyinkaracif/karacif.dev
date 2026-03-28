@@ -57,9 +57,9 @@ module.exports = {
         "inverse-on-surface":            "rgb(var(--inverse_on_surface) / <alpha-value>)",
       },
       fontFamily: {
-        "headline": ["Plus Jakarta Sans", "sans-serif"],
-        "body": ["Inter", "sans-serif"],
-        "label": ["Inter", "sans-serif"]
+        "headline": ["Outfit", "sans-serif"],
+        "body": ["DM Sans", "sans-serif"],
+        "label": ["DM Sans", "sans-serif"]
       },
       borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
     },

@@ -36,9 +36,9 @@ export default function Blog({ data }) {
         </div>
       </nav>
 
-      <main className="flex-grow pt-20 md:pt-28 pb-8 md:pb-0 max-w-7xl mx-auto px-6 w-full">
+      <main className="flex-grow pt-20 md:pt-24 pb-8 md:pb-0 max-w-7xl mx-auto px-6 w-full">
         {/* Header */}
-        <header className="mb-10 md:mb-14 pt-6 md:pt-8 reveal">
+        <header className="mb-6 md:mb-10 pt-4 md:pt-6 reveal">
           <div className="inline-flex items-center gap-2 px-3 py-1 bg-surface-container-high rounded-full mb-4">
             <span className="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
             <span className="text-xs font-bold font-label uppercase tracking-widest text-on-surface-variant">{t.blog.pageLabel}</span>
@@ -53,13 +53,13 @@ export default function Blog({ data }) {
 
         {/* Posts Grid */}
         {posts.length > 0 ? (
-          <section className="pb-12 md:pb-20">
-            <div className="flex flex-wrap justify-center gap-6 md:gap-8">
+          <section className="pb-8 md:pb-14">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-8">
               {posts.map((post, i) => (
                 <a
                   key={post.fields.slug}
                   href={post.fields.slug}
-                  className="reveal group flex flex-col rounded-2xl overflow-hidden border border-outline-variant/10 bg-surface-container hover:shadow-[0_20px_48px_rgba(109,94,0,0.12)] hover:-translate-y-1 transition-all duration-300 w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]"
+                  className="reveal group flex flex-col rounded-2xl overflow-hidden border border-outline-variant/10 bg-surface-container hover:shadow-[0_20px_48px_rgba(109,94,0,0.12)] hover:-translate-y-1 transition-all duration-300"
                 >
                   {/* Cover image */}
                   <div className="relative aspect-[16/9] overflow-hidden shrink-0">

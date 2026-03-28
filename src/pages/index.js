@@ -92,7 +92,7 @@ export default function Home({ data }) {
 
       <main className="pt-20 md:pt-24 pb-5 md:pb-0">
         {/* Hero Section */}
-        <section className="max-w-7xl mx-auto px-6 py-8 md:py-20 grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-center">
+        <section className="max-w-7xl mx-auto px-6 py-6 md:py-12 grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-center">
           <div className="md:col-span-7 space-y-5 md:space-y-8">
             <div className="hero-badge inline-flex items-center gap-2 px-4 py-2 bg-surface-container-high rounded-full border border-outline-variant/15">
               <span className="w-2 h-2 bg-primary rounded-full animate-pulse"></span>
@@ -122,7 +122,7 @@ export default function Home({ data }) {
         </section>
 
         {/* About / Skills */}
-        <section className="bg-surface-container-low py-14 md:py-24" id="about">
+        <section className="bg-surface-container-low py-10 md:py-16" id="about">
           <div className="max-w-7xl mx-auto px-6">
             <div className="flex flex-col md:flex-row gap-8 md:gap-16 items-start">
               <div className="md:w-1/3 reveal">
@@ -151,8 +151,8 @@ export default function Home({ data }) {
         </section>
 
         {/* ── Projects Carousel ─────────────────────────────── */}
-        <section className="py-14 md:py-24 overflow-hidden" id="projects">
-          <div className="max-w-7xl mx-auto px-6 flex justify-between items-center mb-8 md:mb-10 reveal">
+        <section className="py-10 md:py-16 overflow-hidden" id="projects">
+          <div className="max-w-7xl mx-auto px-6 flex justify-between items-center mb-6 md:mb-8 reveal">
             <div>
               <h2 className="text-3xl md:text-4xl font-black font-headline tracking-tighter">{t.projects.sectionTitle}</h2>
               <p className="text-on-surface-variant mt-1 text-sm">{t.projects.sectionSub}</p>
@@ -217,8 +217,8 @@ export default function Home({ data }) {
         </section>
 
         {/* ── Writing Carousel ──────────────────────────────── */}
-        <section className="bg-surface-container-low py-14 md:py-24 overflow-hidden" id="writing">
-          <div className="max-w-7xl mx-auto px-6 flex justify-between items-center mb-8 md:mb-10 reveal">
+        <section className="bg-surface-container-low py-10 md:py-16 overflow-hidden" id="writing">
+          <div className="max-w-7xl mx-auto px-6 flex justify-between items-center mb-6 md:mb-8 reveal">
             <div>
               <h2 className="text-3xl md:text-4xl font-black font-headline tracking-tighter text-primary">{t.blog.sectionTitle}</h2>
               <p className="text-on-surface-variant mt-1 text-sm">{t.blog.sectionSub}</p>
@@ -252,7 +252,7 @@ export default function Home({ data }) {
                 href={post.fields.slug}
                 onClick={blockIfDrag}
                 draggable={false}
-                className="group snap-start shrink-0 w-[calc(100vw-3rem)] md:w-[38vw] lg:w-[30vw] max-w-[500px] bg-surface-container border border-outline-variant/15 hover:border-primary/40 rounded-2xl overflow-hidden flex flex-col transition-all duration-300 hover:-translate-y-1"
+                className="group snap-start shrink-0 w-[calc(100vw-3rem)] md:w-[32vw] lg:w-[25vw] max-w-[420px] bg-surface-container border border-outline-variant/15 hover:border-primary/40 rounded-2xl overflow-hidden flex flex-col transition-all duration-300 hover:-translate-y-1"
               >
                 {/* Cover image */}
                 <div className="relative aspect-[16/9] overflow-hidden shrink-0">
@@ -276,15 +276,15 @@ export default function Home({ data }) {
                 </div>
 
                 {/* Content */}
-                <div className="p-5 md:p-6 flex flex-col flex-grow">
-                  <h3 className="text-lg md:text-xl font-black font-headline text-on-surface leading-tight mb-2 group-hover:text-primary transition-colors duration-200">
+                <div className="p-4 md:p-5 flex flex-col flex-grow">
+                  <h3 className="text-sm md:text-base font-bold font-headline text-on-surface leading-snug mb-1.5 group-hover:text-primary transition-colors duration-200">
                     {lang === "en" ? (post.frontmatter.title_en || post.frontmatter.title) : post.frontmatter.title}
                   </h3>
-                  <p className="text-on-surface-variant text-sm leading-relaxed line-clamp-2 mb-4 flex-grow">
+                  <p className="text-on-surface-variant text-xs leading-relaxed line-clamp-2 mb-3 flex-grow">
                     {lang === "en" ? (post.frontmatter.excerpt_en || post.frontmatter.excerpt) : post.frontmatter.excerpt}
                   </p>
-                  <div className="flex items-center justify-between pt-4 border-t border-outline-variant/15">
-                    <span className="text-on-surface-variant text-xs font-label">
+                  <div className="flex items-center justify-between pt-3 border-t border-outline-variant/15">
+                    <span className="text-on-surface-variant text-[10px] font-label">
                       {new Date(post.frontmatter.date).toLocaleDateString(lang === "tr" ? "tr-TR" : "en-US", { day: "numeric", month: "long", year: "numeric" })}
                     </span>
                     <div className="flex items-center gap-1 text-primary text-xs font-bold font-headline uppercase tracking-wider">

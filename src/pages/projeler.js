@@ -36,9 +36,9 @@ export default function Projects({ data }) {
         </div>
       </nav>
 
-      <main className="flex-grow pt-20 md:pt-28 pb-8 md:pb-0 max-w-7xl mx-auto px-6 w-full">
+      <main className="flex-grow pt-20 md:pt-24 pb-8 md:pb-0 max-w-7xl mx-auto px-6 w-full">
         {/* Hero */}
-        <header className="mb-10 md:mb-14 pt-6 md:pt-8 reveal">
+        <header className="mb-6 md:mb-10 pt-4 md:pt-6 reveal">
           <div className="inline-block bg-primary-container px-4 py-1 rounded-full mb-4">
             <span className="text-xs font-black font-label tracking-[0.2em] text-on-primary-container uppercase">{t.projects.pageLabel}</span>
           </div>
@@ -51,13 +51,13 @@ export default function Projects({ data }) {
         </header>
 
         {/* Projects Grid */}
-        <section className="pb-12 md:pb-20">
-          <div className="flex flex-wrap justify-center gap-6 md:gap-8">
+        <section className="pb-8 md:pb-14">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-8">
             {projects.map((project, i) => (
               <a
                 key={project.id}
                 href={project.link || "#"}
-                className="reveal group flex flex-col rounded-2xl overflow-hidden border border-outline-variant/10 bg-surface-container hover:shadow-[0_20px_48px_rgba(109,94,0,0.12)] hover:-translate-y-1 transition-all duration-300 w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]"
+                className="reveal group flex flex-col rounded-2xl overflow-hidden border border-outline-variant/10 bg-surface-container hover:shadow-[0_20px_48px_rgba(109,94,0,0.12)] hover:-translate-y-1 transition-all duration-300"
               >
                 {/* Image */}
                 {project.image ? (
@@ -101,7 +101,7 @@ export default function Projects({ data }) {
         </section>
 
         {/* CTA */}
-        <section className="mb-10 md:mb-16 reveal">
+        <section className="mb-8 md:mb-12 reveal">
           <div className="bg-zinc-950 dark:bg-zinc-900 rounded-2xl p-8 md:p-16 relative overflow-hidden">
             <div className="absolute top-0 right-0 w-64 h-64 bg-primary rounded-full blur-[120px] opacity-20 translate-x-1/2 -translate-y-1/2"></div>
             <div className="relative z-10 text-center md:text-left">
