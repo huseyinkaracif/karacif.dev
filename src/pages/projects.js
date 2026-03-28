@@ -14,7 +14,7 @@ export default function Projects({ data }) {
   }, []);
 
   return (
-    <div className="bg-background font-body text-on-background antialiased selection:bg-primary-container selection:text-on-primary-container">
+    <div className="bg-background font-body text-on-background antialiased selection:bg-primary-container selection:text-on-primary-container min-h-screen flex flex-col">
       {/* Nav */}
       <nav className="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-xl shadow-[0_8px_32px_rgba(109,94,0,0.08)]">
         <div className="flex justify-between items-center px-6 py-4 max-w-7xl mx-auto">
@@ -40,7 +40,7 @@ export default function Projects({ data }) {
         <span className="text-xs font-bold font-label tracking-widest text-on-surface uppercase">Lokasyon: İstanbul, TR</span>
       </div>
 
-      <main className="pt-20 md:pt-28 pb-8 md:pb-0 max-w-7xl mx-auto px-6">
+      <main className="flex-grow pt-20 md:pt-28 pb-8 md:pb-0 max-w-7xl mx-auto px-6 w-full">
         {/* Hero */}
         <header className="mb-10 md:mb-14 pt-6 md:pt-8 reveal">
           <div className="inline-block bg-primary-container px-4 py-1 rounded-full mb-4">
@@ -56,12 +56,12 @@ export default function Projects({ data }) {
 
         {/* Projects Grid */}
         <section className="pb-12 md:pb-20">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+          <div className="flex flex-wrap justify-center gap-6 md:gap-8">
             {projects.map((project, i) => (
               <a
                 key={project.id}
                 href={project.link || "#"}
-                className="reveal group flex flex-col rounded-2xl overflow-hidden border border-outline-variant/10 bg-surface-container hover:shadow-[0_20px_48px_rgba(109,94,0,0.12)] hover:-translate-y-1 transition-all duration-300"
+                className="reveal group flex flex-col rounded-2xl overflow-hidden border border-outline-variant/10 bg-surface-container hover:shadow-[0_20px_48px_rgba(109,94,0,0.12)] hover:-translate-y-1 transition-all duration-300 w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]"
               >
                 {/* Image */}
                 {project.image ? (

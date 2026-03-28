@@ -14,7 +14,7 @@ export default function Blog({ data }) {
   }, []);
 
   return (
-    <div className="bg-background text-on-background font-body antialiased">
+    <div className="bg-background text-on-background font-body antialiased min-h-screen flex flex-col">
       {/* Top Navigation */}
       <nav className="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-xl shadow-[0_8px_32px_rgba(109,94,0,0.08)]">
         <div className="flex justify-between items-center px-6 py-4 max-w-7xl mx-auto">
@@ -31,7 +31,7 @@ export default function Blog({ data }) {
         </div>
       </nav>
 
-      <main className="pt-20 md:pt-28 pb-8 md:pb-0 max-w-7xl mx-auto px-6">
+      <main className="flex-grow pt-20 md:pt-28 pb-8 md:pb-0 max-w-7xl mx-auto px-6 w-full">
         {/* Header */}
         <header className="mb-10 md:mb-14 pt-6 md:pt-8 reveal">
           <div className="inline-flex items-center gap-2 px-3 py-1 bg-surface-container-high rounded-full mb-4">
@@ -49,12 +49,12 @@ export default function Blog({ data }) {
         {/* Posts Grid */}
         {posts.length > 0 ? (
           <section className="pb-12 md:pb-20">
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+            <div className="flex flex-wrap justify-center gap-6 md:gap-8">
               {posts.map((post, i) => (
                 <a
                   key={post.fields.slug}
                   href={post.fields.slug}
-                  className="reveal group flex flex-col rounded-2xl overflow-hidden border border-outline-variant/10 bg-surface-container hover:shadow-[0_20px_48px_rgba(109,94,0,0.12)] hover:-translate-y-1 transition-all duration-300"
+                  className="reveal group flex flex-col rounded-2xl overflow-hidden border border-outline-variant/10 bg-surface-container hover:shadow-[0_20px_48px_rgba(109,94,0,0.12)] hover:-translate-y-1 transition-all duration-300 w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]"
                 >
                   {/* Cover image */}
                   <div className="relative aspect-[16/9] overflow-hidden shrink-0">
