@@ -14,14 +14,11 @@ export default function Projects({ data }) {
           </a>
           <div className="hidden md:flex items-center gap-8 font-headline font-bold tracking-tight">
             <a className="text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors" href="/">Anasayfa</a>
-            <a className="text-zinc-900 dark:text-white border-b-4 border-yellow-400 pb-1" href="/projects">Projects</a>
-            <a className="text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors" href="/blog">Writing</a>
+            <a className="text-zinc-900 dark:text-white border-b-4 border-yellow-400 pb-1" href="/projects">Projeler</a>
+            <a className="text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors" href="/blog">Yazılar</a>
             <a className="text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors flex items-center gap-1" href="https://github.com/huseyinkaracif" target="_blank" rel="noopener noreferrer">GitHub</a>
-            <a className="text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors flex items-center gap-1" href="https://linkedin.com/in/huseyinkaracif" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            <a className="text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors flex items-center gap-1" href="https://www.linkedin.com/in/huseyin-karacif" target="_blank" rel="noopener noreferrer">LinkedIn</a>
           </div>
-          <button className="hidden md:block bg-primary-container text-on-primary-container font-headline font-bold px-6 py-2 rounded-xl active:scale-95 duration-200 ease-in-out hover:bg-zinc-100 transition-all">
-            Let's Talk
-          </button>
         </div>
       </nav>
 
@@ -147,7 +144,7 @@ export default function Projects({ data }) {
             <p className="font-['Inter'] text-sm tracking-wide text-zinc-500 dark:text-zinc-400">© 2026 Hüseyin Karacif. Senior Software Developer.</p>
           </div>
           <div className="flex gap-8">
-            <a className="text-[#0077B5] hover:text-[#005582] flex items-center gap-2 underline decoration-2 underline-offset-4 transition-all text-sm font-['Inter'] tracking-wide" href="https://linkedin.com/in/huseyinkaracif" target="_blank" rel="noopener noreferrer">
+            <a className="text-[#0077B5] hover:text-[#005582] flex items-center gap-2 underline decoration-2 underline-offset-4 transition-all text-sm font-['Inter'] tracking-wide" href="https://www.linkedin.com/in/huseyin-karacif" target="_blank" rel="noopener noreferrer">
               <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
               LinkedIn
             </a>
@@ -171,17 +168,17 @@ export default function Projects({ data }) {
         </a>
         <a className="flex flex-col items-center gap-1 text-zinc-900 border-b-4 border-yellow-400 pb-1" href="/projects">
           <span className="material-symbols-outlined" style={{ fontVariationSettings: "'FILL' 1" }}>grid_view</span>
-          <span className="text-[10px] font-black uppercase">Projects</span>
+          <span className="text-[10px] font-black uppercase">Projeler</span>
         </a>
         <a className="flex flex-col items-center gap-1 text-zinc-500" href="/blog">
           <span className="material-symbols-outlined">edit_note</span>
-          <span className="text-[10px] font-black uppercase">Writing</span>
+          <span className="text-[10px] font-black uppercase">Yazılar</span>
         </a>
         <a className="flex flex-col items-center gap-1 text-zinc-500" href="https://github.com/huseyinkaracif" target="_blank" rel="noopener noreferrer">
           <span className="material-symbols-outlined">code</span>
           <span className="text-[10px] font-black uppercase">GitHub</span>
         </a>
-        <a className="flex flex-col items-center gap-1 text-zinc-500" href="https://linkedin.com/in/huseyinkaracif" target="_blank" rel="noopener noreferrer">
+        <a className="flex flex-col items-center gap-1 text-zinc-500" href="https://www.linkedin.com/in/huseyin-karacif" target="_blank" rel="noopener noreferrer">
           <span className="material-symbols-outlined">work</span>
           <span className="text-[10px] font-black uppercase">LinkedIn</span>
         </a>

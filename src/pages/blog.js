@@ -17,14 +17,11 @@ export default function Blog({ data }) {
           </a>
           <div className="hidden md:flex items-center gap-8 font-headline font-bold tracking-tight">
             <a className="text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors" href="/">Anasayfa</a>
-            <a className="text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors" href="/projects">Projects</a>
-            <a className="text-zinc-900 dark:text-white border-b-4 border-yellow-400 pb-1" href="/blog">Writing</a>
+            <a className="text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors" href="/projects">Projeler</a>
+            <a className="text-zinc-900 dark:text-white border-b-4 border-yellow-400 pb-1" href="/blog">Yazılar</a>
             <a className="text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors flex items-center gap-1" href="https://github.com/huseyinkaracif" target="_blank" rel="noopener noreferrer">GitHub</a>
             <a className="text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors flex items-center gap-1" href="https://linkedin.com/in/huseyinkaracif" target="_blank" rel="noopener noreferrer">LinkedIn</a>
           </div>
-          <button className="hidden md:block bg-primary-container text-on-primary-container font-headline font-bold px-6 py-2.5 rounded-xl active:scale-95 duration-200 ease-in-out">
-            Let's Talk
-          </button>
         </div>
       </nav>
 
@@ -33,13 +30,13 @@ export default function Blog({ data }) {
         <header className="mb-10 md:mb-16">
           <div className="inline-flex items-center gap-2 px-3 py-1 bg-surface-container-high rounded-full mb-4 md:mb-6">
             <span className="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
-            <span className="text-xs font-bold font-label uppercase tracking-widest text-on-surface-variant">Latest Thoughts</span>
+            <span className="text-xs font-bold font-label uppercase tracking-widest text-on-surface-variant">Son Düşünceler</span>
           </div>
           <h1 className="text-5xl md:text-8xl font-headline font-black tracking-tighter text-on-background leading-tight">
-            Curated <span className="text-primary">Insights</span> & Dev Notes.
+            Özenle Seçilmiş <span className="text-primary">İçgörüler</span> ve Notlar.
           </h1>
           <p className="mt-5 md:mt-8 text-lg md:text-xl text-on-surface-variant max-w-2xl leading-relaxed">
-            Exploring the intersection of software craftsmanship, artificial intelligence, and modern engineering practices.
+            Yazılım zanaatkarlığı, yapay zeka ve modern mühendislik pratiklerinin kesişimini keşfedin.
           </p>
         </header>
 
@@ -53,7 +50,7 @@ export default function Blog({ data }) {
                   <div className="relative z-10">
                     <div className="flex gap-3 md:gap-4 mb-3 md:mb-4">
                       <span className="bg-primary-container text-on-primary-container px-3 py-1 rounded-md text-xs font-bold font-label">{featured.frontmatter.category.toUpperCase()}</span>
-                      <span className="text-on-surface-variant text-xs font-medium font-label self-center">{featured.frontmatter.readTime} Min Read</span>
+                      <span className="text-on-surface-variant text-xs font-medium font-label self-center">{featured.frontmatter.readTime} Dk Okuma</span>
                     </div>
                     <h2 className="text-3xl md:text-5xl font-headline font-black tracking-tight text-on-background group-hover:text-primary transition-colors">
                       {featured.frontmatter.title}
@@ -81,7 +78,7 @@ export default function Blog({ data }) {
                     {sidebarPost.frontmatter.excerpt}
                   </p>
                   <div className="mt-auto flex items-center text-primary font-bold text-sm">
-                    Read Article <span className="material-symbols-outlined ml-2 text-sm">arrow_forward</span>
+                    Yazıyı Oku <span className="material-symbols-outlined ml-2 text-sm">arrow_forward</span>
                   </div>
                 </a>
               </article>
@@ -135,7 +132,7 @@ export default function Blog({ data }) {
             <div className="font-['Inter'] text-sm tracking-wide text-zinc-500 dark:text-zinc-400">© 2026 Hüseyin Karacif. Senior Software Developer.</div>
           </div>
           <div className="flex gap-8">
-            <a className="text-[#0077B5] hover:text-[#005582] flex items-center gap-2 underline decoration-2 underline-offset-4 transition-all text-sm font-['Inter'] tracking-wide" href="https://linkedin.com/in/huseyinkaracif" target="_blank" rel="noopener noreferrer">
+            <a className="text-[#0077B5] hover:text-[#005582] flex items-center gap-2 underline decoration-2 underline-offset-4 transition-all text-sm font-['Inter'] tracking-wide" href="https://www.linkedin.com/in/huseyin-karacif" target="_blank" rel="noopener noreferrer">
               <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
               LinkedIn
             </a>
@@ -157,7 +154,7 @@ export default function Blog({ data }) {
           <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
           <span className="relative inline-flex rounded-full h-3 w-3 bg-primary"></span>
         </span>
-        <span className="text-xs font-bold font-label text-on-background">Currently in Istanbul</span>
+        <span className="text-xs font-bold font-label text-on-background">Şu anda İstanbul'da</span>
       </div>
 
       {/* Mobile Navigation */}
@@ -168,17 +165,17 @@ export default function Blog({ data }) {
         </a>
         <a className="flex flex-col items-center gap-1 text-zinc-500" href="/projects">
           <span className="material-symbols-outlined">grid_view</span>
-          <span className="text-[10px] font-black uppercase">Projects</span>
+          <span className="text-[10px] font-black uppercase">Projeler</span>
         </a>
         <a className="flex flex-col items-center gap-1 text-zinc-900 border-b-4 border-yellow-400 pb-1" href="/blog">
           <span className="material-symbols-outlined" style={{ fontVariationSettings: "'FILL' 1" }}>edit_note</span>
-          <span className="text-[10px] font-black uppercase">Writing</span>
+          <span className="text-[10px] font-black uppercase">Yazılar</span>
         </a>
         <a className="flex flex-col items-center gap-1 text-zinc-500" href="https://github.com/huseyinkaracif" target="_blank" rel="noopener noreferrer">
           <span className="material-symbols-outlined">code</span>
           <span className="text-[10px] font-black uppercase">GitHub</span>
         </a>
-        <a className="flex flex-col items-center gap-1 text-zinc-500" href="https://linkedin.com/in/huseyinkaracif" target="_blank" rel="noopener noreferrer">
+        <a className="flex flex-col items-center gap-1 text-zinc-500" href="https://www.linkedin.com/in/huseyin-karacif" target="_blank" rel="noopener noreferrer">
           <span className="material-symbols-outlined">work</span>
           <span className="text-[10px] font-black uppercase">LinkedIn</span>
         </a>

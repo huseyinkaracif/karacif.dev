@@ -15,10 +15,10 @@ export default function BlogPost({ data }) {
           </a>
           <div className="hidden md:flex items-center gap-8 font-headline font-bold tracking-tight">
             <a className="text-zinc-500 hover:text-zinc-900 transition-colors" href="/">Anasayfa</a>
-            <a className="text-zinc-500 hover:text-zinc-900 transition-colors" href="/projects">Projects</a>
-            <a className="text-zinc-900 border-b-4 border-yellow-400 pb-1" href="/blog">Writing</a>
+            <a className="text-zinc-500 hover:text-zinc-900 transition-colors" href="/projects">Projeler</a>
+            <a className="text-zinc-900 border-b-4 border-yellow-400 pb-1" href="/blog">Yazılar</a>
             <a className="text-zinc-500 hover:text-zinc-900 transition-colors" href="https://github.com/huseyinkaracif" target="_blank" rel="noopener noreferrer">GitHub</a>
-            <a className="text-zinc-500 hover:text-zinc-900 transition-colors" href="https://linkedin.com/in/huseyinkaracif" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            <a className="text-zinc-500 hover:text-zinc-900 transition-colors" href="https://www.linkedin.com/in/huseyin-karacif" target="_blank" rel="noopener noreferrer">LinkedIn</a>
           </div>
         </div>
       </nav>
@@ -27,7 +27,7 @@ export default function BlogPost({ data }) {
         {/* Back link */}
         <a href="/blog" className="inline-flex items-center gap-2 text-on-surface-variant hover:text-on-background transition-colors font-label font-bold text-sm mb-10 md:mb-14 group">
           <span className="material-symbols-outlined text-sm group-hover:-translate-x-1 transition-transform">arrow_back</span>
-          Back to Writing
+          Yazılara Dön
         </a>
 
         {/* Article Header */}
@@ -36,7 +36,7 @@ export default function BlogPost({ data }) {
             <span className="bg-primary-container text-on-primary-container px-3 py-1 rounded-full text-xs font-black font-label tracking-widest uppercase">
               {frontmatter.category}
             </span>
-            <span className="text-on-surface-variant text-xs font-medium font-label self-center">{frontmatter.readTime} Min Read</span>
+            <span className="text-on-surface-variant text-xs font-medium font-label self-center">{frontmatter.readTime} Dk Okuma</span>
           </div>
           <h1 className="text-4xl md:text-6xl font-black font-headline tracking-tight leading-tight text-on-background mb-5">
             {frontmatter.title}
@@ -61,10 +61,10 @@ export default function BlogPost({ data }) {
         <div className="mt-16 pt-8 border-t border-outline-variant/20 flex justify-between items-center">
           <a href="/blog" className="inline-flex items-center gap-2 font-headline font-bold hover:text-primary transition-colors group">
             <span className="material-symbols-outlined group-hover:-translate-x-1 transition-transform">arrow_back</span>
-            All Posts
+            Tüm Yazılar
           </a>
           <a href="/" className="font-headline font-bold hover:text-primary transition-colors">
-            Home
+            Anasayfa
           </a>
         </div>
       </main>
@@ -74,10 +74,10 @@ export default function BlogPost({ data }) {
         <div className="flex flex-col md:flex-row justify-between items-center gap-4 max-w-7xl mx-auto">
           <div className="flex flex-col gap-1">
             <span className="font-black text-zinc-900 font-headline text-xl">Karacif.dev</span>
-            <p className="text-sm tracking-wide text-zinc-500">© 2026 Hüseyin Karacif. Senior Software Developer.</p>
+            <p className="text-sm tracking-wide text-zinc-500">© 2026 Hüseyin Karacif. Kıdemli Yazılım Geliştirici.</p>
           </div>
           <div className="flex gap-6">
-            <a className="text-[#0077B5] hover:text-[#005582] flex items-center gap-2 text-sm font-['Inter']" href="https://linkedin.com/in/huseyinkaracif" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            <a className="text-[#0077B5] hover:text-[#005582] flex items-center gap-2 text-sm font-['Inter']" href="https://www.linkedin.com/in/huseyin-karacif" target="_blank" rel="noopener noreferrer">LinkedIn</a>
             <a className="text-zinc-700 hover:text-zinc-900 flex items-center gap-2 text-sm font-['Inter']" href="https://github.com/huseyinkaracif" target="_blank" rel="noopener noreferrer">GitHub</a>
             <a className="text-[#EA4335] hover:text-[#C5221F] flex items-center gap-2 text-sm font-['Inter']" href="mailto:karacif.dev@gmail.com">Gmail</a>
           </div>
@@ -92,17 +92,17 @@ export default function BlogPost({ data }) {
         </a>
         <a className="flex flex-col items-center gap-1 text-zinc-500" href="/projects">
           <span className="material-symbols-outlined">grid_view</span>
-          <span className="text-[10px] font-black uppercase">Projects</span>
+          <span className="text-[10px] font-black uppercase">Projeler</span>
         </a>
         <a className="flex flex-col items-center gap-1 text-zinc-900 border-b-4 border-yellow-400 pb-1" href="/blog">
           <span className="material-symbols-outlined" style={{ fontVariationSettings: "'FILL' 1" }}>edit_note</span>
-          <span className="text-[10px] font-black uppercase">Writing</span>
+          <span className="text-[10px] font-black uppercase">Yazılar</span>
         </a>
         <a className="flex flex-col items-center gap-1 text-zinc-500" href="https://github.com/huseyinkaracif" target="_blank" rel="noopener noreferrer">
           <span className="material-symbols-outlined">code</span>
           <span className="text-[10px] font-black uppercase">GitHub</span>
         </a>
-        <a className="flex flex-col items-center gap-1 text-zinc-500" href="https://linkedin.com/in/huseyinkaracif" target="_blank" rel="noopener noreferrer">
+        <a className="flex flex-col items-center gap-1 text-zinc-500" href="https://www.linkedin.com/in/huseyin-karacif" target="_blank" rel="noopener noreferrer">
           <span className="material-symbols-outlined">work</span>
           <span className="text-[10px] font-black uppercase">LinkedIn</span>
         </a>

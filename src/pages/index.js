@@ -15,14 +15,11 @@ export default function Home({ data }) {
           </a>
           <div className="hidden md:flex items-center gap-8 font-headline font-bold tracking-tight">
             <a className="text-zinc-900 dark:text-white border-b-4 border-yellow-400 pb-1" href="/">Anasayfa</a>
-            <a className="text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors" href="/projects">Projects</a>
-            <a className="text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors" href="/blog">Writing</a>
+            <a className="text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors" href="/projects">Projeler</a>
+            <a className="text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors" href="/blog">Yazılar</a>
             <a className="text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors flex items-center gap-1" href="https://github.com/huseyinkaracif" target="_blank" rel="noopener noreferrer">GitHub</a>
-            <a className="text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors flex items-center gap-1" href="https://linkedin.com/in/huseyinkaracif" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            <a className="text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors flex items-center gap-1" href="https://www.linkedin.com/in/huseyin-karacif" target="_blank" rel="noopener noreferrer">LinkedIn</a>
           </div>
-          <button className="hidden md:block bg-primary-container text-on-primary-container px-6 py-2.5 rounded-xl font-headline font-bold active:scale-95 duration-200 ease-in-out">
-            Let's Talk
-          </button>
         </div>
       </nav>
 
@@ -35,14 +32,14 @@ export default function Home({ data }) {
               <span className="text-xs font-bold tracking-widest font-label uppercase">Lokasyon: İstanbul, Türkiye</span>
             </div>
             <h1 className="text-5xl md:text-8xl font-black font-headline tracking-tighter leading-[0.9] text-on-background">
-              Hüseyin Karacif <span className="text-primary italic">Senior Software Developer.</span>
+              Hüseyin Karacif <span className="text-primary italic">Kıdemli Yazılım Geliştirici.</span>
             </h1>
             <p className="text-lg md:text-2xl text-on-surface-variant max-w-2xl leading-relaxed">
-              Building high-quality digital products with precision, performance, and purpose. I craft experiences that don't just work—they excel.
+              Hassasiyet, performans ve amaca uygun yüksek kaliteli dijital ürünler geliştiriyorum. Sadece çalışan değil, mükemmelliği sunan deneyimler üretiyorum.
             </p>
             <div className="flex flex-wrap gap-3 md:gap-4 pt-2 md:pt-4">
               <a href="/projects" className="bg-primary-container text-on-primary-container px-8 py-4 md:px-10 md:py-5 rounded-xl text-lg md:text-xl font-headline font-extrabold shadow-[0_20px_40px_rgba(109,94,0,0.15)] active:scale-95 transition-all inline-block">
-                View My Work
+                Çalışmalarımı İncele
               </a>
             </div>
           </div>
@@ -51,8 +48,8 @@ export default function Home({ data }) {
               <img alt="Professional Portrait" className="w-full h-full object-cover grayscale mix-blend-multiply opacity-90 contrast-125" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDrOdEuc_6J0ImQ9cEjrmHswhd182_Fl1EywXcMk4bPd7nTuUo0dHXA4GE11QleXoXqBxVyAavcWhIGFJ_jcxXDwUkJS5vYZHR228uJCuNsFtNJ6zV0Avc6NR9u-7nJrgD4tEdjJo9m672iFGpvz0sLpgJx0xHRtnUG3nCM8jRtCEXlmuTUfjcp61OxqCA5SkyV2gsLy0mdM0Ta8QaUHmquuqD6rWUezX2KPB_h7MvafIontphvBrdj2644j2guoGoMl3tmYcpkbBQ" />
             </div>
             <div className="absolute -bottom-6 -left-6 bg-surface-bright p-5 md:p-6 rounded-xl shadow-xl -rotate-2 border border-outline-variant/10">
-              <p className="font-headline font-black text-2xl md:text-3xl leading-none">10+ Years</p>
-              <p className="text-sm font-bold text-on-surface-variant tracking-wider uppercase mt-1">Experience</p>
+              <p className="font-headline font-black text-2xl md:text-3xl leading-none">10+ Yıl</p>
+              <p className="text-sm font-bold text-on-surface-variant tracking-wider uppercase mt-1">Deneyim</p>
             </div>
           </div>
         </section>
@@ -62,22 +59,22 @@ export default function Home({ data }) {
           <div className="max-w-7xl mx-auto px-6">
             <div className="flex flex-col md:flex-row gap-8 md:gap-16 items-start">
               <div className="md:w-1/3">
-                <h2 className="text-4xl font-black font-headline tracking-tight uppercase md:sticky md:top-32">The Persona</h2>
+                <h2 className="text-4xl font-black font-headline tracking-tight uppercase md:sticky md:top-32">Karakter</h2>
               </div>
               <div className="md:w-2/3 space-y-8 md:space-y-12">
                 <p className="text-2xl md:text-3xl font-headline leading-tight text-on-background">
-                  I reject the static. My work is inspired by the <span className="bg-primary-container px-2">kinetic energy</span> of constant learning—always evolving, always shipping, never settling for "good enough" solutions.
+                  Durağanlığı reddediyorum. Çalışmalarım sürekli öğrenmenin <span className="bg-primary-container px-2">kinetik enerjisinden</span> ilham alıyor—her zaman gelişiyor, her zaman üretiyor, asla "yeterince iyi" çözümlerle yetinmiyorum.
                 </p>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
                   <div className="bg-surface-container-lowest p-6 md:p-8 rounded-xl border border-outline-variant/10">
                     <span className="material-symbols-outlined text-4xl text-primary mb-4" data-icon="strategy">strategy</span>
-                    <h3 className="text-xl font-bold font-headline mb-2">Architecture</h3>
-                    <p className="text-on-surface-variant">System design and software architecture that scales. Building foundations that last, not just features that ship.</p>
+                    <h3 className="text-xl font-bold font-headline mb-2">Mimari</h3>
+                    <p className="text-on-surface-variant">Ölçeklenebilen sistem tasarımı ve yazılım mimarisi. Sadece özellikleri teslim eden değil, kalıcı olan temeller inşa etmek.</p>
                   </div>
                   <div className="bg-surface-container-lowest p-6 md:p-8 rounded-xl border border-outline-variant/10">
                     <span className="material-symbols-outlined text-4xl text-primary mb-4" data-icon="brush">brush</span>
-                    <h3 className="text-xl font-bold font-headline mb-2">Craft</h3>
-                    <p className="text-on-surface-variant">Clean code, thoughtful APIs, and interfaces that feel as good as they perform.</p>
+                    <h3 className="text-xl font-bold font-headline mb-2">Zanaat</h3>
+                    <p className="text-on-surface-variant">Temiz kod, özenle düşünülmüş API'ler ve göründüğü kadar iyi performans gösteren arayüzler.</p>
                   </div>
                 </div>
               </div>
@@ -178,7 +175,7 @@ export default function Home({ data }) {
             <p className="font-['Inter'] text-sm tracking-wide text-zinc-500 dark:text-zinc-400">© 2026 Hüseyin Karacif. Senior Software Developer.</p>
           </div>
           <div className="flex gap-8">
-            <a className="text-[#0077B5] hover:text-[#005582] flex items-center gap-2 underline decoration-2 underline-offset-4 transition-all text-sm font-['Inter'] tracking-wide" href="https://linkedin.com/in/huseyinkaracif" target="_blank" rel="noopener noreferrer">
+            <a className="text-[#0077B5] hover:text-[#005582] flex items-center gap-2 underline decoration-2 underline-offset-4 transition-all text-sm font-['Inter'] tracking-wide" href="https://www.linkedin.com/in/huseyin-karacif" target="_blank" rel="noopener noreferrer">
               <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
               LinkedIn
             </a>
@@ -202,17 +199,17 @@ export default function Home({ data }) {
         </a>
         <a className="flex flex-col items-center gap-1 text-zinc-500" href="/projects">
           <span className="material-symbols-outlined">grid_view</span>
-          <span className="text-[10px] font-black uppercase">Projects</span>
+          <span className="text-[10px] font-black uppercase">Projeler</span>
         </a>
         <a className="flex flex-col items-center gap-1 text-zinc-500" href="/blog">
           <span className="material-symbols-outlined">edit_note</span>
-          <span className="text-[10px] font-black uppercase">Writing</span>
+          <span className="text-[10px] font-black uppercase">Yazılar</span>
         </a>
         <a className="flex flex-col items-center gap-1 text-zinc-500" href="https://github.com/huseyinkaracif" target="_blank" rel="noopener noreferrer">
           <span className="material-symbols-outlined">code</span>
           <span className="text-[10px] font-black uppercase">GitHub</span>
         </a>
-        <a className="flex flex-col items-center gap-1 text-zinc-500" href="https://linkedin.com/in/huseyinkaracif" target="_blank" rel="noopener noreferrer">
+        <a className="flex flex-col items-center gap-1 text-zinc-500" href="https://www.linkedin.com/in/huseyin-karacif" target="_blank" rel="noopener noreferrer">
           <span className="material-symbols-outlined">work</span>
           <span className="text-[10px] font-black uppercase">LinkedIn</span>
         </a>
