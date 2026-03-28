@@ -1,15 +1,50 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { graphql } from "gatsby";
 
 export default function Blog({ data }) {
   const posts = data.allMarkdownRemark.nodes;
-  const featured = posts[0];
-  const sidebarPost = posts[1];
-  const carouselPosts = posts.slice(2);
+
+  const carouselRef = useRef(null);
+  const isDragging = useRef(false);
+  const dragStartX = useRef(0);
+  const dragScrollLeft = useRef(0);
+  const didDrag = useRef(false);
+
+  const scrollCarousel = (dir) => {
+    const el = carouselRef.current;
+    if (!el) return;
+    el.scrollBy({ left: dir * Math.round(el.offsetWidth * 0.82), behavior: "smooth" });
+  };
+
+  const dragStart = (e) => {
+    isDragging.current = true;
+    didDrag.current = false;
+    dragStartX.current = e.pageX - carouselRef.current.getBoundingClientRect().left;
+    dragScrollLeft.current = carouselRef.current.scrollLeft;
+  };
+  const dragMove = (e) => {
+    if (!isDragging.current) return;
+    e.preventDefault();
+    const x = e.pageX - carouselRef.current.getBoundingClientRect().left;
+    const walk = (x - dragStartX.current) * 1.4;
+    if (Math.abs(walk) > 4) didDrag.current = true;
+    carouselRef.current.scrollLeft = dragScrollLeft.current - walk;
+  };
+  const dragEnd = () => { isDragging.current = false; };
+  const blockIfDrag = (e) => { if (didDrag.current) e.preventDefault(); };
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => entries.forEach((e) => { if (e.isIntersecting) e.target.classList.add("visible"); }),
+      { threshold: 0.12 }
+    );
+    document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <div className="bg-background text-on-background font-body antialiased">
-      {/* Top Navigation Shell */}
+      {/* Top Navigation */}
       <nav className="fixed top-0 w-full z-50 bg-white/80 dark:bg-zinc-900/80 backdrop-blur-xl shadow-[0_8px_32px_rgba(109,94,0,0.08)] dark:shadow-none">
         <div className="flex justify-between items-center px-6 py-4 max-w-7xl mx-auto">
           <a className="text-2xl font-black tracking-tighter text-zinc-900 dark:text-zinc-50 hover:text-yellow-500 transition-colors font-headline" href="/">
@@ -19,113 +54,133 @@ export default function Blog({ data }) {
             <a className="text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors" href="/">Anasayfa</a>
             <a className="text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors" href="/projects">Projeler</a>
             <a className="text-zinc-900 dark:text-white border-b-4 border-yellow-400 pb-1" href="/blog">Yazılar</a>
-            <a className="text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors flex items-center gap-1" href="https://github.com/huseyinkaracif" target="_blank" rel="noopener noreferrer">GitHub</a>
-            <a className="text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors flex items-center gap-1" href="https://linkedin.com/in/huseyinkaracif" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            <a className="text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors" href="https://github.com/huseyinkaracif" target="_blank" rel="noopener noreferrer">GitHub</a>
+            <a className="text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors" href="https://www.linkedin.com/in/huseyin-karacif" target="_blank" rel="noopener noreferrer">LinkedIn</a>
           </div>
         </div>
       </nav>
 
-      <main className="pt-20 md:pt-28 pb-24 md:pb-16 px-6 max-w-7xl mx-auto">
-        {/* Header Section */}
-        <header className="mb-10 md:mb-16">
-          <div className="inline-flex items-center gap-2 px-3 py-1 bg-surface-container-high rounded-full mb-4 md:mb-6">
+      <main className="pt-20 md:pt-28 pb-8 md:pb-0">
+        {/* Header */}
+        <header className="max-w-7xl mx-auto px-6 mb-10 md:mb-14 pt-6 md:pt-8">
+          <div className="inline-flex items-center gap-2 px-3 py-1 bg-surface-container-high rounded-full mb-4">
             <span className="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
             <span className="text-xs font-bold font-label uppercase tracking-widest text-on-surface-variant">Son Düşünceler</span>
           </div>
-          <h1 className="text-5xl md:text-8xl font-headline font-black tracking-tighter text-on-background leading-tight">
+          <h1 className="text-4xl md:text-7xl font-headline font-black tracking-tighter text-on-background leading-tight">
             Özenle Seçilmiş <span className="text-primary">İçgörüler</span> ve Notlar.
           </h1>
-          <p className="mt-5 md:mt-8 text-lg md:text-xl text-on-surface-variant max-w-2xl leading-relaxed">
+          <p className="mt-4 md:mt-6 text-base md:text-xl text-on-surface-variant max-w-2xl leading-relaxed">
             Yazılım zanaatkarlığı, yapay zeka ve modern mühendislik pratiklerinin kesişimini keşfedin.
           </p>
         </header>
 
-        {/* Bento Layout for Blog Posts */}
-        {posts.length > 0 && (
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8">
-            {/* Featured Post */}
-            {featured && (
-              <article className="md:col-span-8 group cursor-pointer">
-                <a href={featured.fields.slug} className="block relative overflow-hidden rounded-xl bg-surface-container-low p-6 md:p-8 h-full flex flex-col justify-end min-h-[360px] md:min-h-[500px] transition-all hover:shadow-[0_32px_64px_rgba(109,94,0,0.12)]">
-                  <div className="relative z-10">
-                    <div className="flex gap-3 md:gap-4 mb-3 md:mb-4">
-                      <span className="bg-primary-container text-on-primary-container px-3 py-1 rounded-md text-xs font-bold font-label">{featured.frontmatter.category.toUpperCase()}</span>
-                      <span className="text-on-surface-variant text-xs font-medium font-label self-center">{featured.frontmatter.readTime} Dk Okuma</span>
-                    </div>
-                    <h2 className="text-3xl md:text-5xl font-headline font-black tracking-tight text-on-background group-hover:text-primary transition-colors">
-                      {featured.frontmatter.title}
-                    </h2>
-                    <p className="mt-3 md:mt-4 text-on-surface-variant text-base md:text-lg max-w-xl">
-                      {featured.frontmatter.excerpt}
+        {/* ── Writing Carousel ──────────────────────────────── */}
+        <section className="bg-on-background py-10 md:py-20 overflow-hidden">
+          {/* Header */}
+          <div className="max-w-7xl mx-auto px-6 flex justify-between items-center mb-6 md:mb-10 reveal">
+            <div>
+              <h2 className="text-2xl md:text-3xl font-black font-headline tracking-tighter text-primary">Tüm Yazılar</h2>
+              <p className="text-zinc-500 mt-1 text-sm">Sürükle veya ok tuşlarını kullan.</p>
+            </div>
+            <div className="flex gap-2">
+              <button
+                onClick={() => scrollCarousel(-1)}
+                className="w-10 h-10 rounded-full bg-zinc-800 hover:bg-primary-container hover:text-on-primary-container text-zinc-300 flex items-center justify-center transition-all duration-200 active:scale-90"
+                aria-label="Önceki"
+              >
+                <span className="material-symbols-outlined text-xl">chevron_left</span>
+              </button>
+              <button
+                onClick={() => scrollCarousel(1)}
+                className="w-10 h-10 rounded-full bg-zinc-800 hover:bg-primary-container hover:text-on-primary-container text-zinc-300 flex items-center justify-center transition-all duration-200 active:scale-90"
+                aria-label="Sonraki"
+              >
+                <span className="material-symbols-outlined text-xl">chevron_right</span>
+              </button>
+            </div>
+          </div>
+
+          {/* Track */}
+          {posts.length > 0 ? (
+            <div
+              ref={carouselRef}
+              onMouseDown={dragStart}
+              onMouseMove={dragMove}
+              onMouseUp={dragEnd}
+              onMouseLeave={dragEnd}
+              className="flex gap-4 md:gap-5 overflow-x-auto no-scrollbar snap-x snap-mandatory cursor-grab active:cursor-grabbing pl-6 md:pl-[max(1.5rem,calc((100vw-80rem)/2+1.5rem))] pr-6 select-none pb-4"
+            >
+              {posts.map((post, i) => (
+                <a
+                  key={post.fields.slug}
+                  href={post.fields.slug}
+                  onClick={blockIfDrag}
+                  draggable={false}
+                  className="group snap-start shrink-0 w-[82vw] md:w-[38vw] lg:w-[30vw] max-w-[500px] bg-zinc-900 border border-zinc-800 hover:border-primary/40 rounded-2xl overflow-hidden flex flex-col transition-all duration-300 hover:-translate-y-1"
+                >
+                  {/* Cover image */}
+                  <div className="relative aspect-[16/9] overflow-hidden shrink-0">
+                    {post.frontmatter.coverImage ? (
+                      <img
+                        src={post.frontmatter.coverImage}
+                        alt={post.frontmatter.title}
+                        draggable={false}
+                        className="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700 pointer-events-none"
+                      />
+                    ) : (
+                      <div className="w-full h-full bg-zinc-800" />
+                    )}
+                    <div className="absolute inset-0 bg-gradient-to-t from-zinc-900/90 via-zinc-900/20 to-transparent" />
+                    {/* Category badge */}
+                    <span className="absolute top-3 left-3 text-[10px] font-black tracking-[0.18em] uppercase text-primary font-label bg-black/60 backdrop-blur-sm px-3 py-1 rounded-full border border-primary/25">
+                      {post.frontmatter.category}
+                    </span>
+                    {/* Number */}
+                    <span className="absolute top-3 right-4 text-zinc-500 font-headline font-black text-xl select-none">
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
+                  </div>
+
+                  {/* Content */}
+                  <div className="p-5 md:p-6 flex flex-col flex-grow">
+                    <h3 className="text-lg md:text-xl font-black font-headline text-white leading-tight mb-2 group-hover:text-primary transition-colors duration-200">
+                      {post.frontmatter.title}
+                    </h3>
+                    <p className="text-zinc-500 text-sm leading-relaxed line-clamp-2 mb-4 flex-grow">
+                      {post.frontmatter.excerpt}
                     </p>
+                    <div className="flex items-center justify-between pt-4 border-t border-zinc-800/80">
+                      <span className="text-zinc-600 text-xs font-label">
+                        {new Date(post.frontmatter.date).toLocaleDateString("tr-TR", { day: "numeric", month: "long", year: "numeric" })}
+                        {post.frontmatter.readTime && ` · ${post.frontmatter.readTime} dk`}
+                      </span>
+                      <div className="flex items-center gap-1 text-primary text-xs font-bold font-headline uppercase tracking-wider">
+                        Oku <span className="material-symbols-outlined text-sm group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-200">north_east</span>
+                      </div>
+                    </div>
                   </div>
                 </a>
-              </article>
-            )}
+              ))}
+            </div>
+          ) : (
+            <div className="text-center py-16 text-zinc-500 px-6">
+              <span className="material-symbols-outlined text-5xl mb-4 block">edit_note</span>
+              <p className="text-lg font-headline font-bold">Henüz yazı yok. Yakında!</p>
+            </div>
+          )}
 
-            {/* Sidebar Post */}
-            {sidebarPost && (
-              <article className="md:col-span-4 group cursor-pointer">
-                <a href={sidebarPost.fields.slug} className="block bg-surface-container-highest rounded-xl p-6 md:p-8 h-full flex flex-col transition-all hover:bg-primary-container/20">
-                  <div className="w-14 h-14 md:w-16 md:h-16 bg-primary-container rounded-2xl flex items-center justify-center mb-5 md:mb-6 group-hover:rotate-12 transition-transform">
-                    <span className="material-symbols-outlined text-on-primary-container text-3xl">architecture</span>
-                  </div>
-                  <span className="text-primary font-bold font-label text-xs tracking-widest uppercase mb-2">{sidebarPost.frontmatter.category}</span>
-                  <h2 className="text-2xl font-headline font-extrabold tracking-tight text-on-background mb-3 md:mb-4">
-                    {sidebarPost.frontmatter.title}
-                  </h2>
-                  <p className="text-on-surface-variant text-sm leading-relaxed mb-6">
-                    {sidebarPost.frontmatter.excerpt}
-                  </p>
-                  <div className="mt-auto flex items-center text-primary font-bold text-sm">
-                    Yazıyı Oku <span className="material-symbols-outlined ml-2 text-sm">arrow_forward</span>
-                  </div>
-                </a>
-              </article>
-            )}
-
-            {/* Recent Stories Carousel Section */}
-            {carouselPosts.length > 0 && (
-              <div className="md:col-span-12 mt-6 md:mt-12">
-                <div className="flex items-center justify-between mb-6 md:mb-8">
-                  <h3 className="text-2xl font-headline font-black tracking-tight">
-                    Recent Stories
-                  </h3>
-                </div>
-                <div className="flex gap-5 md:gap-8 overflow-x-auto pb-6 md:pb-8 no-scrollbar scroll-smooth snap-x snap-mandatory">
-                  {carouselPosts.map((post) => (
-                    <article key={post.fields.slug} className="min-w-[280px] md:min-w-[480px] snap-start group cursor-pointer">
-                      <a href={post.fields.slug} className="block relative h-[320px] md:h-[400px] rounded-xl overflow-hidden bg-surface-container-low p-6 md:p-8 flex flex-col justify-end transition-all hover:shadow-[0_24px_48px_rgba(109,94,0,0.1)]">
-                        <div className="relative z-10">
-                          <div className="flex gap-3 md:gap-4 mb-3">
-                            <span className="text-primary font-bold font-label text-[10px] tracking-widest uppercase">{post.frontmatter.category}</span>
-                            <span className="text-on-surface-variant text-[10px] font-medium font-label">
-                              {new Date(post.frontmatter.date).toLocaleDateString("tr-TR", { year: "numeric", month: "long", day: "numeric" })}
-                            </span>
-                          </div>
-                          <h4 className="text-2xl md:text-3xl font-headline font-black tracking-tight text-on-background group-hover:text-primary transition-colors mb-3 md:mb-4">{post.frontmatter.title}</h4>
-                          <p className="text-on-surface-variant line-clamp-2">{post.frontmatter.excerpt}</p>
-                        </div>
-                      </a>
-                    </article>
-                  ))}
-                </div>
-              </div>
-            )}
+          {/* Mobile "View All" */}
+          <div className="md:hidden px-6 mt-6">
+            <a href="/" className="flex items-center justify-center gap-2 w-full py-3 border border-zinc-700 rounded-xl font-headline font-bold text-sm text-white hover:border-primary/50 transition-colors">
+              Anasayfaya Dön <span className="material-symbols-outlined text-base">home</span>
+            </a>
           </div>
-        )}
-
-        {/* Empty state */}
-        {posts.length === 0 && (
-          <div className="text-center py-24 text-on-surface-variant">
-            <span className="material-symbols-outlined text-6xl mb-4 block">edit_note</span>
-            <p className="text-xl font-headline font-bold">Henüz yazı yok. Yakında!</p>
-          </div>
-        )}
+        </section>
       </main>
 
-      {/* Footer Shell */}
-      <footer className="w-full py-8 md:py-12 px-6 pb-24 md:pb-8 bg-zinc-50 dark:bg-zinc-950">
+      {/* Footer */}
+      <footer className="w-full py-8 md:py-12 px-6 pb-32 md:pb-8 bg-zinc-50 dark:bg-zinc-950">
         <div className="flex flex-col md:flex-row justify-between items-center gap-4 md:gap-6 max-w-7xl mx-auto">
           <div className="flex flex-col items-center md:items-start gap-2">
             <div className="font-black text-zinc-900 dark:text-zinc-50 font-headline text-xl">Karacif.dev</div>
@@ -136,7 +191,7 @@ export default function Blog({ data }) {
               <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
               LinkedIn
             </a>
-            <a className="text-[#333] dark:text-white hover:text-gray-600 dark:hover:text-gray-300 flex items-center gap-2 underline decoration-2 underline-offset-4 transition-all text-sm font-['Inter'] tracking-wide" href="https://github.com/huseyinkaracif" target="_blank" rel="noopener noreferrer">
+            <a className="text-[#333] dark:text-white hover:text-gray-600 flex items-center gap-2 underline decoration-2 underline-offset-4 transition-all text-sm font-['Inter'] tracking-wide" href="https://github.com/huseyinkaracif" target="_blank" rel="noopener noreferrer">
               <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
               GitHub
             </a>
@@ -197,6 +252,7 @@ export const query = graphql`
           category
           excerpt
           readTime
+          coverImage
         }
       }
     }
