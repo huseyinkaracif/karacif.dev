@@ -1,9 +1,18 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import { graphql } from "gatsby";
 
 export default function Home({ data }) {
   const latestPosts = data.allMarkdownRemark.nodes;
   const featuredProjects = data.allProjectsJson.nodes.filter((p) => p.featured);
+
+  const projectsRef = useRef(null);
+  const writingRef = useRef(null);
+
+  const scrollCarousel = (ref, dir) => {
+    const el = ref.current;
+    if (!el) return;
+    el.scrollBy({ left: dir * Math.round(el.offsetWidth * 0.82), behavior: "smooth" });
+  };
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -96,87 +105,204 @@ export default function Home({ data }) {
           </div>
         </section>
 
-        {/* Quick Projects Teaser */}
-        <section className="max-w-7xl mx-auto px-6 py-14 md:py-24" id="projects">
-          <div className="flex justify-between items-end mb-8 md:mb-12 reveal">
+        {/* ── Projects Carousel ─────────────────────────────── */}
+        <section className="py-14 md:py-24 overflow-hidden" id="projects">
+          {/* Header */}
+          <div className="max-w-7xl mx-auto px-6 flex justify-between items-center mb-8 md:mb-10 reveal">
             <div>
-              <h2 className="text-3xl md:text-4xl font-black font-headline tracking-tighter">Quick Projects</h2>
-              <p className="text-on-surface-variant mt-2">Recent snapshots of curated impact.</p>
+              <h2 className="text-3xl md:text-4xl font-black font-headline tracking-tighter">Projeler</h2>
+              <p className="text-on-surface-variant mt-1 text-sm">Seçilmiş dijital ürünler.</p>
             </div>
-            <a className="font-headline font-bold flex items-center gap-2 group" href="/projects">
-              View All <span className="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
-            </a>
+            <div className="flex items-center gap-3 md:gap-4">
+              <a className="hidden md:flex font-headline font-bold items-center gap-1.5 group text-sm" href="/projects">
+                Tümünü Gör <span className="material-symbols-outlined text-base group-hover:translate-x-1 transition-transform duration-200">arrow_forward</span>
+              </a>
+              <div className="flex gap-2">
+                <button
+                  onClick={() => scrollCarousel(projectsRef, -1)}
+                  className="w-10 h-10 rounded-full bg-surface-container-high hover:bg-primary-container hover:text-on-primary-container flex items-center justify-center transition-all duration-200 active:scale-90"
+                  aria-label="Önceki"
+                >
+                  <span className="material-symbols-outlined text-xl">chevron_left</span>
+                </button>
+                <button
+                  onClick={() => scrollCarousel(projectsRef, 1)}
+                  className="w-10 h-10 rounded-full bg-surface-container-high hover:bg-primary-container hover:text-on-primary-container flex items-center justify-center transition-all duration-200 active:scale-90"
+                  aria-label="Sonraki"
+                >
+                  <span className="material-symbols-outlined text-xl">chevron_right</span>
+                </button>
+              </div>
+            </div>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
-            {featuredProjects.slice(0, 3).map((project, index) => {
-              if (project.colSpan === 12) {
-                return (
-                  <div key={project.id} className="md:col-span-12 reveal group cursor-pointer">
-                    <div className="bg-surface-container p-8 md:p-12 rounded-xl flex flex-col md:flex-row gap-6 md:gap-8 items-center justify-between group-hover:bg-primary-container transition-all duration-300">
-                      <div className="max-w-md">
-                        <h3 className="text-3xl font-black font-headline mb-3 md:mb-4">{project.title}</h3>
-                        <p className="text-on-surface-variant group-hover:text-on-primary-container transition-colors">{project.description}</p>
-                      </div>
-                      <span className="material-symbols-outlined text-6xl group-hover:rotate-45 transition-transform duration-500">travel_explore</span>
-                    </div>
+
+          {/* Track */}
+          <div
+            ref={projectsRef}
+            className="flex gap-5 md:gap-6 overflow-x-auto no-scrollbar scroll-smooth snap-x snap-mandatory pl-6 md:pl-[max(1.5rem,calc((100vw-80rem)/2+1.5rem))] pr-6"
+          >
+            {featuredProjects.filter(p => p.image).map((project, i) => (
+              <a
+                key={project.id}
+                href={project.link || "/projects"}
+                className="group snap-start shrink-0 w-[82vw] md:w-[42vw] lg:w-[36vw] max-w-[600px] cursor-pointer"
+              >
+                {/* Image */}
+                <div className="relative overflow-hidden rounded-2xl aspect-[4/3] bg-surface-container mb-4">
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                  />
+                  {/* Overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-400" />
+                  {/* Number */}
+                  <div className="absolute top-4 left-4 w-9 h-9 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center">
+                    <span className="text-xs font-black font-headline text-zinc-900">{String(i + 1).padStart(2, "0")}</span>
                   </div>
-                );
-              }
-              const isWide = project.colSpan >= 7;
-              return (
-                <div key={project.id} className={`${isWide ? "md:col-span-8" : "md:col-span-4"} reveal group cursor-pointer hover:-translate-y-1 transition-transform duration-300`}>
-                  <div className={`relative overflow-hidden rounded-xl ${isWide ? "aspect-video" : "h-full min-h-[240px] md:min-h-[300px]"} ${!project.image ? "bg-primary" : "bg-zinc-200"}`}>
-                    {project.image && (
-                      <img
-                        alt={project.title}
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                        src={project.image}
-                      />
-                    )}
-                    <div className="absolute inset-0 bg-gradient-to-t from-zinc-900/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-8">
-                      <div className="text-white translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
-                        <h3 className="text-2xl font-bold font-headline">{project.title}</h3>
-                        <p className="text-zinc-300">{project.category}</p>
-                      </div>
-                    </div>
+                  {/* Hover CTA */}
+                  <div className="absolute bottom-5 right-5 flex items-center gap-2 bg-primary-container text-on-primary-container px-4 py-2 rounded-full text-xs font-black font-label tracking-wider uppercase translate-y-3 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
+                    İncele <span className="material-symbols-outlined text-sm">arrow_outward</span>
                   </div>
                 </div>
-              );
-            })}
+                {/* Meta */}
+                <div className="flex items-start justify-between gap-3">
+                  <div>
+                    <div className="flex gap-2 mb-1.5">
+                      <span className="text-[10px] font-black tracking-widest uppercase bg-surface-container-highest px-2 py-0.5 rounded text-on-surface-variant">{project.category}</span>
+                      <span className="text-[10px] font-black tracking-widest uppercase bg-surface-container-highest px-2 py-0.5 rounded text-on-surface-variant">{project.year}</span>
+                    </div>
+                    <h3 className="text-xl md:text-2xl font-black font-headline tracking-tight group-hover:text-primary transition-colors duration-200">{project.title}</h3>
+                    <p className="text-on-surface-variant text-sm mt-1 line-clamp-2">{project.description}</p>
+                  </div>
+                  <div className="w-9 h-9 shrink-0 rounded-full border-2 border-outline-variant/30 flex items-center justify-center group-hover:border-primary group-hover:bg-primary-container transition-all duration-300 mt-1">
+                    <span className="material-symbols-outlined text-base group-hover:text-on-primary-container transition-colors duration-200">north_east</span>
+                  </div>
+                </div>
+              </a>
+            ))}
+            {/* "View All" card */}
+            <a
+              href="/projects"
+              className="snap-start shrink-0 w-[60vw] md:w-[22vw] lg:w-[18vw] max-w-[280px] cursor-pointer group"
+            >
+              <div className="h-full min-h-[200px] rounded-2xl bg-surface-container border-2 border-dashed border-outline-variant/40 flex flex-col items-center justify-center gap-3 group-hover:bg-primary-container group-hover:border-transparent transition-all duration-300 p-6 aspect-[4/3]">
+                <div className="w-12 h-12 rounded-full bg-surface-container-high group-hover:bg-primary/10 flex items-center justify-center transition-colors duration-300">
+                  <span className="material-symbols-outlined text-2xl text-primary">grid_view</span>
+                </div>
+                <div className="text-center">
+                  <p className="font-headline font-black text-sm">Tüm Projeler</p>
+                  <p className="text-on-surface-variant text-xs mt-0.5 group-hover:text-on-primary-container transition-colors duration-300">{featuredProjects.length}+ çalışma</p>
+                </div>
+              </div>
+            </a>
+          </div>
+
+          {/* Mobile "View All" */}
+          <div className="md:hidden px-6 mt-6">
+            <a href="/projects" className="flex items-center justify-center gap-2 w-full py-3 border border-outline-variant/30 rounded-xl font-headline font-bold text-sm hover:bg-surface-container transition-colors">
+              Tüm Projeleri Gör <span className="material-symbols-outlined text-base">arrow_forward</span>
+            </a>
           </div>
         </section>
 
-        {/* Writing / Latest Thoughts */}
-        <section className="bg-on-background text-surface py-14 md:py-24" id="writing">
-          <div className="max-w-7xl mx-auto px-6">
-            <div className="reveal flex flex-col md:flex-row justify-between items-start md:items-end mb-10 md:mb-16 gap-3 md:gap-4">
-              <div>
-                <h2 className="text-3xl md:text-4xl font-black font-headline tracking-tighter text-primary">Latest Thoughts</h2>
-                <p className="text-zinc-400 mt-2">Notes from the road and the design studio.</p>
-              </div>
-              <a className="font-headline font-bold flex items-center gap-2 group text-primary" href="/blog">
-                Read Journal <span className="material-symbols-outlined group-hover:translate-x-1 transition-transform duration-200">arrow_forward</span>
+        {/* ── Writing Carousel ──────────────────────────────── */}
+        <section className="bg-on-background py-14 md:py-24 overflow-hidden" id="writing">
+          {/* Header */}
+          <div className="max-w-7xl mx-auto px-6 flex justify-between items-center mb-8 md:mb-10 reveal">
+            <div>
+              <h2 className="text-3xl md:text-4xl font-black font-headline tracking-tighter text-primary">Son Yazılar</h2>
+              <p className="text-zinc-500 mt-1 text-sm">Notlar, fikirler ve derin okumalar.</p>
+            </div>
+            <div className="flex items-center gap-3 md:gap-4">
+              <a className="hidden md:flex font-headline font-bold items-center gap-1.5 group text-sm text-zinc-400 hover:text-primary transition-colors duration-200" href="/blog">
+                Tüm Yazılar <span className="material-symbols-outlined text-base group-hover:translate-x-1 transition-transform duration-200">arrow_forward</span>
               </a>
+              <div className="flex gap-2">
+                <button
+                  onClick={() => scrollCarousel(writingRef, -1)}
+                  className="w-10 h-10 rounded-full bg-zinc-800 hover:bg-primary-container hover:text-on-primary-container text-zinc-300 flex items-center justify-center transition-all duration-200 active:scale-90"
+                  aria-label="Önceki"
+                >
+                  <span className="material-symbols-outlined text-xl">chevron_left</span>
+                </button>
+                <button
+                  onClick={() => scrollCarousel(writingRef, 1)}
+                  className="w-10 h-10 rounded-full bg-zinc-800 hover:bg-primary-container hover:text-on-primary-container text-zinc-300 flex items-center justify-center transition-all duration-200 active:scale-90"
+                  aria-label="Sonraki"
+                >
+                  <span className="material-symbols-outlined text-xl">chevron_right</span>
+                </button>
+              </div>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
-              {latestPosts.slice(0, 3).map((post, i) => (
-                <a key={post.fields.slug} className={`reveal reveal-d${i + 1} group relative flex flex-col h-full bg-zinc-900 rounded-2xl overflow-hidden border border-zinc-800 transition-all duration-300 hover:border-primary/50 hover:-translate-y-1`} href={post.fields.slug}>
-                  <div className="p-6 md:p-8 flex flex-col flex-grow">
-                    <div className="mb-3 text-zinc-500 text-xs font-bold font-label uppercase tracking-widest">
-                      {new Date(post.frontmatter.date).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" })}
-                    </div>
-                    <div className="mb-3">
-                      <span className="px-3 py-1 bg-primary text-on-primary text-[10px] font-black tracking-widest uppercase font-label rounded-full">{post.frontmatter.category}</span>
-                    </div>
-                    <h3 className="text-lg md:text-xl font-black font-headline text-white mb-3 leading-tight group-hover:text-primary transition-colors duration-200">{post.frontmatter.title}</h3>
-                    <p className="text-zinc-400 font-body text-sm line-clamp-3 mb-6">{post.frontmatter.excerpt}</p>
-                    <div className="mt-auto flex items-center gap-2 text-primary font-bold text-sm uppercase tracking-wider">
-                      Read Post <span className="material-symbols-outlined text-sm group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-200">north_east</span>
-                    </div>
+          </div>
+
+          {/* Track */}
+          <div
+            ref={writingRef}
+            className="flex gap-4 md:gap-5 overflow-x-auto no-scrollbar scroll-smooth snap-x snap-mandatory pl-6 md:pl-[max(1.5rem,calc((100vw-80rem)/2+1.5rem))] pr-6"
+          >
+            {latestPosts.map((post, i) => (
+              <a
+                key={post.fields.slug}
+                href={post.fields.slug}
+                className="group snap-start shrink-0 w-[82vw] md:w-[38vw] lg:w-[30vw] max-w-[520px] bg-zinc-900 border border-zinc-800 hover:border-primary/40 rounded-2xl p-6 md:p-8 flex flex-col transition-all duration-300 hover:-translate-y-1"
+              >
+                {/* Top row */}
+                <div className="flex items-start justify-between mb-5">
+                  <span className="text-[10px] font-black tracking-[0.2em] uppercase text-primary font-label bg-primary/10 px-3 py-1 rounded-full">
+                    {post.frontmatter.category}
+                  </span>
+                  <span className="text-zinc-600 font-headline font-black text-2xl select-none">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                </div>
+
+                {/* Title */}
+                <h3 className="text-xl md:text-2xl font-black font-headline text-white leading-tight mb-3 group-hover:text-primary transition-colors duration-200 flex-grow">
+                  {post.frontmatter.title}
+                </h3>
+
+                {/* Excerpt */}
+                <p className="text-zinc-500 text-sm leading-relaxed line-clamp-3 mb-6">
+                  {post.frontmatter.excerpt}
+                </p>
+
+                {/* Footer */}
+                <div className="flex items-center justify-between mt-auto pt-4 border-t border-zinc-800">
+                  <span className="text-zinc-600 text-xs font-label">
+                    {new Date(post.frontmatter.date).toLocaleDateString("tr-TR", { day: "numeric", month: "long", year: "numeric" })}
+                  </span>
+                  <div className="flex items-center gap-1.5 text-primary text-xs font-bold font-headline uppercase tracking-wider">
+                    Oku
+                    <span className="material-symbols-outlined text-sm group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-200">north_east</span>
                   </div>
-                </a>
-              ))}
-            </div>
+                </div>
+              </a>
+            ))}
+
+            {/* "View All" card */}
+            <a
+              href="/blog"
+              className="snap-start shrink-0 w-[60vw] md:w-[20vw] lg:w-[16vw] max-w-[240px] group cursor-pointer"
+            >
+              <div className="h-full min-h-[200px] rounded-2xl border-2 border-dashed border-zinc-700 group-hover:border-primary/50 group-hover:bg-zinc-900/60 flex flex-col items-center justify-center gap-3 p-6 transition-all duration-300">
+                <div className="w-12 h-12 rounded-full bg-zinc-800 group-hover:bg-primary/10 flex items-center justify-center transition-colors duration-300">
+                  <span className="material-symbols-outlined text-2xl text-primary">edit_note</span>
+                </div>
+                <div className="text-center">
+                  <p className="font-headline font-black text-sm text-white">Tüm Yazılar</p>
+                  <p className="text-zinc-600 text-xs mt-0.5">{latestPosts.length}+ makale</p>
+                </div>
+              </div>
+            </a>
+          </div>
+
+          {/* Mobile "View All" */}
+          <div className="md:hidden px-6 mt-6">
+            <a href="/blog" className="flex items-center justify-center gap-2 w-full py-3 border border-zinc-700 rounded-xl font-headline font-bold text-sm text-white hover:border-primary/50 transition-colors">
+              Tüm Yazıları Gör <span className="material-symbols-outlined text-base">arrow_forward</span>
+            </a>
           </div>
         </section>
       </main>
