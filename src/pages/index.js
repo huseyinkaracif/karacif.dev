@@ -1,9 +1,18 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { graphql } from "gatsby";
 
 export default function Home({ data }) {
   const latestPosts = data.allMarkdownRemark.nodes;
   const featuredProjects = data.allProjectsJson.nodes.filter((p) => p.featured);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => entries.forEach((e) => { if (e.isIntersecting) e.target.classList.add("visible"); }),
+      { threshold: 0.12 }
+    );
+    document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <div className="bg-background font-body text-on-background antialiased">
@@ -27,28 +36,28 @@ export default function Home({ data }) {
         {/* Hero Section */}
         <section className="max-w-7xl mx-auto px-6 py-8 md:py-20 grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-center">
           <div className="md:col-span-7 space-y-5 md:space-y-8">
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-surface-container-high rounded-full border border-outline-variant/15">
+            <div className="hero-badge inline-flex items-center gap-2 px-4 py-2 bg-surface-container-high rounded-full border border-outline-variant/15">
               <span className="w-2 h-2 bg-primary rounded-full animate-pulse"></span>
               <span className="text-xs font-bold tracking-widest font-label uppercase">Lokasyon: İstanbul, Türkiye</span>
             </div>
-            <h1 className="text-5xl md:text-8xl font-black font-headline tracking-tighter leading-[0.9] text-on-background">
+            <h1 className="hero-title text-4xl md:text-6xl font-black font-headline tracking-tighter leading-[0.9] text-on-background">
               Hüseyin Karacif <span className="text-primary italic">Kıdemli Yazılım Geliştirici.</span>
             </h1>
-            <p className="text-lg md:text-2xl text-on-surface-variant max-w-2xl leading-relaxed">
+            <p className="hero-subtitle text-base md:text-xl text-on-surface-variant max-w-2xl leading-relaxed">
               Hassasiyet, performans ve amaca uygun yüksek kaliteli dijital ürünler geliştiriyorum. Sadece çalışan değil, mükemmelliği sunan deneyimler üretiyorum.
             </p>
-            <div className="flex flex-wrap gap-3 md:gap-4 pt-2 md:pt-4">
-              <a href="/projects" className="bg-primary-container text-on-primary-container px-8 py-4 md:px-10 md:py-5 rounded-xl text-lg md:text-xl font-headline font-extrabold shadow-[0_20px_40px_rgba(109,94,0,0.15)] active:scale-95 transition-all inline-block">
+            <div className="hero-cta flex flex-wrap gap-3 md:gap-4 pt-2 md:pt-4">
+              <a href="/projects" className="bg-primary-container text-on-primary-container px-6 py-3 md:px-8 md:py-4 rounded-xl text-base md:text-lg font-headline font-extrabold shadow-[0_20px_40px_rgba(109,94,0,0.15)] hover:shadow-[0_28px_56px_rgba(109,94,0,0.28)] hover:scale-[1.03] active:scale-95 transition-all duration-200 inline-block">
                 Çalışmalarımı İncele
               </a>
             </div>
           </div>
-          <div className="md:col-span-5 relative mt-4 md:mt-0">
-            <div className="aspect-[4/5] rounded-xl overflow-hidden bg-primary shadow-2xl rotate-3 translate-x-4">
-              <img alt="Professional Portrait" className="w-full h-full object-cover grayscale mix-blend-multiply opacity-90 contrast-125" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDrOdEuc_6J0ImQ9cEjrmHswhd182_Fl1EywXcMk4bPd7nTuUo0dHXA4GE11QleXoXqBxVyAavcWhIGFJ_jcxXDwUkJS5vYZHR228uJCuNsFtNJ6zV0Avc6NR9u-7nJrgD4tEdjJo9m672iFGpvz0sLpgJx0xHRtnUG3nCM8jRtCEXlmuTUfjcp61OxqCA5SkyV2gsLy0mdM0Ta8QaUHmquuqD6rWUezX2KPB_h7MvafIontphvBrdj2644j2guoGoMl3tmYcpkbBQ" />
+          <div className="hero-photo md:col-span-5 relative mt-4 md:mt-0">
+            <div className="photo-float aspect-[4/5] rounded-xl overflow-hidden bg-primary shadow-2xl">
+              <img alt="Professional Portrait" className="w-full h-full object-cover grayscale hover:grayscale-0 mix-blend-multiply opacity-90 contrast-125 transition-all duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDrOdEuc_6J0ImQ9cEjrmHswhd182_Fl1EywXcMk4bPd7nTuUo0dHXA4GE11QleXoXqBxVyAavcWhIGFJ_jcxXDwUkJS5vYZHR228uJCuNsFtNJ6zV0Avc6NR9u-7nJrgD4tEdjJo9m672iFGpvz0sLpgJx0xHRtnUG3nCM8jRtCEXlmuTUfjcp61OxqCA5SkyV2gsLy0mdM0Ta8QaUHmquuqD6rWUezX2KPB_h7MvafIontphvBrdj2644j2guoGoMl3tmYcpkbBQ" />
             </div>
-            <div className="absolute -bottom-6 -left-6 bg-surface-bright p-5 md:p-6 rounded-xl shadow-xl -rotate-2 border border-outline-variant/10">
-              <p className="font-headline font-black text-2xl md:text-3xl leading-none">10+ Yıl</p>
+            <div className="hero-exp absolute -bottom-6 -left-6 bg-surface-bright p-5 md:p-6 rounded-xl shadow-xl -rotate-2 border border-outline-variant/10">
+              <p className="font-headline font-black text-xl md:text-2xl leading-none">10+ Yıl</p>
               <p className="text-sm font-bold text-on-surface-variant tracking-wider uppercase mt-1">Deneyim</p>
             </div>
           </div>
@@ -58,23 +67,28 @@ export default function Home({ data }) {
         <section className="bg-surface-container-low py-14 md:py-24" id="about">
           <div className="max-w-7xl mx-auto px-6">
             <div className="flex flex-col md:flex-row gap-8 md:gap-16 items-start">
-              <div className="md:w-1/3">
-                <h2 className="text-4xl font-black font-headline tracking-tight uppercase md:sticky md:top-32">Karakter</h2>
+              <div className="md:w-1/3 reveal">
+                <h2 className="text-3xl font-black font-headline tracking-tight uppercase md:sticky md:top-32">Karakter</h2>
               </div>
               <div className="md:w-2/3 space-y-8 md:space-y-12">
-                <p className="text-2xl md:text-3xl font-headline leading-tight text-on-background">
+                <p className="reveal text-xl md:text-2xl font-headline leading-tight text-on-background">
                   Durağanlığı reddediyorum. Çalışmalarım sürekli öğrenmenin <span className="bg-primary-container px-2">kinetik enerjisinden</span> ilham alıyor—her zaman gelişiyor, her zaman üretiyor, asla "yeterince iyi" çözümlerle yetinmiyorum.
                 </p>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
-                  <div className="bg-surface-container-lowest p-6 md:p-8 rounded-xl border border-outline-variant/10">
-                    <span className="material-symbols-outlined text-4xl text-primary mb-4" data-icon="strategy">strategy</span>
-                    <h3 className="text-xl font-bold font-headline mb-2">Mimari</h3>
-                    <p className="text-on-surface-variant">Ölçeklenebilen sistem tasarımı ve yazılım mimarisi. Sadece özellikleri teslim eden değil, kalıcı olan temeller inşa etmek.</p>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+                  <div className="reveal reveal-d1 bg-surface-container-lowest p-5 rounded-xl border border-outline-variant/10 hover:-translate-y-1 hover:shadow-md transition-all duration-300">
+                    <span className="material-symbols-outlined text-3xl text-primary mb-3" data-icon="groups">groups</span>
+                    <h3 className="text-base font-bold font-headline mb-2">Mühendislik Yönetimi</h3>
+                    <p className="text-on-surface-variant text-sm">Ekiplerin karmaşık zorlukları aşan mühendislik projelerini hayata geçirmesine yardımcı oluyorum.</p>
                   </div>
-                  <div className="bg-surface-container-lowest p-6 md:p-8 rounded-xl border border-outline-variant/10">
-                    <span className="material-symbols-outlined text-4xl text-primary mb-4" data-icon="brush">brush</span>
-                    <h3 className="text-xl font-bold font-headline mb-2">Zanaat</h3>
-                    <p className="text-on-surface-variant">Temiz kod, özenle düşünülmüş API'ler ve göründüğü kadar iyi performans gösteren arayüzler.</p>
+                  <div className="reveal reveal-d2 bg-surface-container-lowest p-5 rounded-xl border border-outline-variant/10 hover:-translate-y-1 hover:shadow-md transition-all duration-300">
+                    <span className="material-symbols-outlined text-3xl text-primary mb-3" data-icon="code">code</span>
+                    <h3 className="text-base font-bold font-headline mb-2">Yazılım Geliştirme</h3>
+                    <p className="text-on-surface-variant text-sm">İddialı hedefleri ölçeklenebilir çözümlere dönüştüren web uygulamaları tasarlıyor ve geliştiriyorum.</p>
+                  </div>
+                  <div className="reveal reveal-d3 bg-surface-container-lowest p-5 rounded-xl border border-outline-variant/10 hover:-translate-y-1 hover:shadow-md transition-all duration-300">
+                    <span className="material-symbols-outlined text-3xl text-primary mb-3" data-icon="autorenew">autorenew</span>
+                    <h3 className="text-base font-bold font-headline mb-2">Süreç Otomasyonu</h3>
+                    <p className="text-on-surface-variant text-sm">Ekiplerin temel işlerine ve stratejik hedeflerine odaklanmasını sağlayan otomasyon araçları uyguluyorum.</p>
                   </div>
                 </div>
               </div>
@@ -84,9 +98,9 @@ export default function Home({ data }) {
 
         {/* Quick Projects Teaser */}
         <section className="max-w-7xl mx-auto px-6 py-14 md:py-24" id="projects">
-          <div className="flex justify-between items-end mb-8 md:mb-12">
+          <div className="flex justify-between items-end mb-8 md:mb-12 reveal">
             <div>
-              <h2 className="text-4xl md:text-5xl font-black font-headline tracking-tighter">Quick Projects</h2>
+              <h2 className="text-3xl md:text-4xl font-black font-headline tracking-tighter">Quick Projects</h2>
               <p className="text-on-surface-variant mt-2">Recent snapshots of curated impact.</p>
             </div>
             <a className="font-headline font-bold flex items-center gap-2 group" href="/projects">
@@ -97,20 +111,20 @@ export default function Home({ data }) {
             {featuredProjects.slice(0, 3).map((project, index) => {
               if (project.colSpan === 12) {
                 return (
-                  <div key={project.id} className="md:col-span-12 group cursor-pointer">
-                    <div className="bg-surface-container p-8 md:p-12 rounded-xl flex flex-col md:flex-row gap-6 md:gap-8 items-center justify-between group-hover:bg-primary-container transition-colors">
+                  <div key={project.id} className="md:col-span-12 reveal group cursor-pointer">
+                    <div className="bg-surface-container p-8 md:p-12 rounded-xl flex flex-col md:flex-row gap-6 md:gap-8 items-center justify-between group-hover:bg-primary-container transition-all duration-300">
                       <div className="max-w-md">
                         <h3 className="text-3xl font-black font-headline mb-3 md:mb-4">{project.title}</h3>
-                        <p className="text-on-surface-variant group-hover:text-on-primary-container">{project.description}</p>
+                        <p className="text-on-surface-variant group-hover:text-on-primary-container transition-colors">{project.description}</p>
                       </div>
-                      <span className="material-symbols-outlined text-6xl group-hover:rotate-45 transition-transform">travel_explore</span>
+                      <span className="material-symbols-outlined text-6xl group-hover:rotate-45 transition-transform duration-500">travel_explore</span>
                     </div>
                   </div>
                 );
               }
               const isWide = project.colSpan >= 7;
               return (
-                <div key={project.id} className={`${isWide ? "md:col-span-8" : "md:col-span-4"} group cursor-pointer`}>
+                <div key={project.id} className={`${isWide ? "md:col-span-8" : "md:col-span-4"} reveal group cursor-pointer hover:-translate-y-1 transition-transform duration-300`}>
                   <div className={`relative overflow-hidden rounded-xl ${isWide ? "aspect-video" : "h-full min-h-[240px] md:min-h-[300px]"} ${!project.image ? "bg-primary" : "bg-zinc-200"}`}>
                     {project.image && (
                       <img
@@ -119,8 +133,8 @@ export default function Home({ data }) {
                         src={project.image}
                       />
                     )}
-                    <div className="absolute inset-0 bg-gradient-to-t from-zinc-900/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-8">
-                      <div className="text-white">
+                    <div className="absolute inset-0 bg-gradient-to-t from-zinc-900/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-8">
+                      <div className="text-white translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
                         <h3 className="text-2xl font-bold font-headline">{project.title}</h3>
                         <p className="text-zinc-300">{project.category}</p>
                       </div>
@@ -135,18 +149,18 @@ export default function Home({ data }) {
         {/* Writing / Latest Thoughts */}
         <section className="bg-on-background text-surface py-14 md:py-24" id="writing">
           <div className="max-w-7xl mx-auto px-6">
-            <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-10 md:mb-16 gap-3 md:gap-4">
+            <div className="reveal flex flex-col md:flex-row justify-between items-start md:items-end mb-10 md:mb-16 gap-3 md:gap-4">
               <div>
-                <h2 className="text-4xl md:text-5xl font-black font-headline tracking-tighter text-primary">Latest Thoughts</h2>
+                <h2 className="text-3xl md:text-4xl font-black font-headline tracking-tighter text-primary">Latest Thoughts</h2>
                 <p className="text-zinc-400 mt-2">Notes from the road and the design studio.</p>
               </div>
               <a className="font-headline font-bold flex items-center gap-2 group text-primary" href="/blog">
-                Read Journal <span className="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
+                Read Journal <span className="material-symbols-outlined group-hover:translate-x-1 transition-transform duration-200">arrow_forward</span>
               </a>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
-              {latestPosts.slice(0, 3).map((post) => (
-                <a key={post.fields.slug} className="group relative flex flex-col h-full bg-zinc-900 rounded-2xl overflow-hidden border border-zinc-800 transition-all hover:border-primary/50" href={post.fields.slug}>
+              {latestPosts.slice(0, 3).map((post, i) => (
+                <a key={post.fields.slug} className={`reveal reveal-d${i + 1} group relative flex flex-col h-full bg-zinc-900 rounded-2xl overflow-hidden border border-zinc-800 transition-all duration-300 hover:border-primary/50 hover:-translate-y-1`} href={post.fields.slug}>
                   <div className="p-6 md:p-8 flex flex-col flex-grow">
                     <div className="mb-3 text-zinc-500 text-xs font-bold font-label uppercase tracking-widest">
                       {new Date(post.frontmatter.date).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" })}
@@ -154,10 +168,10 @@ export default function Home({ data }) {
                     <div className="mb-3">
                       <span className="px-3 py-1 bg-primary text-on-primary text-[10px] font-black tracking-widest uppercase font-label rounded-full">{post.frontmatter.category}</span>
                     </div>
-                    <h3 className="text-xl md:text-2xl font-black font-headline text-white mb-3 leading-tight group-hover:text-primary transition-colors">{post.frontmatter.title}</h3>
+                    <h3 className="text-lg md:text-xl font-black font-headline text-white mb-3 leading-tight group-hover:text-primary transition-colors duration-200">{post.frontmatter.title}</h3>
                     <p className="text-zinc-400 font-body text-sm line-clamp-3 mb-6">{post.frontmatter.excerpt}</p>
                     <div className="mt-auto flex items-center gap-2 text-primary font-bold text-sm uppercase tracking-wider">
-                      Read Post <span className="material-symbols-outlined text-sm">north_east</span>
+                      Read Post <span className="material-symbols-outlined text-sm group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-200">north_east</span>
                     </div>
                   </div>
                 </a>

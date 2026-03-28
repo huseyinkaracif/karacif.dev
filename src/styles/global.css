@@ -4,6 +4,7 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ─── Material Symbols ────────────────────────────────── */
 .material-symbols-outlined {
   font-family: 'Material Symbols Outlined';
   font-weight: normal;
@@ -18,30 +19,86 @@
   direction: ltr;
   -webkit-font-feature-settings: 'liga';
   -webkit-font-smoothing: antialiased;
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
 }
 
-.material-symbols-outlined {
-    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+/* ─── Scrollbar ───────────────────────────────────────── */
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+body { scroll-behavior: smooth; }
+
+/* ─── Keyframes ───────────────────────────────────────── */
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(22px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
-.tonal-shift-none {
-    border: none !important;
+@keyframes scale-in {
+  from { opacity: 0; transform: scale(0.82); }
+  to   { opacity: 1; transform: scale(1); }
 }
 
-.glass-nav {
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
+@keyframes float {
+  0%, 100% { transform: rotate(3deg) translateX(1rem) translateY(0px); }
+  50%       { transform: rotate(3deg) translateX(1rem) translateY(-10px); }
 }
 
-.no-scrollbar::-webkit-scrollbar {
-    display: none;
+@keyframes slide-underline {
+  from { transform: scaleX(0); }
+  to   { transform: scaleX(1); }
 }
 
-.no-scrollbar {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-}
+/* ─── Hero Entrance (staggered) ──────────────────────── */
+.hero-badge    { animation: fade-up  0.55s cubic-bezier(0.22,1,0.36,1)  0ms   both; }
+.hero-title    { animation: fade-up  0.65s cubic-bezier(0.22,1,0.36,1) 100ms  both; }
+.hero-subtitle { animation: fade-up  0.65s cubic-bezier(0.22,1,0.36,1) 200ms  both; }
+.hero-cta      { animation: fade-up  0.65s cubic-bezier(0.22,1,0.36,1) 300ms  both; }
+.hero-photo    { animation: fade-up  0.75s cubic-bezier(0.22,1,0.36,1) 120ms  both; }
+.hero-exp      { animation: scale-in 0.45s cubic-bezier(0.22,1,0.36,1) 520ms  both; }
 
-body {
-    scroll-behavior: smooth;
+/* ─── Photo float ────────────────────────────────────── */
+.photo-float { animation: float 6s ease-in-out infinite; }
+
+/* ─── Scroll Reveal ──────────────────────────────────── */
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.55s cubic-bezier(0.22,1,0.36,1),
+              transform 0.55s cubic-bezier(0.22,1,0.36,1);
+}
+.reveal.visible       { opacity: 1; transform: translateY(0); }
+.reveal-d1            { transition-delay: 80ms;  }
+.reveal-d2            { transition-delay: 160ms; }
+.reveal-d3            { transition-delay: 240ms; }
+
+/* ─── Nav link animated underline ───────────────────── */
+.nav-link {
+  position: relative;
+}
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.25s cubic-bezier(0.22,1,0.36,1);
+}
+.nav-link:hover::after { transform: scaleX(1); }
+
+/* ─── Prefers-reduced-motion ─────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .hero-badge, .hero-title, .hero-subtitle,
+  .hero-cta, .hero-photo, .hero-exp {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+  .photo-float { animation: none; transform: rotate(3deg) translateX(1rem); }
+  .reveal, .reveal.visible { opacity: 1; transform: none; transition: none; }
+  .nav-link::after { transition: none; }
 }
