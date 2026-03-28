@@ -43,7 +43,7 @@ export default function NotFoundPage() {
       </main>
 
       {/* Footer */}
-      <footer className="bg-zinc-50 dark:bg-zinc-950 w-full py-8 md:py-12 px-6 pb-24 md:pb-8 mt-auto">
+      <footer className="bg-zinc-50 dark:bg-zinc-950 w-full pt-4 md:pt-6 px-6 pb-24 md:pb-8 mt-auto">
         <div className="flex flex-col md:flex-row justify-between items-center gap-4 md:gap-6 max-w-7xl mx-auto">
           <div className="flex flex-col items-center md:items-start gap-2">
             <span className="font-black text-zinc-900 dark:text-zinc-50 font-headline text-xl">Karacif.dev</span>

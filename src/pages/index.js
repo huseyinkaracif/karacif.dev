@@ -20,8 +20,31 @@ export default function Home({ data }) {
   const scrollCarousel = (ref, dir) => {
     const el = ref.current;
     if (!el) return;
-    el.scrollBy({ left: dir * Math.round(el.offsetWidth * 0.82), behavior: "smooth" });
+    const cardWidth = el.firstChild?.offsetWidth || Math.round(el.offsetWidth * 0.82);
+    const gap = 20;
+    const scrollAmount = cardWidth + gap;
+
+    if (dir === 1 && el.scrollLeft + el.clientWidth >= el.scrollWidth - 10) {
+      el.scrollTo({ left: 0, behavior: "smooth" });
+    } else if (dir === -1 && el.scrollLeft <= 10) {
+      el.scrollTo({ left: el.scrollWidth, behavior: "smooth" });
+    } else {
+      el.scrollBy({ left: dir * scrollAmount, behavior: "smooth" });
+    }
   };
+
+  useEffect(() => {
+    const projectInterval = setInterval(() => {
+      if (!isDragging.current) scrollCarousel(projectsRef, 1);
+    }, 4000);
+    const writingInterval = setInterval(() => {
+      if (!isDragging.current) scrollCarousel(writingRef, 1);
+    }, 4000);
+    return () => {
+      clearInterval(projectInterval);
+      clearInterval(writingInterval);
+    };
+  }, []);
 
   const dragStart = (ref) => (e) => {
     isDragging.current = true;
@@ -67,7 +90,7 @@ export default function Home({ data }) {
         </div>
       </nav>
 
-      <main className="pt-20 md:pt-24 pb-24 md:pb-0">
+      <main className="pt-20 md:pt-24 pb-5 md:pb-0">
         {/* Hero Section */}
         <section className="max-w-7xl mx-auto px-6 py-8 md:py-20 grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-center">
           <div className="md:col-span-7 space-y-5 md:space-y-8">
@@ -163,7 +186,7 @@ export default function Home({ data }) {
                 href={project.link || "/projeler"}
                 onClick={blockIfDrag}
                 draggable={false}
-                className="group snap-start shrink-0 w-[82vw] md:w-[42vw] lg:w-[36vw] max-w-[600px]"
+                className="group snap-start shrink-0 w-[calc(100vw-3rem)] md:w-[42vw] lg:w-[36vw] max-w-[600px]"
               >
                 <div className="relative overflow-hidden rounded-2xl aspect-[4/3] bg-surface-container mb-4">
                   <img src={project.image} alt={lang === "en" ? (project.title_en || project.title) : project.title} draggable={false} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 pointer-events-none" />
@@ -229,7 +252,7 @@ export default function Home({ data }) {
                 href={post.fields.slug}
                 onClick={blockIfDrag}
                 draggable={false}
-                className="group snap-start shrink-0 w-[82vw] md:w-[38vw] lg:w-[30vw] max-w-[500px] bg-surface-container border border-outline-variant/15 hover:border-primary/40 rounded-2xl overflow-hidden flex flex-col transition-all duration-300 hover:-translate-y-1"
+                className="group snap-start shrink-0 w-[calc(100vw-3rem)] md:w-[38vw] lg:w-[30vw] max-w-[500px] bg-surface-container border border-outline-variant/15 hover:border-primary/40 rounded-2xl overflow-hidden flex flex-col transition-all duration-300 hover:-translate-y-1"
               >
                 {/* Cover image */}
                 <div className="relative aspect-[16/9] overflow-hidden shrink-0">

@@ -76,7 +76,7 @@ export default function BlogPost({ data }) {
       </main>
 
       {/* Footer */}
-      <footer className="w-full py-8 px-6 pb-24 md:pb-8 bg-zinc-50 dark:bg-zinc-900">
+      <footer className="w-full pt-4 md:pt-6 px-6 pb-24 md:pb-8 bg-zinc-50 dark:bg-zinc-900">
         <div className="flex flex-col md:flex-row justify-between items-center gap-4 max-w-7xl mx-auto">
           <div className="flex flex-col gap-1">
             <span className="font-black text-zinc-900 dark:text-zinc-50 font-headline text-xl">Karacif.dev</span>

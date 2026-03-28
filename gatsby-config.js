@@ -9,6 +9,27 @@ module.exports = {
   },
   plugins: [
     `gatsby-plugin-postcss`,
+    `gatsby-plugin-sitemap`,
+    {
+      resolve: `gatsby-plugin-robots-txt`,
+      options: {
+        host: 'https://karacif.dev',
+        sitemap: 'https://karacif.dev/sitemap/sitemap-index.xml',
+        policy: [{ userAgent: '*', allow: '/' }]
+      }
+    },
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `Hüseyin Karacif | Solution Expert`,
+        short_name: `Karacif.dev`,
+        start_url: `/`,
+        background_color: `#ffffff`,
+        theme_color: `#FFD700`,
+        display: `minimal-ui`,
+        icon: `src/images/icon.png`, // Buraya daha sonra kendi logonuzu ekleyebilirsiniz
+      },
+    },
     `gatsby-transformer-json`,
     {
       resolve: `gatsby-transformer-remark`,
