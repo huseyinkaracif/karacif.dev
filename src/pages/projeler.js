@@ -81,14 +81,14 @@ export default function Projects({ data }) {
                 {/* Meta */}
                 <div className="p-5 md:p-6 flex flex-col flex-grow">
                   <div className="flex gap-2 mb-3">
-                    <span className="text-[10px] font-black tracking-widest uppercase bg-surface-container-highest px-2 py-0.5 rounded text-on-surface-variant">{project.category}</span>
+                    <span className="text-[10px] font-black tracking-widest uppercase bg-surface-container-highest px-2 py-0.5 rounded text-on-surface-variant">{lang === "en" ? (project.category_en || project.category) : project.category}</span>
                     <span className="text-[10px] font-black tracking-widest uppercase bg-surface-container-highest px-2 py-0.5 rounded text-on-surface-variant">{project.year}</span>
                   </div>
                   <h3 className="text-lg md:text-xl font-black font-headline tracking-tight group-hover:text-primary transition-colors duration-200 mb-2">
-                    {project.title}
+                    {lang === "en" ? (project.title_en || project.title) : project.title}
                   </h3>
                   <p className="text-on-surface-variant text-sm leading-relaxed line-clamp-3 flex-grow">
-                    {project.description}
+                    {lang === "en" ? (project.description_en || project.description) : project.description}
                   </p>
                   <div className="flex items-center gap-1 mt-4 pt-4 border-t border-outline-variant/10 text-sm font-bold font-headline group-hover:text-primary transition-colors duration-200">
                     {t.projects.viewProject}
@@ -121,7 +121,7 @@ export default function Projects({ data }) {
       </main>
 
       {/* Footer */}
-      <footer className="bg-zinc-50 dark:bg-zinc-900 w-full py-8 md:py-12 px-6 pb-32 md:pb-8">
+      <footer className="bg-zinc-50 dark:bg-zinc-900 w-full pt-4 md:pt-6 px-6 pb-32 md:pb-8">
         <div className="flex flex-col md:flex-row justify-between items-center gap-4 md:gap-6 max-w-7xl mx-auto">
           <div className="flex flex-col gap-2">
             <span className="font-black text-zinc-900 dark:text-zinc-50 font-headline text-xl">Karacif.dev</span>
@@ -193,9 +193,12 @@ export const query = graphql`
       nodes {
         id
         title
+        title_en
         category
+        category_en
         year
         description
+        description_en
         image
         featured
         colSpan

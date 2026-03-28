@@ -1,8 +1,11 @@
 ---
 title: "Kendi Yapay Zeka Ekibinizi Nasıl Kurarsınız?"
+title_en: "How to Build Your Own AI Team?"
 date: "2024-03-24"
-category: "AI & Future"
+category: "AI & Gelecek"
+category_en: "AI & Future"
 excerpt: "Modern yazılım dünyasında otonom agent'lar ve AI asistanlarıyla nasıl senkronize çalışılır."
+excerpt_en: "How to work in sync with autonomous agents and AI assistants in the modern software world."
 readTime: "12"
 coverImage: "https://lh3.googleusercontent.com/aida-public/AB6AXuAJ84lgnaQ7fE3tsAMryzudtrGrVBTHnvwgCbzK4LjVIOG1p09KMivpcyiy4z7GWVKXj77r5Y-VWys2MKRTOsgWOdueLGLza9LsEk1WPLeazKfSf-SPSCr7YsCQMSZnvZfdXTqVgYJsIoiSD9m6mW7xiqZfLvchH1JLlZTL0A94ScqMgxITTuxzUtftEQirFGVsSeK9CbKYjc1Xc9uxjYNGm-r6o5ErdsSQ9t-rExDH1GurDD3hyryTyQy87Isl9dvsMqvdy1p6FMw"
 ---

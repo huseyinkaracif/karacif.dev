@@ -1,8 +1,11 @@
 ---
 title: "SOLID Nedir?"
+title_en: "What is SOLID?"
 date: "2024-02-12"
-category: "Engineering"
+category: "Mühendislik"
+category_en: "Engineering"
 excerpt: "Yazılım mimarisinin beş temel prensibi ve kodunuzun neden kırılgan olduğu."
+excerpt_en: "The five core principles of software architecture and why your code is brittle."
 readTime: "8"
 coverImage: "https://lh3.googleusercontent.com/aida-public/AB6AXuCcYP76IefkjGglVv87PV2xoxVuZLNnmrmvDdEYw7Dvm5GFc35siEDTMwpuuLWt2ZuibP4_wp34K_PtSAd-gAlVPBse6lX4Dkga-vaIqX3ODP_OXM10nL_NLAbSYezro3PKz6riJwcKXIXBfdqxAdVPpAlW3DKnLG2LUpogQPPb-p84Et-ilq9EV7MeSW52sFmdaNlSFodcE-aeYhTnngSG5kO-IrTznEM3NuoU4wAu4-CR_HnC0hzGxaPnDo8pZDj4-ykYP7q5E7c"
 ---

@@ -1,8 +1,11 @@
 ---
 title: "Clean Code Prensipleri"
+title_en: "Clean Code Principles"
 date: "2024-01-05"
-category: "Engineering"
+category: "Mühendislik"
+category_en: "Engineering"
 excerpt: "Okunabilir ve sürdürülebilir kod yazmanın incelikleri."
+excerpt_en: "The art of writing readable and maintainable code."
 readTime: "6"
 coverImage: "https://lh3.googleusercontent.com/aida-public/AB6AXuCOrn-DlNyDYTf82A8mMZ9BW-QKhL-4ws_1C0Tuhn7Mz73JDMEOodDIKJ2MP2quBMgAryyPj8u4PZ4-WxbG4CSlGzsgRhe1sVAti1GbmtdBefiCK8rChYqgAfg6seq6_rh0v8I1nSD6H_vn5aa2NvXnYx8NEo0Pre39cStB1sUaCua0GsFXENYk6uYQNvPgTwa64hGQRAS9gg8Ew5JBtac6OlQuOjq0oXJJhII1pefJhKsQmpcv8lYOJQ77C9jXVViwnSEL3HghWLw"
 ---

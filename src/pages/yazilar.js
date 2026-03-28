@@ -75,7 +75,7 @@ export default function Blog({ data }) {
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
                     {/* Category badge */}
                     <span className="absolute top-3 left-3 text-[10px] font-black tracking-[0.18em] uppercase text-primary font-label bg-black/60 backdrop-blur-sm px-3 py-1 rounded-full border border-primary/25">
-                      {post.frontmatter.category}
+                      {lang === "en" ? (post.frontmatter.category_en || post.frontmatter.category) : post.frontmatter.category}
                     </span>
                     {/* Number */}
                     <span className="absolute top-3 right-4 text-white/60 font-headline font-black text-lg select-none">
@@ -86,10 +86,10 @@ export default function Blog({ data }) {
                   {/* Content */}
                   <div className="p-5 md:p-6 flex flex-col flex-grow">
                     <h3 className="text-lg md:text-xl font-black font-headline leading-tight mb-2 group-hover:text-primary transition-colors duration-200">
-                      {post.frontmatter.title}
+                      {lang === "en" ? (post.frontmatter.title_en || post.frontmatter.title) : post.frontmatter.title}
                     </h3>
                     <p className="text-on-surface-variant text-sm leading-relaxed line-clamp-3 flex-grow">
-                      {post.frontmatter.excerpt}
+                      {lang === "en" ? (post.frontmatter.excerpt_en || post.frontmatter.excerpt) : post.frontmatter.excerpt}
                     </p>
                     <div className="flex items-center justify-between mt-4 pt-4 border-t border-outline-variant/10">
                       <span className="text-on-surface-variant text-xs font-label">
@@ -114,7 +114,7 @@ export default function Blog({ data }) {
       </main>
 
       {/* Footer */}
-      <footer className="w-full py-8 md:py-12 px-6 pb-32 md:pb-8 bg-zinc-50 dark:bg-zinc-900">
+      <footer className="w-full pt-4 md:pt-6 px-6 pb-32 md:pb-8 bg-zinc-50 dark:bg-zinc-900">
         <div className="flex flex-col md:flex-row justify-between items-center gap-4 md:gap-6 max-w-7xl mx-auto">
           <div className="flex flex-col items-center md:items-start gap-2">
             <div className="font-black text-zinc-900 dark:text-zinc-50 font-headline text-xl">Karacif.dev</div>
@@ -198,9 +198,12 @@ export const query = graphql`
         }
         frontmatter {
           title
+          title_en
           date
           category
+          category_en
           excerpt
+          excerpt_en
           readTime
           coverImage
         }
