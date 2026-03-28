@@ -171,6 +171,20 @@ export default function Projects({ data }) {
   );
 }
 
+export const Head = () => (
+  <>
+    <title>Projeler | Hüseyin Karacif</title>
+    <meta name="description" content="Hassasiyetle hazırlanmış dijital ürünler, mühendislik çözümleri ve teknik denemelerden oluşan bir portföy koleksiyonu." />
+    <meta name="keywords" content="Portföy, Projeler, Hüseyin Karacif, Yazılım Geliştirici, Web Tasarım, Vaka Çalışmaları" />
+    <meta property="og:title" content="Projeler | Hüseyin Karacif" />
+    <meta property="og:description" content="Hassasiyetle hazırlanmış dijital ürünler ve mühendislik çözümleri." />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Projeler | Hüseyin Karacif" />
+    <meta name="twitter:description" content="Hassasiyetle hazırlanmış dijital ürünler ve mühendislik çözümleri." />
+  </>
+);
+
 export const query = graphql`
   query ProjectsListQuery {
     allProjectsJson {

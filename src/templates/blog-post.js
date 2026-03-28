@@ -25,7 +25,7 @@ export default function BlogPost({ data }) {
 
       <main className="pt-24 pb-24 md:pb-16 px-6 max-w-3xl mx-auto">
         {/* Back link */}
-        <a href="/blog" className="inline-flex items-center gap-2 text-on-surface-variant hover:text-on-background transition-colors font-label font-bold text-sm mb-10 md:mb-14 group">
+        <a href="/yazilar" className="inline-flex items-center gap-2 text-on-surface-variant hover:text-on-background transition-colors font-label font-bold text-sm mb-10 md:mb-14 group">
           <span className="material-symbols-outlined text-sm group-hover:-translate-x-1 transition-transform">arrow_back</span>
           Yazılara Dön
         </a>
@@ -59,7 +59,7 @@ export default function BlogPost({ data }) {
 
         {/* Footer nav */}
         <div className="mt-16 pt-8 border-t border-outline-variant/20 flex justify-between items-center">
-          <a href="/blog" className="inline-flex items-center gap-2 font-headline font-bold hover:text-primary transition-colors group">
+          <a href="/yazilar" className="inline-flex items-center gap-2 font-headline font-bold hover:text-primary transition-colors group">
             <span className="material-symbols-outlined group-hover:-translate-x-1 transition-transform">arrow_back</span>
             Tüm Yazılar
           </a>
@@ -90,11 +90,11 @@ export default function BlogPost({ data }) {
           <span className="material-symbols-outlined">home</span>
           <span className="text-[10px] font-black uppercase">Anasayfa</span>
         </a>
-        <a className="flex flex-col items-center gap-1 text-zinc-500" href="/projects">
+        <a className="flex flex-col items-center gap-1 text-zinc-500" href="/projeler">
           <span className="material-symbols-outlined">grid_view</span>
           <span className="text-[10px] font-black uppercase">Projeler</span>
         </a>
-        <a className="flex flex-col items-center gap-1 text-zinc-900 border-b-4 border-yellow-400 pb-1" href="/blog">
+        <a className="flex flex-col items-center gap-1 text-zinc-900 border-b-4 border-yellow-400 pb-1" href="/yazilar">
           <span className="material-symbols-outlined" style={{ fontVariationSettings: "'FILL' 1" }}>edit_note</span>
           <span className="text-[10px] font-black uppercase">Yazılar</span>
         </a>
@@ -110,6 +110,22 @@ export default function BlogPost({ data }) {
     </div>
   );
 }
+
+export const Head = ({ data }) => {
+  const { frontmatter, excerpt } = data.markdownRemark;
+  return (
+    <>
+      <title>{frontmatter.title} | Hüseyin Karacif</title>
+      <meta name="description" content={frontmatter.excerpt || excerpt || "Hüseyin Karacif'ten bir makale."} />
+      <meta property="og:title" content={`${frontmatter.title} | Hüseyin Karacif`} />
+      <meta property="og:description" content={frontmatter.excerpt || excerpt} />
+      <meta property="og:type" content="article" />
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:title" content={`${frontmatter.title} | Hüseyin Karacif`} />
+      <meta name="twitter:description" content={frontmatter.excerpt || excerpt} />
+    </>
+  );
+};
 
 export const query = graphql`
   query BlogPostQuery($slug: String!) {

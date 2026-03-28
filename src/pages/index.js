@@ -54,8 +54,8 @@ export default function Home({ data }) {
           </a>
           <div className="hidden md:flex items-center gap-8 font-headline font-bold tracking-tight">
             <a className="text-zinc-900 dark:text-white border-b-4 border-yellow-400 pb-1" href="/">Anasayfa</a>
-            <a className="text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors" href="/projects">Projeler</a>
-            <a className="text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors" href="/blog">Yazılar</a>
+            <a className="text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors" href="/projeler">Projeler</a>
+            <a className="text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors" href="/yazilar">Yazılar</a>
             <a className="text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors flex items-center gap-1" href="https://github.com/huseyinkaracif" target="_blank" rel="noopener noreferrer">GitHub</a>
             <a className="text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors flex items-center gap-1" href="https://www.linkedin.com/in/huseyin-karacif" target="_blank" rel="noopener noreferrer">LinkedIn</a>
           </div>
@@ -77,7 +77,7 @@ export default function Home({ data }) {
               Hassasiyet, performans ve amaca uygun yüksek kaliteli dijital ürünler geliştiriyorum. Sadece çalışan değil, mükemmelliği sunan deneyimler üretiyorum.
             </p>
             <div className="hero-cta flex flex-wrap gap-3 md:gap-4 pt-2 md:pt-4">
-              <a href="/projects" className="bg-primary-container text-on-primary-container px-6 py-3 md:px-8 md:py-4 rounded-xl text-base md:text-lg font-headline font-extrabold shadow-[0_20px_40px_rgba(109,94,0,0.15)] hover:shadow-[0_28px_56px_rgba(109,94,0,0.28)] hover:scale-[1.03] active:scale-95 transition-all duration-200 inline-block">
+              <a href="/projeler" className="bg-primary-container text-on-primary-container px-6 py-3 md:px-8 md:py-4 rounded-xl text-base md:text-lg font-headline font-extrabold shadow-[0_20px_40px_rgba(109,94,0,0.15)] hover:shadow-[0_28px_56px_rgba(109,94,0,0.28)] hover:scale-[1.03] active:scale-95 transition-all duration-200 inline-block">
                 Çalışmalarımı İncele
               </a>
             </div>
@@ -135,7 +135,7 @@ export default function Home({ data }) {
               <p className="text-on-surface-variant mt-1 text-sm">Seçilmiş dijital ürünler.</p>
             </div>
             <div className="flex items-center gap-3 md:gap-4">
-              <a className="hidden md:flex font-headline font-bold items-center gap-1.5 group text-sm" href="/projects">
+              <a className="hidden md:flex font-headline font-bold items-center gap-1.5 group text-sm" href="/projeler">
                 Tümünü Gör <span className="material-symbols-outlined text-base group-hover:translate-x-1 transition-transform duration-200">arrow_forward</span>
               </a>
               <div className="flex gap-2">
@@ -169,7 +169,7 @@ export default function Home({ data }) {
             {featuredProjects.filter(p => p.image).map((project, i) => (
               <a
                 key={project.id}
-                href={project.link || "/projects"}
+                href={project.link || "/projeler"}
                 onClick={blockIfDrag}
                 draggable={false}
                 className="group snap-start shrink-0 w-[82vw] md:w-[42vw] lg:w-[36vw] max-w-[600px]"
@@ -218,7 +218,7 @@ export default function Home({ data }) {
               <p className="text-zinc-500 mt-1 text-sm">Notlar, fikirler ve derin okumalar.</p>
             </div>
             <div className="flex items-center gap-3 md:gap-4">
-              <a className="hidden md:flex font-headline font-bold items-center gap-1.5 group text-sm text-zinc-400 hover:text-primary transition-colors duration-200" href="/blog">
+              <a className="hidden md:flex font-headline font-bold items-center gap-1.5 group text-sm text-zinc-400 hover:text-primary transition-colors duration-200" href="/yazilar">
                 Tüm Yazılar <span className="material-symbols-outlined text-base group-hover:translate-x-1 transition-transform duration-200">arrow_forward</span>
               </a>
               <div className="flex gap-2">
@@ -303,7 +303,7 @@ export default function Home({ data }) {
 
           {/* Mobile "View All" */}
           <div className="md:hidden px-6 mt-6">
-            <a href="/blog" className="flex items-center justify-center gap-2 w-full py-3 border border-zinc-700 rounded-xl font-headline font-bold text-sm text-white hover:border-primary/50 transition-colors">
+            <a href="/yazilar" className="flex items-center justify-center gap-2 w-full py-3 border border-zinc-700 rounded-xl font-headline font-bold text-sm text-white hover:border-primary/50 transition-colors">
               Tüm Yazıları Gör <span className="material-symbols-outlined text-base">arrow_forward</span>
             </a>
           </div>
@@ -340,11 +340,11 @@ export default function Home({ data }) {
           <span className="material-symbols-outlined" style={{ fontVariationSettings: "'FILL' 1" }}>home</span>
           <span className="text-[10px] font-black uppercase">Anasayfa</span>
         </a>
-        <a className="flex flex-col items-center gap-1 text-zinc-500" href="/projects">
+        <a className="flex flex-col items-center gap-1 text-zinc-500" href="/projeler">
           <span className="material-symbols-outlined">grid_view</span>
           <span className="text-[10px] font-black uppercase">Projeler</span>
         </a>
-        <a className="flex flex-col items-center gap-1 text-zinc-500" href="/blog">
+        <a className="flex flex-col items-center gap-1 text-zinc-500" href="/yazilar">
           <span className="material-symbols-outlined">edit_note</span>
           <span className="text-[10px] font-black uppercase">Yazılar</span>
         </a>
@@ -360,6 +360,20 @@ export default function Home({ data }) {
     </div>
   );
 }
+
+export const Head = () => (
+  <>
+    <title>Hüseyin Karacif | Solution Expert</title>
+    <meta name="description" content="Hüseyin Karacif - Çözüm Uzmanı (Solution Expert) & Kıdemli Yazılım Geliştirici. Hassasiyetle hazırlanmış yüksek kaliteli dijital ürünler, yazılım mimarisi ve teknoloji çözümleri üretiyorum." />
+    <meta name="keywords" content="Hüseyin Karacif, Solution Expert, Senior Software Developer, Yazılım Geliştirici, Çözüm Uzmanı, Yazılım Mimarisi, AI, Web Geliştirme" />
+    <meta property="og:title" content="Hüseyin Karacif | Solution Expert" />
+    <meta property="og:description" content="Hüseyin Karacif - Çözüm Uzmanı (Solution Expert) & Kıdemli Yazılım Geliştirici." />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Hüseyin Karacif | Solution Expert" />
+    <meta name="twitter:description" content="Hüseyin Karacif - Çözüm Uzmanı (Solution Expert) & Kıdemli Yazılım Geliştirici." />
+  </>
+);
 
 export const query = graphql`
   query HomePageQuery {

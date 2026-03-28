@@ -168,6 +168,20 @@ export default function Blog({ data }) {
   );
 }
 
+export const Head = () => (
+  <>
+    <title>Yazılar | Hüseyin Karacif</title>
+    <meta name="description" content="Yazılım zanaatkarlığı, yapay zeka ve modern mühendislik pratiklerinin kesişimini keşfedin. Hüseyin Karacif'ten son düşünceler ve notlar." />
+    <meta name="keywords" content="Blog, Yazılım, Yapay Zeka, AI, Mühendislik, Teknoloji, Makaleler" />
+    <meta property="og:title" content="Yazılar | Hüseyin Karacif" />
+    <meta property="og:description" content="Yazılım zanaatkarlığı, yapay zeka ve modern mühendislik pratiklerinin kesişimini keşfedin." />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Yazılar | Hüseyin Karacif" />
+    <meta name="twitter:description" content="Yazılım zanaatkarlığı, yapay zeka ve modern mühendislik pratiklerinin kesişimini keşfedin." />
+  </>
+);
+
 export const query = graphql`
   query BlogListQuery {
     allMarkdownRemark(sort: { frontmatter: { date: DESC } }) {
