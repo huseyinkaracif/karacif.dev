@@ -7,12 +7,33 @@ export default function Home({ data }) {
 
   const projectsRef = useRef(null);
   const writingRef = useRef(null);
+  const isDragging = useRef(false);
+  const dragStartX = useRef(0);
+  const dragScrollLeft = useRef(0);
+  const didDrag = useRef(false);
 
   const scrollCarousel = (ref, dir) => {
     const el = ref.current;
     if (!el) return;
     el.scrollBy({ left: dir * Math.round(el.offsetWidth * 0.82), behavior: "smooth" });
   };
+
+  const dragStart = (ref) => (e) => {
+    isDragging.current = true;
+    didDrag.current = false;
+    dragStartX.current = e.pageX - ref.current.getBoundingClientRect().left;
+    dragScrollLeft.current = ref.current.scrollLeft;
+  };
+  const dragMove = (ref) => (e) => {
+    if (!isDragging.current) return;
+    e.preventDefault();
+    const x = e.pageX - ref.current.getBoundingClientRect().left;
+    const walk = (x - dragStartX.current) * 1.4;
+    if (Math.abs(walk) > 4) didDrag.current = true;
+    ref.current.scrollLeft = dragScrollLeft.current - walk;
+  };
+  const dragEnd = () => { isDragging.current = false; };
+  const blockIfDrag = (e) => { if (didDrag.current) e.preventDefault(); };
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -139,28 +160,32 @@ export default function Home({ data }) {
           {/* Track */}
           <div
             ref={projectsRef}
-            className="flex gap-5 md:gap-6 overflow-x-auto no-scrollbar scroll-smooth snap-x snap-mandatory pl-6 md:pl-[max(1.5rem,calc((100vw-80rem)/2+1.5rem))] pr-6"
+            onMouseDown={dragStart(projectsRef)}
+            onMouseMove={dragMove(projectsRef)}
+            onMouseUp={dragEnd}
+            onMouseLeave={dragEnd}
+            className="flex gap-5 md:gap-6 overflow-x-auto no-scrollbar snap-x snap-mandatory cursor-grab active:cursor-grabbing pl-6 md:pl-[max(1.5rem,calc((100vw-80rem)/2+1.5rem))] pr-6 select-none"
           >
             {featuredProjects.filter(p => p.image).map((project, i) => (
               <a
                 key={project.id}
                 href={project.link || "/projects"}
-                className="group snap-start shrink-0 w-[82vw] md:w-[42vw] lg:w-[36vw] max-w-[600px] cursor-pointer"
+                onClick={blockIfDrag}
+                draggable={false}
+                className="group snap-start shrink-0 w-[82vw] md:w-[42vw] lg:w-[36vw] max-w-[600px]"
               >
                 {/* Image */}
                 <div className="relative overflow-hidden rounded-2xl aspect-[4/3] bg-surface-container mb-4">
                   <img
                     src={project.image}
                     alt={project.title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                    draggable={false}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 pointer-events-none"
                   />
-                  {/* Overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-400" />
-                  {/* Number */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                   <div className="absolute top-4 left-4 w-9 h-9 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center">
                     <span className="text-xs font-black font-headline text-zinc-900">{String(i + 1).padStart(2, "0")}</span>
                   </div>
-                  {/* Hover CTA */}
                   <div className="absolute bottom-5 right-5 flex items-center gap-2 bg-primary-container text-on-primary-container px-4 py-2 rounded-full text-xs font-black font-label tracking-wider uppercase translate-y-3 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
                     İncele <span className="material-symbols-outlined text-sm">arrow_outward</span>
                   </div>
@@ -181,28 +206,6 @@ export default function Home({ data }) {
                 </div>
               </a>
             ))}
-            {/* "View All" card */}
-            <a
-              href="/projects"
-              className="snap-start shrink-0 w-[60vw] md:w-[22vw] lg:w-[18vw] max-w-[280px] cursor-pointer group"
-            >
-              <div className="h-full min-h-[200px] rounded-2xl bg-surface-container border-2 border-dashed border-outline-variant/40 flex flex-col items-center justify-center gap-3 group-hover:bg-primary-container group-hover:border-transparent transition-all duration-300 p-6 aspect-[4/3]">
-                <div className="w-12 h-12 rounded-full bg-surface-container-high group-hover:bg-primary/10 flex items-center justify-center transition-colors duration-300">
-                  <span className="material-symbols-outlined text-2xl text-primary">grid_view</span>
-                </div>
-                <div className="text-center">
-                  <p className="font-headline font-black text-sm">Tüm Projeler</p>
-                  <p className="text-on-surface-variant text-xs mt-0.5 group-hover:text-on-primary-container transition-colors duration-300">{featuredProjects.length}+ çalışma</p>
-                </div>
-              </div>
-            </a>
-          </div>
-
-          {/* Mobile "View All" */}
-          <div className="md:hidden px-6 mt-6">
-            <a href="/projects" className="flex items-center justify-center gap-2 w-full py-3 border border-outline-variant/30 rounded-xl font-headline font-bold text-sm hover:bg-surface-container transition-colors">
-              Tüm Projeleri Gör <span className="material-symbols-outlined text-base">arrow_forward</span>
-            </a>
           </div>
         </section>
 
@@ -240,62 +243,62 @@ export default function Home({ data }) {
           {/* Track */}
           <div
             ref={writingRef}
-            className="flex gap-4 md:gap-5 overflow-x-auto no-scrollbar scroll-smooth snap-x snap-mandatory pl-6 md:pl-[max(1.5rem,calc((100vw-80rem)/2+1.5rem))] pr-6"
+            onMouseDown={dragStart(writingRef)}
+            onMouseMove={dragMove(writingRef)}
+            onMouseUp={dragEnd}
+            onMouseLeave={dragEnd}
+            className="flex gap-4 md:gap-5 overflow-x-auto no-scrollbar snap-x snap-mandatory cursor-grab active:cursor-grabbing pl-6 md:pl-[max(1.5rem,calc((100vw-80rem)/2+1.5rem))] pr-6 select-none"
           >
             {latestPosts.map((post, i) => (
               <a
                 key={post.fields.slug}
                 href={post.fields.slug}
-                className="group snap-start shrink-0 w-[82vw] md:w-[38vw] lg:w-[30vw] max-w-[520px] bg-zinc-900 border border-zinc-800 hover:border-primary/40 rounded-2xl p-6 md:p-8 flex flex-col transition-all duration-300 hover:-translate-y-1"
+                onClick={blockIfDrag}
+                draggable={false}
+                className="group snap-start shrink-0 w-[82vw] md:w-[38vw] lg:w-[30vw] max-w-[500px] bg-zinc-900 border border-zinc-800 hover:border-primary/40 rounded-2xl overflow-hidden flex flex-col transition-all duration-300 hover:-translate-y-1"
               >
-                {/* Top row */}
-                <div className="flex items-start justify-between mb-5">
-                  <span className="text-[10px] font-black tracking-[0.2em] uppercase text-primary font-label bg-primary/10 px-3 py-1 rounded-full">
+                {/* Cover image */}
+                <div className="relative aspect-[16/9] overflow-hidden shrink-0">
+                  {post.frontmatter.coverImage ? (
+                    <img
+                      src={post.frontmatter.coverImage}
+                      alt={post.frontmatter.title}
+                      draggable={false}
+                      className="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700 pointer-events-none"
+                    />
+                  ) : (
+                    <div className="w-full h-full bg-zinc-800" />
+                  )}
+                  <div className="absolute inset-0 bg-gradient-to-t from-zinc-900/90 via-zinc-900/20 to-transparent" />
+                  {/* Category badge on image */}
+                  <span className="absolute top-3 left-3 text-[10px] font-black tracking-[0.18em] uppercase text-primary font-label bg-black/60 backdrop-blur-sm px-3 py-1 rounded-full border border-primary/25">
                     {post.frontmatter.category}
                   </span>
-                  <span className="text-zinc-600 font-headline font-black text-2xl select-none">
+                  {/* Number */}
+                  <span className="absolute top-3 right-4 text-zinc-500 font-headline font-black text-xl select-none">
                     {String(i + 1).padStart(2, "0")}
                   </span>
                 </div>
 
-                {/* Title */}
-                <h3 className="text-xl md:text-2xl font-black font-headline text-white leading-tight mb-3 group-hover:text-primary transition-colors duration-200 flex-grow">
-                  {post.frontmatter.title}
-                </h3>
-
-                {/* Excerpt */}
-                <p className="text-zinc-500 text-sm leading-relaxed line-clamp-3 mb-6">
-                  {post.frontmatter.excerpt}
-                </p>
-
-                {/* Footer */}
-                <div className="flex items-center justify-between mt-auto pt-4 border-t border-zinc-800">
-                  <span className="text-zinc-600 text-xs font-label">
-                    {new Date(post.frontmatter.date).toLocaleDateString("tr-TR", { day: "numeric", month: "long", year: "numeric" })}
-                  </span>
-                  <div className="flex items-center gap-1.5 text-primary text-xs font-bold font-headline uppercase tracking-wider">
-                    Oku
-                    <span className="material-symbols-outlined text-sm group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-200">north_east</span>
+                {/* Content */}
+                <div className="p-5 md:p-6 flex flex-col flex-grow">
+                  <h3 className="text-lg md:text-xl font-black font-headline text-white leading-tight mb-2 group-hover:text-primary transition-colors duration-200">
+                    {post.frontmatter.title}
+                  </h3>
+                  <p className="text-zinc-500 text-sm leading-relaxed line-clamp-2 mb-4 flex-grow">
+                    {post.frontmatter.excerpt}
+                  </p>
+                  <div className="flex items-center justify-between pt-4 border-t border-zinc-800/80">
+                    <span className="text-zinc-600 text-xs font-label">
+                      {new Date(post.frontmatter.date).toLocaleDateString("tr-TR", { day: "numeric", month: "long", year: "numeric" })}
+                    </span>
+                    <div className="flex items-center gap-1 text-primary text-xs font-bold font-headline uppercase tracking-wider">
+                      Oku <span className="material-symbols-outlined text-sm group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-200">north_east</span>
+                    </div>
                   </div>
                 </div>
               </a>
             ))}
-
-            {/* "View All" card */}
-            <a
-              href="/blog"
-              className="snap-start shrink-0 w-[60vw] md:w-[20vw] lg:w-[16vw] max-w-[240px] group cursor-pointer"
-            >
-              <div className="h-full min-h-[200px] rounded-2xl border-2 border-dashed border-zinc-700 group-hover:border-primary/50 group-hover:bg-zinc-900/60 flex flex-col items-center justify-center gap-3 p-6 transition-all duration-300">
-                <div className="w-12 h-12 rounded-full bg-zinc-800 group-hover:bg-primary/10 flex items-center justify-center transition-colors duration-300">
-                  <span className="material-symbols-outlined text-2xl text-primary">edit_note</span>
-                </div>
-                <div className="text-center">
-                  <p className="font-headline font-black text-sm text-white">Tüm Yazılar</p>
-                  <p className="text-zinc-600 text-xs mt-0.5">{latestPosts.length}+ makale</p>
-                </div>
-              </div>
-            </a>
           </div>
 
           {/* Mobile "View All" */}
@@ -370,6 +373,7 @@ export const query = graphql`
           date
           category
           excerpt
+          coverImage
         }
       }
     }
