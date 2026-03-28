@@ -8,7 +8,7 @@ export const translations = {
       sub: "Kıdemli Yazılım Geliştirici.",
       body: "Hassasiyet, performans ve amaca uygun yüksek kaliteli dijital ürünler geliştiriyorum. Sadece çalışan değil, mükemmelliği sunan deneyimler üretiyorum.",
       cta: "Çalışmalarımı İncele",
-      exp: "10+ Yıl",
+      exp: "6+ Yıl",
       expLabel: "Deneyim",
     },
     about: {
@@ -66,7 +66,7 @@ export const translations = {
       sub: "Senior Software Developer.",
       body: "I build high-quality digital products with precision, performance and purpose. Not just working — delivering experiences that truly excel.",
       cta: "View My Work",
-      exp: "10+ Years",
+      exp: "6+ Years",
       expLabel: "Experience",
     },
     about: {

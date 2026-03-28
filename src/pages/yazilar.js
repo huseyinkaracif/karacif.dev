@@ -137,16 +137,7 @@ export default function Blog({ data }) {
         </div>
       </footer>
 
-      {/* Nomad Badge — desktop only */}
-      <div className="hidden md:flex fixed bottom-6 right-6 z-40 bg-white/70 dark:bg-zinc-900/70 backdrop-blur-xl px-4 py-2.5 rounded-full shadow-[0_8px_32px_rgba(109,94,0,0.12)] border border-white/20 dark:border-zinc-700/20 items-center gap-3">
-        <span className="relative flex h-3 w-3">
-          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
-          <span className="relative inline-flex rounded-full h-3 w-3 bg-primary"></span>
-        </span>
-        <span className="text-xs font-bold font-label text-on-background">{t.locationBadge}</span>
-      </div>
-
-      {/* Mobile Navigation */}
+           {/* Mobile Navigation */}
       <div className="md:hidden fixed bottom-6 left-6 right-6 z-50 bg-white/90 dark:bg-zinc-900/90 backdrop-blur-xl rounded-2xl shadow-2xl flex justify-around items-center p-4">
         <a className="flex flex-col items-center gap-1 text-zinc-500 dark:text-zinc-400" href="/">
           <span className="material-symbols-outlined">home</span>
