@@ -3,7 +3,7 @@ module.exports = {
     title: `Hüseyin Karacif | Solution Expert`,
     description: `Hüseyin Karacif - Çözüm Uzmanı (Solution Expert) & Kıdemli Yazılım Geliştirici. Hassasiyetle hazırlanmış yüksek kaliteli dijital ürünler, yazılım mimarisi ve teknoloji çözümleri üretiyorum. AI ve modern mühendislik pratikleri odaklı çalışmalar.`,
     author: `Hüseyin Karacif`,
-    siteUrl: `https://karacif.dev`, // Eğer belirli bir adresiniz varsa değiştirebilirsiniz.
+    siteUrl: `https://huseyinkaracif.com`,
     keywords: `Hüseyin Karacif, Solution Expert, Senior Software Developer, Yazılım Geliştirici, Çözüm Uzmanı, Yazılım Mimarisi, AI, Yapay Zeka, Web Geliştirme`,
     image: `/social-image.jpg` // Eğer paylaşım görseliniz varsa buraya yönlendirebilirsiniz
   },
@@ -13,8 +13,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-robots-txt`,
       options: {
-        host: 'https://karacif.dev',
-        sitemap: 'https://karacif.dev/sitemap/sitemap-index.xml',
+        host: 'https://huseyinkaracif.com',
+        sitemap: 'https://huseyinkaracif.com/sitemap/sitemap-index.xml',
         policy: [{ userAgent: '*', allow: '/' }]
       }
     },
