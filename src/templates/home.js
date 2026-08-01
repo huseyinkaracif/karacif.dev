@@ -11,6 +11,7 @@ export default function Home({ data, pageContext }) {
   const { lang, altPath } = pageContext;
   const t = translations[lang] || translations.tr;
   const r = ROUTES[lang];
+  const expYears = parseInt(t.hero.exp, 10) || 7;
   const latestPosts = data.allMarkdownRemark.nodes;
   const featuredProjects = data.allProjectsJson.nodes.filter((p) => p.featured && p.image);
   // Each list is rendered twice for the seamless infinite marquee
@@ -117,17 +118,18 @@ export default function Home({ data, pageContext }) {
       let start = null;
       const run = (ts) => {
         if (!start) start = ts;
-        const p = Math.min((ts - start) / 1000, 1);
+        const p = Math.min((ts - start) / 1200, 1);
         const eased = 1 - Math.pow(1 - p, 3);
-        el.textContent = Math.floor(eased * 6) + "+";
+        // round, not floor — flooring stalls one short of the target for most of the run
+        el.textContent = Math.round(eased * expYears) + "+";
         if (p < 1) requestAnimationFrame(run);
-        else el.textContent = "6+";
       };
+      el.textContent = "0+";
       requestAnimationFrame(run);
     }, { threshold: 0.6 });
     obs.observe(el);
     return () => obs.disconnect();
-  }, []);
+  }, [expYears]);
 
   // ── Mouse parallax on hero photo (desktop only, rAF-smoothed) ─
   useEffect(() => {
@@ -214,20 +216,26 @@ export default function Home({ data, pageContext }) {
             </div>
           </div>
           <div className="hero-photo group md:col-span-5 relative mt-4 md:mt-0">
+            {/* The photo drifts with the cursor, so a glow and a frame stay behind it
+                instead of leaving bare page background at the edges */}
+            <div aria-hidden="true" className="pointer-events-none absolute -inset-5 md:-inset-8 rounded-[2.5rem] bg-primary/25 dark:bg-primary/15 blur-3xl" />
+            <div aria-hidden="true" className="pointer-events-none absolute inset-0 rounded-xl border-2 border-primary/30 [transform:rotate(3deg)_translateX(1rem)_scale(1.05)]" />
             <div ref={photoWrapRef} className="relative will-change-transform">
-              <div className="photo-float aspect-[4/5] rounded-xl overflow-hidden bg-primary shadow-2xl">
+              <div className="photo-float isolate aspect-[4/5] rounded-xl overflow-hidden bg-surface-container-high shadow-[0_30px_70px_-25px_rgb(var(--primary)/0.5),0_10px_28px_-14px_rgba(0,0,0,0.35)]">
                 <img
                   alt={lang === "tr" ? "Hüseyin Karacif — gün batımında İstanbul sahilinde" : "Hüseyin Karacif — at the Istanbul seaside at sunset"}
-                  className="w-full h-full object-cover grayscale group-hover:grayscale-0 mix-blend-multiply opacity-90 contrast-125 transition-[filter] duration-700"
+                  className="w-full h-full object-cover brightness-110 saturate-[.85] dark:brightness-95 dark:saturate-100 group-hover:saturate-100 dark:group-hover:saturate-[1.15] transition-[filter] duration-700"
                   src="/images/hero.jpg"
                   onError={(e) => {
                     if (e.currentTarget.src !== HERO_FALLBACK) e.currentTarget.src = HERO_FALLBACK;
                   }}
                 />
+                <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-tr from-primary/40 via-primary/5 to-transparent mix-blend-soft-light" />
+                <div aria-hidden="true" className="absolute inset-0 rounded-xl ring-1 ring-inset ring-black/10 dark:ring-white/10" />
               </div>
               <div className="hero-exp absolute -bottom-6 -left-6 bg-surface-bright p-5 md:p-6 rounded-xl shadow-xl -rotate-2 border border-outline-variant/10">
                 <p className="font-headline font-black text-xl md:text-2xl leading-none">
-                  <span ref={counterRef}>6+</span> {lang === "tr" ? "Yıl" : "Years"}
+                  <span ref={counterRef}>{expYears}+</span> {lang === "tr" ? "Yıl" : "Years"}
                 </p>
                 <p className="text-sm font-bold text-on-surface-variant tracking-wider uppercase mt-1">{t.hero.expLabel}</p>
               </div>

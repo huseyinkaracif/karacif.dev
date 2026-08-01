@@ -49,31 +49,31 @@ export default function Layout({ lang = "tr", active, altPath, showProgress = fa
     return () => observer.disconnect();
   }, []);
 
-  const navLink = (key, href) =>
+  const navLink = (key) =>
     active === key
-      ? "text-zinc-900 dark:text-white border-b-4 border-yellow-400 pb-1"
-      : "text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors";
+      ? "text-on-background border-b-4 border-primary pb-1"
+      : "text-on-surface-variant hover:text-on-background transition-colors";
 
   const mobileLink = (key) =>
     active === key
-      ? "flex flex-col items-center gap-1 text-zinc-900 dark:text-white border-b-4 border-yellow-400 pb-1"
-      : "flex flex-col items-center gap-1 text-zinc-500 dark:text-zinc-400";
+      ? "flex flex-col items-center gap-1 text-on-background border-b-4 border-primary pb-1"
+      : "flex flex-col items-center gap-1 text-on-surface-variant";
 
   return (
     <div className="bg-background font-body text-on-background antialiased min-h-screen flex flex-col">
       {/* Top Navigation */}
-      <nav className={`fixed top-0 w-full z-50 backdrop-blur-xl transition-all duration-300 ${scrolled ? "bg-white/96 dark:bg-zinc-900/96 shadow-[0_1px_20px_rgba(109,94,0,0.10)]" : "bg-white/70 dark:bg-zinc-900/70 shadow-none"}`}>
+      <nav className={`fixed top-0 w-full z-50 backdrop-blur-xl transition-all duration-300 ${scrolled ? "bg-surface/95 shadow-[0_1px_20px_rgba(109,94,0,0.10)]" : "bg-surface/70 shadow-none"}`}>
         {showProgress && <div className="scroll-progress-bar" style={{ width: `${scrollPct}%` }} />}
         <div className="flex justify-between items-center px-6 py-4 max-w-7xl mx-auto">
-          <Link className="text-2xl font-black tracking-tighter text-zinc-900 dark:text-zinc-50 hover:text-yellow-500 transition-colors font-headline" to={r.home}>
+          <Link className="text-2xl font-black tracking-tighter text-on-background hover:text-primary transition-colors font-headline" to={r.home}>
             Karacif.dev
           </Link>
           <div className="hidden md:flex items-center gap-8 font-headline font-bold tracking-tight">
             <Link className={navLink("home")} to={r.home}>{t.nav.home}</Link>
             <Link className={navLink("projects")} to={r.projects}>{t.nav.projects}</Link>
             <Link className={navLink("blog")} to={r.blog}>{t.nav.blog}</Link>
-            <a className="text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors" href="https://github.com/huseyinkaracif" target="_blank" rel="noopener noreferrer">GitHub</a>
-            <a className="text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors" href="https://www.linkedin.com/in/huseyin-karacif" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            <a className="text-on-surface-variant hover:text-on-background transition-colors" href="https://github.com/huseyinkaracif" target="_blank" rel="noopener noreferrer">GitHub</a>
+            <a className="text-on-surface-variant hover:text-on-background transition-colors" href="https://www.linkedin.com/in/huseyin-karacif" target="_blank" rel="noopener noreferrer">LinkedIn</a>
           </div>
         </div>
       </nav>
@@ -81,18 +81,18 @@ export default function Layout({ lang = "tr", active, altPath, showProgress = fa
       <div className="flex-grow">{children}</div>
 
       {/* Footer */}
-      <footer className="w-full pt-4 md:pt-6 px-6 pb-32 md:pb-8 bg-zinc-50 dark:bg-zinc-950">
+      <footer className="w-full pt-6 md:pt-8 px-6 pb-32 md:pb-8 bg-surface-container-low border-t border-outline-variant/15">
         <div className="flex flex-col md:flex-row justify-between items-center gap-4 md:gap-6 max-w-7xl mx-auto">
           <div className="flex flex-col items-center md:items-start gap-2">
-            <span className="font-black text-zinc-900 dark:text-zinc-50 font-headline text-xl">Karacif.dev</span>
-            <p className="font-['Inter'] text-sm tracking-wide text-zinc-500 dark:text-zinc-400">{t.footer.copy}</p>
+            <span className="font-black text-on-background font-headline text-xl">Karacif.dev</span>
+            <p className="font-['Inter'] text-sm tracking-wide text-on-surface-variant">{t.footer.copy}</p>
           </div>
           <div className="flex gap-8">{SOCIALS}</div>
         </div>
       </footer>
 
       {/* Mobile Navigation */}
-      <div className="md:hidden fixed bottom-6 left-6 right-6 z-50 bg-white/90 dark:bg-zinc-900/90 backdrop-blur-xl rounded-2xl shadow-2xl flex justify-around items-center p-4">
+      <div className="md:hidden fixed bottom-6 left-6 right-6 z-50 bg-surface-container-high/90 border border-outline-variant/20 backdrop-blur-xl rounded-2xl shadow-2xl flex justify-around items-center p-4">
         <Link className={mobileLink("home")} to={r.home}>
           <span className="material-symbols-outlined" style={active === "home" ? { fontVariationSettings: "'FILL' 1" } : undefined}>home</span>
           <span className="text-[10px] font-black uppercase">{t.mobileNav.home}</span>
@@ -105,11 +105,11 @@ export default function Layout({ lang = "tr", active, altPath, showProgress = fa
           <span className="material-symbols-outlined" style={active === "blog" ? { fontVariationSettings: "'FILL' 1" } : undefined}>edit_note</span>
           <span className="text-[10px] font-black uppercase">{t.mobileNav.blog}</span>
         </Link>
-        <a className="flex flex-col items-center gap-1 text-zinc-500 dark:text-zinc-400" href="https://github.com/huseyinkaracif" target="_blank" rel="noopener noreferrer">
+        <a className="flex flex-col items-center gap-1 text-on-surface-variant" href="https://github.com/huseyinkaracif" target="_blank" rel="noopener noreferrer">
           <span className="material-symbols-outlined">code</span>
           <span className="text-[10px] font-black uppercase">GitHub</span>
         </a>
-        <a className="flex flex-col items-center gap-1 text-zinc-500 dark:text-zinc-400" href="https://www.linkedin.com/in/huseyin-karacif" target="_blank" rel="noopener noreferrer">
+        <a className="flex flex-col items-center gap-1 text-on-surface-variant" href="https://www.linkedin.com/in/huseyin-karacif" target="_blank" rel="noopener noreferrer">
           <span className="material-symbols-outlined">work</span>
           <span className="text-[10px] font-black uppercase">LinkedIn</span>
         </a>

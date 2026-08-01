@@ -3,6 +3,8 @@
 
 /* ─── Design Token CSS Variables ─────────────────────── */
 :root {
+  /* keeps native UI (scrollbars, date pickers, autofill) in sync with the theme */
+  color-scheme: light;
   --background: 247 243 235;
   --on_background: 22 21 18;
   --surface: 247 243 235;
@@ -53,6 +55,7 @@
 }
 
 .dark {
+  color-scheme: dark;
   --background: 19 18 14;
   --on_background: 232 227 216;
   --surface: 19 18 14;
@@ -128,7 +131,11 @@
 .no-scrollbar::-webkit-scrollbar { display: none; }
 .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
 
-body { scroll-behavior: smooth; }
+html, body {
+  scroll-behavior: smooth;
+  background-color: rgb(var(--background));
+  color: rgb(var(--on_background));
+}
 
 /* ─── Keyframes ───────────────────────────────────────── */
 @keyframes fade-up {
