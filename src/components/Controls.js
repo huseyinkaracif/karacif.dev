@@ -28,7 +28,14 @@ export default function Controls({ lang = "tr", altPath }) {
       return <span className={cls}>{l.toUpperCase()}</span>;
     }
     return (
-      <Link to={targets[l]} onClick={() => remember(l)} className={cls} hrefLang={l} aria-label={l === "tr" ? "Türkçe" : "English"}>
+      <Link
+        to={targets[l]}
+        state={{ preserveScroll: true }}
+        onClick={() => remember(l)}
+        className={cls}
+        hrefLang={l}
+        aria-label={l === "tr" ? "Türkçe" : "English"}
+      >
         {l.toUpperCase()}
       </Link>
     );
