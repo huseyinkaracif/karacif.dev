@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" width="1600" height="900">
+  <rect width="1600" height="900" fill="#FAFAF8"/>
+
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#18181B"/>
+    </marker>
+  </defs>
+
+  <text x="800" y="80" font-family="Inter, system-ui, sans-serif" font-size="34" font-weight="800" fill="#18181B" text-anchor="middle">How an AI Crawler Reads Your Page</text>
+
+  <!-- Box 1: Your Site -->
+  <g transform="translate(60,180)">
+    <rect width="340" height="360" rx="20" fill="#FFFFFF" stroke="#18181B" stroke-width="3"/>
+    <text x="170" y="46" font-family="Inter, system-ui, sans-serif" font-size="26" font-weight="800" fill="#18181B" text-anchor="middle">Your Site</text>
+    <g font-family="Inter, system-ui, sans-serif" font-size="22" fill="#3F3F46">
+      <rect x="24" y="80" width="292" height="56" rx="12" fill="#FEF9C3"/>
+      <text x="170" y="115" text-anchor="middle">Clean HTML</text>
+      <rect x="24" y="150" width="292" height="56" rx="12" fill="#FEF9C3"/>
+      <text x="170" y="185" text-anchor="middle">JSON-LD Schema</text>
+      <rect x="24" y="220" width="292" height="56" rx="12" fill="#FEF9C3"/>
+      <text x="170" y="255" text-anchor="middle">llms.txt</text>
+      <rect x="24" y="290" width="292" height="56" rx="12" fill="#FEF9C3"/>
+      <text x="170" y="325" text-anchor="middle">Heading Hierarchy</text>
+    </g>
+  </g>
+
+  <line x1="420" y1="360" x2="520" y2="360" stroke="#18181B" stroke-width="3" marker-end="url(#arrow)"/>
+
+  <!-- Box 2: AI Crawler -->
+  <g transform="translate(540,220)">
+    <rect width="300" height="280" rx="20" fill="#18181B"/>
+    <text x="150" y="50" font-family="Inter, system-ui, sans-serif" font-size="24" font-weight="800" fill="#FAFAF8" text-anchor="middle">AI Crawler</text>
+    <text x="150" y="120" font-family="Inter, system-ui, sans-serif" font-size="20" fill="#EAB308" text-anchor="middle">GPTBot</text>
+    <text x="150" y="160" font-family="Inter, system-ui, sans-serif" font-size="20" fill="#EAB308" text-anchor="middle">ClaudeBot</text>
+    <text x="150" y="200" font-family="Inter, system-ui, sans-serif" font-size="20" fill="#EAB308" text-anchor="middle">PerplexityBot</text>
+  </g>
+
+  <line x1="860" y1="360" x2="960" y2="360" stroke="#18181B" stroke-width="3" marker-end="url(#arrow)"/>
+
+  <!-- Box 3: Answer Engine -->
+  <g transform="translate(980,220)">
+    <rect width="280" height="280" rx="20" fill="#FFFFFF" stroke="#A16207" stroke-width="3"/>
+    <text x="140" y="50" font-family="Inter, system-ui, sans-serif" font-size="24" font-weight="800" fill="#18181B" text-anchor="middle">Answer Engine</text>
+    <text x="140" y="150" font-family="Inter, system-ui, sans-serif" font-size="18" fill="#52525B" text-anchor="middle">parses structure,</text>
+    <text x="140" y="180" font-family="Inter, system-ui, sans-serif" font-size="18" fill="#52525B" text-anchor="middle">weighs clarity,</text>
+    <text x="140" y="210" font-family="Inter, system-ui, sans-serif" font-size="18" fill="#52525B" text-anchor="middle">checks recency</text>
+  </g>
+
+  <line x1="1260" y1="360" x2="1360" y2="360" stroke="#18181B" stroke-width="3" marker-end="url(#arrow)"/>
+
+  <!-- Box 4: Cited -->
+  <g transform="translate(1380,260)">
+    <rect width="160" height="200" rx="20" fill="#EAB308"/>
+    <text x="80" y="90" font-family="Inter, system-ui, sans-serif" font-size="22" font-weight="800" fill="#18181B" text-anchor="middle">Cited</text>
+    <text x="80" y="122" font-family="Inter, system-ui, sans-serif" font-size="22" font-weight="800" fill="#18181B" text-anchor="middle">in AI</text>
+    <text x="80" y="154" font-family="Inter, system-ui, sans-serif" font-size="22" font-weight="800" fill="#18181B" text-anchor="middle">Answer</text>
+  </g>
+
+  <text x="800" y="700" font-family="Inter, system-ui, sans-serif" font-size="22" fill="#71717A" text-anchor="middle">If the structure is unclear at any step, the chain breaks and you never get cited.</text>
+</svg>

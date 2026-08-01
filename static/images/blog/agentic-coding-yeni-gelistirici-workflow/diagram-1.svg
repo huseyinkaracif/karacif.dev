@@ -1,0 +1,46 @@
+<svg viewBox="0 0 1600 900" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The plan, delegate, review, verify workflow loop">
+  <rect width="1600" height="900" fill="#FAFAF8"/>
+
+  <g font-family="Inter, system-ui, sans-serif">
+    <text x="800" y="100" font-size="34" font-weight="800" text-anchor="middle" fill="#18181B">The Agentic Coding Loop</text>
+
+    <!-- 4 boxes in a row -->
+    <rect x="90" y="330" width="300" height="180" rx="16" fill="none" stroke="#18181B" stroke-width="3"/>
+    <text x="240" y="405" font-size="30" font-weight="800" text-anchor="middle" fill="#18181B">1. PLAN</text>
+    <text x="240" y="440" font-size="17" text-anchor="middle" fill="#A16207">describe the goal,</text>
+    <text x="240" y="463" font-size="17" text-anchor="middle" fill="#A16207">ask for an approach</text>
+
+    <rect x="440" y="330" width="300" height="180" rx="16" fill="#EAB308"/>
+    <text x="590" y="405" font-size="28" font-weight="800" text-anchor="middle" fill="#18181B">2. DELEGATE</text>
+    <text x="590" y="440" font-size="17" text-anchor="middle" fill="#18181B" opacity="0.8">let the agent work,</text>
+    <text x="590" y="463" font-size="17" text-anchor="middle" fill="#18181B" opacity="0.8">don&#8217;t micromanage</text>
+
+    <rect x="790" y="330" width="300" height="180" rx="16" fill="none" stroke="#18181B" stroke-width="3"/>
+    <text x="940" y="405" font-size="30" font-weight="800" text-anchor="middle" fill="#18181B">3. REVIEW</text>
+    <text x="940" y="440" font-size="17" text-anchor="middle" fill="#A16207">read every diff,</text>
+    <text x="940" y="463" font-size="17" text-anchor="middle" fill="#A16207">check the patterns</text>
+
+    <rect x="1140" y="330" width="300" height="180" rx="16" fill="#A16207"/>
+    <text x="1290" y="405" font-size="30" font-weight="800" text-anchor="middle" fill="#FAFAF8">4. VERIFY</text>
+    <text x="1290" y="440" font-size="17" text-anchor="middle" fill="#FAFAF8" opacity="0.85">run it, watch it,</text>
+    <text x="1290" y="463" font-size="17" text-anchor="middle" fill="#FAFAF8" opacity="0.85">not just green tests</text>
+
+    <!-- arrows between boxes -->
+    <path d="M390 420 H 430" stroke="#18181B" stroke-width="3" marker-end="url(#arrowd)"/>
+    <path d="M740 420 H 780" stroke="#18181B" stroke-width="3" marker-end="url(#arrowd)"/>
+    <path d="M1090 420 H 1130" stroke="#18181B" stroke-width="3" marker-end="url(#arrowd)"/>
+
+    <!-- loop-back arrow from Verify to Plan -->
+    <path d="M1290 510 C 1290 660, 240 660, 240 510" fill="none" stroke="#A16207" stroke-width="2.5" stroke-dasharray="6,8" marker-end="url(#arrowd-brown)"/>
+    <text x="765" y="700" font-size="19" text-anchor="middle" fill="#A16207" font-weight="600">next task, or fix and re-delegate</text>
+  </g>
+
+  <defs>
+    <marker id="arrowd" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#18181B"/>
+    </marker>
+    <marker id="arrowd-brown" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#A16207"/>
+    </marker>
+  </defs>
+</svg>

@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" width="1600" height="900">
+  <defs>
+    <radialGradient id="glow" cx="82%" cy="18%" r="60%">
+      <stop offset="0%" stop-color="#EAB308" stop-opacity="0.18"/>
+      <stop offset="100%" stop-color="#EAB308" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1600" height="900" fill="#FAFAF8"/>
+  <rect width="1600" height="900" fill="url(#glow)"/>
+
+  <!-- geometric motif: search bar morphing into a chat bubble -->
+  <g transform="translate(1120,150)">
+    <rect x="0" y="0" width="360" height="64" rx="32" fill="none" stroke="#18181B" stroke-width="3"/>
+    <circle cx="330" cy="32" r="10" fill="none" stroke="#18181B" stroke-width="3"/>
+    <line x1="322" y1="24" x2="300" y2="2" stroke="#18181B" stroke-width="3" stroke-linecap="round"/>
+    <line x1="24" y1="32" x2="270" y2="32" stroke="#18181B" stroke-width="3" stroke-linecap="round" stroke-dasharray="2 14"/>
+  </g>
+  <g transform="translate(1150,260)">
+    <path d="M0 20 Q0 0 20 0 H300 Q320 0 320 20 V120 Q320 140 300 140 H60 L18 172 L26 140 H20 Q0 140 0 120 Z" fill="#EAB308"/>
+    <rect x="34" y="34" width="252" height="12" rx="6" fill="#FAFAF8"/>
+    <rect x="34" y="62" width="200" height="12" rx="6" fill="#FAFAF8"/>
+    <rect x="34" y="90" width="230" height="12" rx="6" fill="#FAFAF8"/>
+  </g>
+
+  <!-- small AI spark icon -->
+  <g transform="translate(90,110)" stroke="#A16207" stroke-width="4" stroke-linecap="round">
+    <line x1="0" y1="-26" x2="0" y2="26"/>
+    <line x1="-26" y1="0" x2="26" y2="0"/>
+    <line x1="-18" y1="-18" x2="18" y2="18"/>
+    <line x1="-18" y1="18" x2="18" y2="-18"/>
+  </g>
+
+  <text x="90" y="430" font-family="Inter, system-ui, sans-serif" font-size="26" font-weight="700" letter-spacing="6" fill="#A16207">YAPAY ZEKA / AI</text>
+
+  <text x="86" y="540" font-family="Inter, system-ui, sans-serif" font-size="108" font-weight="900" fill="#18181B" letter-spacing="-2">GEO</text>
+  <text x="90" y="620" font-family="Inter, system-ui, sans-serif" font-size="44" font-weight="800" fill="#18181B">Yapay Zeka Arama Motorları</text>
+  <text x="90" y="672" font-family="Inter, system-ui, sans-serif" font-size="44" font-weight="800" fill="#18181B">için SEO</text>
+
+  <rect x="92" y="710" width="120" height="10" rx="5" fill="#EAB308"/>
+
+  <text x="90" y="770" font-family="Inter, system-ui, sans-serif" font-size="24" fill="#52525B">Hüseyin Karacif — huseyinkaracif.com</text>
+</svg>

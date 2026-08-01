@@ -1,0 +1,46 @@
+<svg viewBox="0 0 1600 900" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Taking AI Agents to Production">
+  <rect width="1600" height="900" fill="#FAFAF8"/>
+
+  <!-- decorative node grid, top right -->
+  <g stroke="#EAB308" stroke-width="2" opacity="0.5">
+    <line x1="1180" y1="120" x2="1320" y2="90"/>
+    <line x1="1320" y1="90" x2="1460" y2="150"/>
+    <line x1="1180" y1="120" x2="1260" y2="220"/>
+    <line x1="1260" y1="220" x2="1460" y2="150"/>
+    <line x1="1260" y1="220" x2="1380" y2="280"/>
+    <line x1="1460" y1="150" x2="1520" y2="260"/>
+    <line x1="1380" y1="280" x2="1520" y2="260"/>
+  </g>
+  <g fill="#EAB308">
+    <circle cx="1180" cy="120" r="7"/>
+    <circle cx="1320" cy="90" r="7"/>
+    <circle cx="1460" cy="150" r="9"/>
+    <circle cx="1260" cy="220" r="7"/>
+    <circle cx="1380" cy="280" r="7"/>
+    <circle cx="1520" cy="260" r="9"/>
+  </g>
+
+  <!-- Title -->
+  <text x="120" y="250" font-family="Inter, system-ui, sans-serif" font-size="92" font-weight="800" fill="#18181B">AI AGENTS</text>
+  <text x="120" y="352" font-family="Inter, system-ui, sans-serif" font-size="92" font-weight="800" fill="#EAB308">&#8594; PRODUCTION</text>
+  <text x="124" y="404" font-family="Inter, system-ui, sans-serif" font-size="30" font-weight="500" fill="#A16207">The Gap Between Demo and Reality</text>
+
+  <!-- illustration: demo bubble, gap, production block -->
+  <g font-family="Inter, system-ui, sans-serif">
+    <circle cx="230" cy="640" r="80" fill="none" stroke="#18181B" stroke-width="4"/>
+    <text x="230" y="633" font-size="22" text-anchor="middle" fill="#18181B" font-weight="700">DEMO</text>
+    <text x="230" y="660" font-size="15" text-anchor="middle" fill="#18181B" opacity="0.6">happy path</text>
+
+    <line x1="330" y1="640" x2="1140" y2="640" stroke="#A16207" stroke-width="3" stroke-dasharray="4,14" stroke-linecap="round"/>
+    <polygon points="1150,640 1126,626 1126,654" fill="#A16207"/>
+
+    <rect x="1190" y="565" width="200" height="150" rx="14" fill="#EAB308"/>
+    <text x="1290" y="632" font-size="24" text-anchor="middle" fill="#18181B" font-weight="800">PROD</text>
+    <text x="1290" y="662" font-size="15" text-anchor="middle" fill="#18181B" opacity="0.75">real users, real cost</text>
+
+    <text x="620" y="600" font-size="18" text-anchor="middle" fill="#A16207" font-weight="600">guardrails &#8226; tracing &#8226; retries &#8226; human review</text>
+  </g>
+
+  <rect x="120" y="800" width="80" height="6" fill="#18181B"/>
+  <text x="120" y="850" font-family="Inter, system-ui, sans-serif" font-size="24" fill="#18181B" opacity="0.6">huseyinkaracif.com</text>
+</svg>

@@ -1,0 +1,48 @@
+<svg viewBox="0 0 1600 900" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Bad versus good context assembly compared side by side">
+  <rect width="1600" height="900" fill="#FAFAF8"/>
+
+  <g font-family="Inter, system-ui, sans-serif">
+    <text x="800" y="90" font-size="34" font-weight="800" text-anchor="middle" fill="#18181B">Bad vs. Good Context Assembly</text>
+
+    <!-- divider -->
+    <line x1="800" y1="140" x2="800" y2="820" stroke="#18181B" stroke-width="2" stroke-dasharray="3,10" opacity="0.4"/>
+
+    <!-- BAD side -->
+    <circle cx="220" cy="175" r="24" fill="none" stroke="#18181B" stroke-width="3"/>
+    <text x="220" y="184" font-size="26" text-anchor="middle" fill="#18181B" font-weight="800">&#10005;</text>
+    <text x="270" y="184" font-size="28" font-weight="800" fill="#18181B">BAD</text>
+
+    <g stroke="#18181B" stroke-width="2.5" fill="#FAFAF8">
+      <rect x="120" y="230" width="560" height="90" rx="10" transform="rotate(-2 400 275)"/>
+      <rect x="140" y="340" width="560" height="90" rx="10" transform="rotate(1.5 420 385)"/>
+      <rect x="110" y="450" width="560" height="90" rx="10" transform="rotate(-1 390 495)"/>
+      <rect x="150" y="560" width="560" height="90" rx="10" transform="rotate(2 430 605)"/>
+    </g>
+    <g font-size="19" fill="#18181B" font-weight="600" text-anchor="middle">
+      <text x="400" y="280" transform="rotate(-2 400 275)">Full raw conversation history</text>
+      <text x="420" y="390" transform="rotate(1.5 420 385)">8 docs, unordered by relevance</text>
+      <text x="390" y="500" transform="rotate(-1 390 495)">Entire 40-field user profile JSON</text>
+      <text x="430" y="610" transform="rotate(2 430 605)">200-line raw API response</text>
+    </g>
+    <text x="400" y="720" font-size="20" text-anchor="middle" fill="#A16207" font-weight="700">the model does all the sorting</text>
+
+    <!-- GOOD side -->
+    <circle cx="1050" cy="175" r="24" fill="#EAB308"/>
+    <text x="1050" y="184" font-size="24" text-anchor="middle" fill="#18181B" font-weight="800">&#10003;</text>
+    <text x="1100" y="184" font-size="28" font-weight="800" fill="#18181B">GOOD</text>
+
+    <g stroke="#A16207" stroke-width="2.5" fill="#FAFAF8">
+      <rect x="920" y="235" width="560" height="80" rx="10"/>
+      <rect x="920" y="335" width="560" height="80" rx="10"/>
+      <rect x="920" y="435" width="560" height="80" rx="10"/>
+      <rect x="920" y="535" width="560" height="80" rx="10"/>
+    </g>
+    <g font-size="19" fill="#18181B" font-weight="600" text-anchor="middle">
+      <text x="1200" y="282">User summary (2 lines)</text>
+      <text x="1200" y="382">Last 3 messages, raw</text>
+      <text x="1200" y="482">Conversation summary</text>
+      <text x="1200" y="582">One relevant fact, filtered</text>
+    </g>
+    <text x="1200" y="700" font-size="20" text-anchor="middle" fill="#A16207" font-weight="700">you decide what matters</text>
+  </g>
+</svg>

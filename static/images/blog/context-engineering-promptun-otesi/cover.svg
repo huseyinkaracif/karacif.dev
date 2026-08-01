@@ -1,0 +1,41 @@
+<svg viewBox="0 0 1600 900" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Context Engineering: Moving Beyond Prompt Writing">
+  <rect width="1600" height="900" fill="#FAFAF8"/>
+
+  <!-- decorative dot grid -->
+  <g fill="#EAB308" opacity="0.55">
+    <circle cx="1220" cy="110" r="6"/>
+    <circle cx="1290" cy="110" r="6"/>
+    <circle cx="1360" cy="110" r="6"/>
+    <circle cx="1220" cy="160" r="6"/>
+    <circle cx="1290" cy="160" r="6"/>
+    <circle cx="1360" cy="160" r="6"/>
+    <circle cx="1220" cy="210" r="6"/>
+    <circle cx="1290" cy="210" r="6"/>
+    <circle cx="1360" cy="210" r="6"/>
+  </g>
+
+  <!-- Title -->
+  <text x="120" y="230" font-family="Inter, system-ui, sans-serif" font-size="88" font-weight="800" fill="#18181B">CONTEXT</text>
+  <text x="120" y="332" font-family="Inter, system-ui, sans-serif" font-size="88" font-weight="800" fill="#EAB308">ENGINEERING</text>
+  <text x="124" y="384" font-family="Inter, system-ui, sans-serif" font-size="30" font-weight="500" fill="#A16207">Moving Beyond Prompt Writing</text>
+
+  <!-- illustration: context window as a budget bar -->
+  <g font-family="Inter, system-ui, sans-serif">
+    <text x="120" y="530" font-size="20" font-weight="600" fill="#18181B" opacity="0.7">CONTEXT WINDOW BUDGET</text>
+    <rect x="120" y="555" width="1360" height="70" rx="10" fill="none" stroke="#18181B" stroke-width="3"/>
+    <rect x="124" y="559" width="220" height="62" fill="#18181B"/>
+    <rect x="348" y="559" width="380" height="62" fill="#EAB308"/>
+    <rect x="732" y="559" width="260" height="62" fill="#A16207"/>
+    <rect x="996" y="559" width="200" height="62" fill="#18181B" opacity="0.35"/>
+    <rect x="1200" y="559" width="276" height="62" fill="none"/>
+
+    <text x="234" y="597" font-size="16" text-anchor="middle" fill="#FAFAF8" font-weight="700">SYSTEM</text>
+    <text x="538" y="597" font-size="16" text-anchor="middle" fill="#18181B" font-weight="700">RAG</text>
+    <text x="862" y="597" font-size="16" text-anchor="middle" fill="#FAFAF8" font-weight="700">MEMORY</text>
+    <text x="1096" y="597" font-size="16" text-anchor="middle" fill="#FAFAF8" font-weight="700">HISTORY</text>
+    <text x="1338" y="597" font-size="16" text-anchor="middle" fill="#18181B" font-weight="700" opacity="0.6">FREE</text>
+  </g>
+
+  <rect x="120" y="800" width="80" height="6" fill="#18181B"/>
+  <text x="120" y="850" font-family="Inter, system-ui, sans-serif" font-size="24" fill="#18181B" opacity="0.6">huseyinkaracif.com</text>
+</svg>

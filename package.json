@@ -1,0 +1,31 @@
+{
+  "name": "kinetic-curator",
+  "version": "1.0.0",
+  "scripts": {
+    "develop": "gatsby develop",
+    "build": "gatsby build",
+    "serve": "gatsby serve",
+    "clean": "gatsby clean",
+    "admin": "cd admin && npm start"
+  },
+  "dependencies": {
+    "@tailwindcss/typography": "^0.5.20",
+    "gatsby": "^5.13.0",
+    "gatsby-plugin-feed": "^5.16.0",
+    "gatsby-plugin-manifest": "^5.16.0",
+    "gatsby-plugin-robots-txt": "^1.8.0",
+    "gatsby-plugin-sitemap": "^6.16.0",
+    "gatsby-source-filesystem": "^5.13.0",
+    "gatsby-transformer-json": "^5.13.0",
+    "gatsby-transformer-remark": "^6.13.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.2.2",
+    "autoprefixer": "^10.4.27",
+    "gatsby-plugin-postcss": "^6.13.0",
+    "postcss": "^8.5.8",
+    "tailwindcss": "^3.4.19"
+  }
+}

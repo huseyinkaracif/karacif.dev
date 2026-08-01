@@ -1,0 +1,49 @@
+<svg viewBox="0 0 1600 900" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The context window as a shared budget">
+  <rect width="1600" height="900" fill="#FAFAF8"/>
+
+  <g font-family="Inter, system-ui, sans-serif">
+    <text x="800" y="110" font-size="34" font-weight="800" text-anchor="middle" fill="#18181B">The Context Window Is a Budget</text>
+    <text x="800" y="150" font-size="20" text-anchor="middle" fill="#A16207">~100,000 tokens, split across every source the model sees</text>
+
+    <!-- the big budget bar -->
+    <rect x="120" y="220" width="1360" height="110" rx="14" fill="none" stroke="#18181B" stroke-width="3"/>
+    <rect x="126" y="226" width="200" height="98" fill="#18181B"/>
+    <rect x="326" y="226" width="360" height="98" fill="#EAB308"/>
+    <rect x="686" y="226" width="230" height="98" fill="#A16207"/>
+    <rect x="916" y="226" width="230" height="98" fill="#18181B" opacity="0.3"/>
+    <rect x="1146" y="226" width="180" height="98" fill="#18181B" opacity="0.12"/>
+    <rect x="1326" y="226" width="148" height="98" fill="none" stroke="#18181B" stroke-width="2" stroke-dasharray="4,6"/>
+
+    <!-- labels below with connector lines -->
+    <g font-size="18" fill="#18181B">
+      <line x1="226" y1="330" x2="226" y2="380" stroke="#18181B" stroke-width="2"/>
+      <text x="226" y="405" text-anchor="middle" font-weight="700">System Prompt</text>
+      <text x="226" y="430" text-anchor="middle" fill="#A16207">identity &amp; rules</text>
+
+      <line x1="506" y1="330" x2="506" y2="460" stroke="#18181B" stroke-width="2"/>
+      <text x="506" y="485" text-anchor="middle" font-weight="700">Retrieval (RAG)</text>
+      <text x="506" y="510" text-anchor="middle" fill="#A16207">smallest relevant set</text>
+
+      <line x1="801" y1="330" x2="801" y2="380" stroke="#18181B" stroke-width="2"/>
+      <text x="801" y="405" text-anchor="middle" font-weight="700">Memory</text>
+      <text x="801" y="430" text-anchor="middle" fill="#A16207">structured notes</text>
+
+      <line x1="1031" y1="330" x2="1031" y2="460" stroke="#18181B" stroke-width="2"/>
+      <text x="1031" y="485" text-anchor="middle" font-weight="700">Tool Outputs</text>
+      <text x="1031" y="510" text-anchor="middle" fill="#A16207">filtered fields only</text>
+
+      <line x1="1236" y1="330" x2="1236" y2="380" stroke="#18181B" stroke-width="2"/>
+      <text x="1236" y="405" text-anchor="middle" font-weight="700">Conversation</text>
+      <text x="1236" y="430" text-anchor="middle" fill="#A16207">recent + compacted</text>
+
+      <line x1="1400" y1="330" x2="1400" y2="460" stroke="#18181B" stroke-width="2"/>
+      <text x="1400" y="485" text-anchor="middle" font-weight="700">Headroom</text>
+      <text x="1400" y="510" text-anchor="middle" fill="#A16207">room to respond</text>
+    </g>
+
+    <!-- warning note -->
+    <rect x="220" y="620" width="1160" height="140" rx="14" fill="#FAFAF8" stroke="#A16207" stroke-width="2.5" stroke-dasharray="8,8"/>
+    <text x="800" y="675" font-size="24" font-weight="700" text-anchor="middle" fill="#18181B">More context is not automatically better context.</text>
+    <text x="800" y="712" font-size="18" text-anchor="middle" fill="#A16207">Every extra token competes for the model&#8217;s attention &#8212; spend the budget on purpose.</text>
+  </g>
+</svg>

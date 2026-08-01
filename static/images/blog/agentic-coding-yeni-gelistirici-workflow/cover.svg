@@ -1,0 +1,46 @@
+<svg viewBox="0 0 1600 900" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Agentic Coding: The Developer's New Workflow">
+  <rect width="1600" height="900" fill="#FAFAF8"/>
+
+  <!-- code bracket motif, top right -->
+  <text x="1520" y="230" font-family="Inter, system-ui, sans-serif" font-size="220" font-weight="800" fill="#EAB308" opacity="0.55" text-anchor="end">&lt;/&gt;</text>
+
+  <!-- Title -->
+  <text x="120" y="230" font-family="Inter, system-ui, sans-serif" font-size="88" font-weight="800" fill="#18181B">AGENTIC</text>
+  <text x="120" y="332" font-family="Inter, system-ui, sans-serif" font-size="88" font-weight="800" fill="#EAB308">CODING</text>
+  <text x="124" y="384" font-family="Inter, system-ui, sans-serif" font-size="30" font-weight="500" fill="#A16207">The Developer&#8217;s New Workflow</text>
+
+  <!-- illustration: circular loop of 4 nodes -->
+  <g font-family="Inter, system-ui, sans-serif">
+    <g transform="translate(800,650)">
+      <circle r="180" fill="none" stroke="#18181B" stroke-width="2.5" stroke-dasharray="2,10" opacity="0.5"/>
+
+      <!-- nodes at N, E, S, W -->
+      <circle cx="0" cy="-180" r="56" fill="#18181B"/>
+      <text x="0" y="-174" font-size="18" text-anchor="middle" fill="#FAFAF8" font-weight="700">PLAN</text>
+
+      <circle cx="180" cy="0" r="56" fill="#EAB308"/>
+      <text x="180" y="6" font-size="15" text-anchor="middle" fill="#18181B" font-weight="700">DELEGATE</text>
+
+      <circle cx="0" cy="180" r="56" fill="#18181B"/>
+      <text x="0" y="186" font-size="16" text-anchor="middle" fill="#FAFAF8" font-weight="700">REVIEW</text>
+
+      <circle cx="-180" cy="0" r="56" fill="#A16207"/>
+      <text x="-180" y="6" font-size="16" text-anchor="middle" fill="#FAFAF8" font-weight="700">VERIFY</text>
+
+      <!-- arrows around the loop -->
+      <path d="M 40 -168 A 180 180 0 0 1 168 -40" fill="none" stroke="#18181B" stroke-width="3" marker-end="url(#arrowc)"/>
+      <path d="M 168 40 A 180 180 0 0 1 40 168" fill="none" stroke="#18181B" stroke-width="3" marker-end="url(#arrowc)"/>
+      <path d="M -40 168 A 180 180 0 0 1 -168 40" fill="none" stroke="#18181B" stroke-width="3" marker-end="url(#arrowc)"/>
+      <path d="M -168 -40 A 180 180 0 0 1 -40 -168" fill="none" stroke="#18181B" stroke-width="3" marker-end="url(#arrowc)"/>
+    </g>
+  </g>
+
+  <defs>
+    <marker id="arrowc" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#18181B"/>
+    </marker>
+  </defs>
+
+  <rect x="120" y="800" width="80" height="6" fill="#18181B"/>
+  <text x="120" y="850" font-family="Inter, system-ui, sans-serif" font-size="24" fill="#18181B" opacity="0.6">huseyinkaracif.com</text>
+</svg>
