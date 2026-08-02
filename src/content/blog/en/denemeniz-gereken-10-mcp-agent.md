@@ -6,7 +6,7 @@ date: "2025-06-29"
 category: "AI"
 excerpt: "I tried over 100 MCP agents. Here are the 10 that actually change your daily workflow, and why."
 readTime: "8"
-coverImage: "/images/blog/denemeniz-gereken-10-mcp-agent/img-01.png"
+coverImage: "/images/blog/denemeniz-gereken-10-mcp-agent/img-01.webp"
 mediumUrl: "https://medium.com/@hsynkrcf/yapay-zeka-ile-devrim-denemeniz-gereken-10-mcp-agent-c51e7655c4c7"
 tags: ["ai", "mcp-server", "software-development", "programming", "technology"]
 ---
@@ -14,7 +14,7 @@ The **Model Context Protocol (MCP)** is a creative playground built on **seamles
 
 #### These new open-source tools genuinely have me excited, friends! 😮
 
-![](/images/blog/denemeniz-gereken-10-mcp-agent/img-01.png)
+![](/images/blog/denemeniz-gereken-10-mcp-agent/img-01.webp)
 
 > Note: If you don't know what MCP is, the article below will get you up to speed.
 
@@ -22,7 +22,7 @@ The **Model Context Protocol (MCP)** is a creative playground built on **seamles
 
 I recommend a platform I like to call the **(MCP HUB)** — [**smithery.ai**](https://smithery.ai/) — which brings together **MCP Agents** and makes it easy for developers to find and use whichever tool they need. Go take a look, seriously 🙏
 
-![Smithery.AI](/images/blog/denemeniz-gereken-10-mcp-agent/img-02.png)
+![Smithery.AI](/images/blog/denemeniz-gereken-10-mcp-agent/img-02.webp)
 *Smithery.AI*
 
 I've gathered up the standouts from everything I've tried and experienced. Let's take a quick look at **the top 10 MCP servers**;
