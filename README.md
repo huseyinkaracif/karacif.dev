@@ -19,4 +19,10 @@ npm install
 npm run develop
 ```
 
+After adding a new post, regenerate social share cards:
+
+```bash
+node scripts/generate-og-cards.js
+```
+
 © Hüseyin Karacif. All rights reserved.
