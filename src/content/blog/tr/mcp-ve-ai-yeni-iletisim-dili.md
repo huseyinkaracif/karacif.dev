@@ -6,13 +6,13 @@ date: "2025-06-24"
 category: "Yapay Zeka"
 excerpt: "MCP, yapay zekanın dış dünyaya bağlanmasını sağlayan ortak dil. USB-C analojisinden akıllı ev senaryosuna, MCP'nin ne olduğu ve neden önemli olduğu."
 readTime: "6"
-coverImage: "/images/blog/mcp-ve-ai-yeni-iletisim-dili/img-01.png"
+coverImage: "/images/blog/mcp-ve-ai-yeni-iletisim-dili/img-01.webp"
 mediumUrl: "https://medium.com/@hsynkrcf/mcp-ve-ai-ak%C4%B1ll%C4%B1-sistemlerin-yeni-i%CC%87leti%C5%9Fim-dili-b93d06db1848"
 tags: ["programming", "technology", "data-science", "mcp-server", "artificial-intelligence"]
 ---
 Yapay zekanın dış dünya ile etkileşim kurma ihtiyacı, günümüzün en büyük teknolojik zorluklarından biriydi. Ta ki **Model Context Protocol (MCP)** gelene kadar. **MCP**, akıllı sistemlerin sadece **“düşünmesini”** değil, aynı zamanda dış dünyaya **“bağlanmasını”** ve **“eyleme geçmesini”** mümkün kılıyor. Bu yeni iletişim diliyle **Skynet** gerçeğe bir adım daha yaklaşıyor 🤖
 
-![](/images/blog/mcp-ve-ai-yeni-iletisim-dili/img-01.png)
+![](/images/blog/mcp-ve-ai-yeni-iletisim-dili/img-01.webp)
 
 #### Akıllı Ama Biraz “Saf” Dostlarımız
 
@@ -39,7 +39,7 @@ Bu analoji neden bu kadar iyi?
 -   **Standarttır:** Nasıl ki USB-C ile telefonunuzu, laptop’ınızı, kulaklığınızı aynı kabloyla şarj edebiliyorsanız, MCP de yapay zekanın farklı araçlara **(hava durumu, akıllı lamba, takviminiz, veritabanı)** aynı standart dille bağlanmasını hedefler. Her bir araç için ayrı bir “tercüman” tutmak zorunda kalmaz.
 -   **Çift Yönlüdür:** USB-C sadece güç vermekle kalmaz, aynı zamanda veri de aktarır. MCP de tam olarak bunu yapar. Sadece komut göndermez, aynı zamanda dış dünyadan ve araçlardan gelen bilgiyi **(yani bağlamı)** da alır.
 
-![MCP looks likes USB-C but for AI applications by Norah Sakal](/images/blog/mcp-ve-ai-yeni-iletisim-dili/img-02.png)
+![MCP looks likes USB-C but for AI applications by Norah Sakal](/images/blog/mcp-ve-ai-yeni-iletisim-dili/img-02.webp)
 *MCP looks likes USB-C but for AI applications by Norah Sakal*
 
 Ama ben bu analojiyi bir adım ileri taşımak istiyorum: **MCP** sadece o **“giriş portu”** değil, aynı zamanda o porta takılan **akıllı bir kablodur.** Bu kablo, üzerinden geçen verinin **ne** olduğunu, **neden** gönderildiğini ve **ne kadar** önemli olduğunu fısıldar.
@@ -56,7 +56,7 @@ Ama ben bu analojiyi bir adım ileri taşımak istiyorum: **MCP** sadece o **“
 
 > **Çıkış Bağlamı (Şimdi Ne Yapmalı?):** Merkezi yapay zeka bu zengin dedikodu paketini alır almaz durumu anlar. Niyetin **“ışıkları açmak”** olduğunu çözer. Ama hangi ışık? İşte burada MCP’nin **“USB-C”** yüzü devreye girer. **Yapay zeka**, elindeki araçlara **(akıllı lambalar, müzik sistemi vb.)** MCP üzerinden bağlanır:
 
-![Created with ImageFX by Labs.Google](/images/blog/mcp-ve-ai-yeni-iletisim-dili/img-03.png)
+![Created with ImageFX by Labs.Google](/images/blog/mcp-ve-ai-yeni-iletisim-dili/img-03.webp)
 *Created with ImageFX by Labs.Google*
 
 -   *“Hey* ***Philips Hue API****’si, Hüseyin’in* ***‘Akşam Keyfi’*** *diye bir sahnesi vardı. Onu çalıştırır mısın?* ***Oturma odası lambasını %50 sıcak sarı yap.****”*
@@ -78,7 +78,7 @@ MCP gibi bir yaklaşımın yaygınlaşması, hayatımızdaki teknolojiyi kökten
 
 **Model Context Protocol (MCP)**, yapay zekanın çevresel bağlamlara erişimini mümkün kılarak onu daha **etkileşimli ve bilinçli** hale getirir. Farklı kaynaklardan **(e-posta, takvim, dosyalar vb.)** gelen bilgileri bir araya getirerek, yapay zeka sistemlerinin kullanıcıyla daha anlamlı ve kişisel düzeyde etkileşim kurmasını sağlar. **MCP** sayesinde, yapay zeka artık **yalnızca veriyle değil, bağlamla da konuşur** — bu da onu sadece yanıtlayan değil, **anlayan bir yardımcıya dönüştürür.**
 
-![Model Context Protocol, as I call it, is the arms of the octopus called Artificial Intelligence. (Hüseyin Karacif)](/images/blog/mcp-ve-ai-yeni-iletisim-dili/img-04.png)
+![Model Context Protocol, as I call it, is the arms of the octopus called Artificial Intelligence. (Hüseyin Karacif)](/images/blog/mcp-ve-ai-yeni-iletisim-dili/img-04.webp)
 *Model Context Protocol, as I call it, is the arms of the octopus called Artificial Intelligence. (Hüseyin Karacif)*
 
 ### **Bana göre MCP, Yapay Zeka denilen ahtapotun kollarıdır. — Hüseyin Karacif**

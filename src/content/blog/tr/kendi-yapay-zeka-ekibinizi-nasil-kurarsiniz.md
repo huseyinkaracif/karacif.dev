@@ -6,11 +6,11 @@ date: "2026-01-14"
 category: "Yapay Zeka"
 excerpt: "Tek bir modele her işi yaptırmak yerine uzmanlaşmış yapay zeka ajanlarından bir ekip kurmak: Agent Orchestration'ın mantığı, mimarisi ve pratik kurulumu."
 readTime: "8"
-coverImage: "/images/blog/kendi-yapay-zeka-ekibinizi-nasil-kurarsiniz/img-01.png"
+coverImage: "/images/blog/kendi-yapay-zeka-ekibinizi-nasil-kurarsiniz/img-01.webp"
 mediumUrl: "https://medium.com/@hsynkrcf/kendi-yapay-zeka-ekibinizi-agent-orchestration-nas%C4%B1l-kurars%C4%B1n%C4%B1z-795fb65055ae"
 tags: ["programming", "ai", "ai-agent", "artificial-intelligence", "technology"]
 ---
-![](/images/blog/kendi-yapay-zeka-ekibinizi-nasil-kurarsiniz/img-01.png)
+![](/images/blog/kendi-yapay-zeka-ekibinizi-nasil-kurarsiniz/img-01.webp)
 
 Hepimiz bu anı en az bir kez yaşamışızdır: Claude’ye veya benzeri bir modele karmaşık, çok adımlı bir iş verirsiniz. Başta her şey yolunda gibidir, ancak konuşma uzadıkça model “unutmaya” başlar, **yani bağlamı (context) kaybeder** veya en kötüsü; kendinden çok emin bir şekilde yanlış bilgiler uydurur. (buna kibarca **“halüsinasyon”** diyoruz) [(ai-hallucination)](https://en.wikipedia.org/wiki/Hallucination_\(artificial_intelligence\))
 
@@ -24,7 +24,7 @@ Hepimiz bu anı en az bir kez yaşamışızdır: Claude’ye veya benzeri bir mo
 
 Kendince karar alabilen, eylemler gerçekleştiren otonom yapay zekalar düşünün. **Ajan (Agent)** kavramı, bu beyne “eller ve ayaklar” (araçlar/tools) vererek onun aksiyon almasını sağlamaktır.
 
-![](/images/blog/kendi-yapay-zeka-ekibinizi-nasil-kurarsiniz/img-02.jpg)
+![](/images/blog/kendi-yapay-zeka-ekibinizi-nasil-kurarsiniz/img-02.webp)
 
 **Ajan Orkestrasyonu**, tek bir ajanın yeteneklerinin ötesine geçip, birden fazla ajanın ortak bir hedefe ulaşmak için koordineli çalışmasıdır.
 
@@ -46,7 +46,7 @@ Bunu bir **İnşaat Sahası** metaforuyla açıklayabiliriz:
 
 Piyasada bu işi yapan devasa araçlar var. Hangisini seçeceğiniz size ve aklınızdaki fikrin karmaşıklığına bağladırı. Ben bir çok kaynağı toplayıp AI tarafından ince ele, sık doku mantığı ile aşağıya bir tablo bırakıyorum.
 
-![Made By AI with My Infos](/images/blog/kendi-yapay-zeka-ekibinizi-nasil-kurarsiniz/img-03.png)
+![Made By AI with My Infos](/images/blog/kendi-yapay-zeka-ekibinizi-nasil-kurarsiniz/img-03.webp)
 *Made By AI with My Infos*
 
 ### Özet Geç Hüseyin: Hangisini Seçmeliyim?
@@ -80,14 +80,14 @@ Bunu bir dergi-makale ofisi gibi düşünün. Üç tane çalışanı olsun:
 -   **Yazar Ajan:** Araştırmacının getirdiği verileri alır, akıcı bir metne dönüştürür. Doğruluk kontrolü yapmaz, sadece “yazar”.
 -   **Editör Ajan:** Yazılan metni alır, imla hatalarını düzeltir ve yayınlanacak hale getirir.
 
-![Github üzerinden proje’ye erişip ayağa kaldırabilirsiniz. (Örnek Orchestration Projem)](/images/blog/kendi-yapay-zeka-ekibinizi-nasil-kurarsiniz/img-04.png)
+![Github üzerinden proje’ye erişip ayağa kaldırabilirsiniz. (Örnek Orchestration Projem)](/images/blog/kendi-yapay-zeka-ekibinizi-nasil-kurarsiniz/img-04.webp)
 *Github üzerinden proje’ye erişip ayağa kaldırabilirsiniz. (Örnek Orchestration Projem)*
 
 Yukarıdaki uygulamayı hızlıca hayata geçirdim. Sizde projeyi forklayıp localde çalıştırıp deneyebilirsiniz gayet güzel sonuçlar veriyor. 🙏
 
 [GitHub - huseyinkaracif/ai-blog-team](https://github.com/huseyinkaracif/ai-blog-team)
 
-<a href="https://medium.com/media/672dfbbb5f89856c2fadd21f572e2471/href">https://medium.com/media/672dfbbb5f89856c2fadd21f572e2471/href</a>
+🎥 [Örnek uygulamanın videosunu izleyin (YouTube)](https://youtu.be/VDGG3Lf2RKo)
 
 ### Sahne Arkasında Neler Oldu?
 
@@ -126,7 +126,7 @@ Bir yazılım ekibini yönetirken Jira veya Trello kullanırsınız. **Peki ya d
 -   [**LangSmith:**](https://www.langchain.com/langsmith/observability) LangChain ekibinin geliştirdiği, ajanların “beyninin içine” bakmanızı sağlayan araç. Hatanın hangi adımda olduğunu (Trace) saniyesi saniyesine gösterir.
 -   [**Automaker:**](https://automaker.app/) Sektör hızla “Koddan Arayüze” kayıyor. Geliştiriciler artık ajanları terminalden değil, **Automaker** gibi AI odaklı arayüzlerden veya **Kanban** panoları üzerinden (Trello kartı sürükler gibi görev atayarak) yönetmeye başlıyor. Bu, teknik olmayan PM’lerin de yapay zeka ekiplerini yönetebileceği bir geleceğin habercisi.
 
-![Agent Orchestration & Development & Observability](/images/blog/kendi-yapay-zeka-ekibinizi-nasil-kurarsiniz/img-06.jpg)
+![Agent Orchestration & Development & Observability](/images/blog/kendi-yapay-zeka-ekibinizi-nasil-kurarsiniz/img-06.webp)
 *Agent Orchestration & Development & Observability*
 
 ### Sonuç

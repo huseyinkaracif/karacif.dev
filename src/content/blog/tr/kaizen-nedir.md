@@ -6,13 +6,13 @@ date: "2023-03-04"
 category: "Kişisel Gelişim"
 excerpt: "Küçük ama sürekli iyileştirmelerle büyük değişim: Japon Kaizen felsefesinin hayata ve işe uygulanışı."
 readTime: "3"
-coverImage: "/images/blog/kaizen-nedir/img-01.jpg"
+coverImage: "/images/blog/kaizen-nedir/img-01.webp"
 mediumUrl: "https://medium.com/@hsynkrcf/kaizen-nedir-kaizen-felsefesi-ne-anlat%C4%B1r-30eb8b4d1dba"
 tags: ["kişisel-gelişim", "self-improvement", "personal-development"]
 ---
 Bugün sizlere Japonya’da popüler olan ve hayatımızın bir parçası olabilecek bir Japon Felsefesi ‘**Kaizen**’ hakkında bilgi vereceğim.
 
-![](/images/blog/kaizen-nedir/img-01.jpg)
+![](/images/blog/kaizen-nedir/img-01.webp)
 
 ### Kaizen Nedir?
 
@@ -32,7 +32,7 @@ ABD’li uzmanlar, üretim odaklı bir mekanikleşmenin insan doğasına aykır�
 
 **İşte bu felsefe ‘Kaizen’di.**
 
-![](/images/blog/kaizen-nedir/img-02.jpg)
+![](/images/blog/kaizen-nedir/img-02.webp)
 
 ### **Kaizen Felsefesinin İlkeleri Nelerdir?**
 
@@ -80,7 +80,7 @@ Her gün sayfalarca yazı yazmak yerine günlük 2 satır yazın. Bu satırlara 
 
 Kaizen Felsefesi’nde **PUKÖ** döngü sistemine göre hareket edilmeye çalışılır. İyileştirme faaliyetlerini gerçekleştirmek, sonuçlarını kontrol etmek ve ilerlemenin kalıcı olması için yapılan bir faaliyettir. Dört adımdan oluşur.
 
-![](/images/blog/kaizen-nedir/img-03.jpg)
+![](/images/blog/kaizen-nedir/img-03.webp)
 
 **Planla:** Bu kısımda hedefler, planlar ve ekipler belirlenir. Hedefler belirlenirken büyük hedefler yerine küçük hedefler tercih edilmelidir. Bir problemin fark edilmesi, mevcut durum analiz edilmesi ve iyileştirme planı için veri toplanır.
 
