@@ -3,6 +3,7 @@ import { Link } from "gatsby";
 import { translations } from "../translations";
 import { ROUTES } from "../i18n/routes";
 import Controls from "./Controls";
+import Search from "./Search";
 
 const SOCIALS = (
   <>
@@ -68,12 +69,15 @@ export default function Layout({ lang = "tr", active, altPath, showProgress = fa
           <Link className="text-2xl font-black tracking-tighter text-on-background hover:text-primary transition-colors font-headline" to={r.home}>
             Karacif.dev
           </Link>
-          <div className="hidden md:flex items-center gap-8 font-headline font-bold tracking-tight">
-            <Link className={navLink("home")} to={r.home}>{t.nav.home}</Link>
-            <Link className={navLink("projects")} to={r.projects}>{t.nav.projects}</Link>
-            <Link className={navLink("blog")} to={r.blog}>{t.nav.blog}</Link>
-            <a className="text-on-surface-variant hover:text-on-background transition-colors" href="https://github.com/huseyinkaracif" target="_blank" rel="noopener noreferrer">GitHub</a>
-            <a className="text-on-surface-variant hover:text-on-background transition-colors" href="https://www.linkedin.com/in/huseyin-karacif" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          <div className="flex items-center gap-3 md:gap-8">
+            <div className="hidden md:flex items-center gap-8 font-headline font-bold tracking-tight">
+              <Link className={navLink("home")} to={r.home}>{t.nav.home}</Link>
+              <Link className={navLink("projects")} to={r.projects}>{t.nav.projects}</Link>
+              <Link className={navLink("blog")} to={r.blog}>{t.nav.blog}</Link>
+              <a className="text-on-surface-variant hover:text-on-background transition-colors" href="https://github.com/huseyinkaracif" target="_blank" rel="noopener noreferrer">GitHub</a>
+              <a className="text-on-surface-variant hover:text-on-background transition-colors" href="https://www.linkedin.com/in/huseyin-karacif" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            </div>
+            <Search lang={lang} />
           </div>
         </div>
       </nav>
