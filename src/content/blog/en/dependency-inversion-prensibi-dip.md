@@ -6,13 +6,13 @@ date: "2023-01-13"
 category: "Engineering"
 excerpt: "Minimize coupling between classes: high-level classes should depend on abstractions, not on details."
 readTime: "4"
-coverImage: "/images/blog/dependency-inversion-prensibi-dip/img-01.png"
+coverImage: "/images/blog/dependency-inversion-prensibi-dip/img-01.webp"
 mediumUrl: "https://medium.com/@hsynkrcf/dependency-inversion-prensibi-dip-solid-ca05721c9059"
 tags: ["software-development", "dependency-inversion", "solid"]
 ---
 **The principle that pushes us to minimize coupling between classes. Changes made to a low-level class should never affect the high-level ones.**
 
-![Dependency Inversion Software Principle](/images/blog/dependency-inversion-prensibi-dip/img-01.png)
+![Dependency Inversion Software Principle](/images/blog/dependency-inversion-prensibi-dip/img-01.webp)
 *Dependency Inversion Software Principle*
 
 **Dependency Inversion**, in short, is built on the idea that coupling between classes should be kept to a minimum, and that dependencies should be built through **interfaces** rather than concrete classes. In other words, our goal is for the details to depend on our abstractions — not the other way around.
@@ -21,7 +21,7 @@ tags: ["software-development", "dependency-inversion", "solid"]
 
 > Robert C. Martin (Uncle Bob)
 
-![](/images/blog/dependency-inversion-prensibi-dip/img-02.png)
+![](/images/blog/dependency-inversion-prensibi-dip/img-02.webp)
 
 **Dependency Inversion** is the fifth and final design principle in this series. Notice something? Every single one of these principles carries the same underlying logic. Our goal is always to lower the cost of a project, make future additions easier, and boost readability and flexibility.
 
@@ -51,7 +51,7 @@ So, we sort of have a restaurant now, but doesn't something feel off? Our restau
 
 That, my friends, violates the **Dependency Inversion Principle**.
 
-![The high-level class depends on the low-level class.](/images/blog/dependency-inversion-prensibi-dip/img-03.png)
+![The high-level class depends on the low-level class.](/images/blog/dependency-inversion-prensibi-dip/img-03.webp)
 *The high-level class depends on the low-level class.*
 
 #### So what should we do?
@@ -87,14 +87,14 @@ And let's adapt our Restaurant class to match, and we're done.
 -   We decoupled the dependency and brought it in line with DIP.
 -   We made the code reusable and more flexible.
 
-![By abstracting through an interface, we inverted the high-level class's dependency.](/images/blog/dependency-inversion-prensibi-dip/img-04.png)
+![By abstracting through an interface, we inverted the high-level class's dependency.](/images/blog/dependency-inversion-prensibi-dip/img-04.webp)
 *By abstracting through an interface, we inverted the high-level class's dependency.*
 
 #### A Useful Bit of Extra Context
 
 Friends, these terms can get confusing sometimes — I run into this a lot myself while researching. So I felt it was worth adding a bit of extra clarity here.
 
-![The Dependency Warriors — IOC vs DI vs DIP](/images/blog/dependency-inversion-prensibi-dip/img-05.png)
+![The Dependency Warriors — IOC vs DI vs DIP](/images/blog/dependency-inversion-prensibi-dip/img-05.webp)
 *The Dependency Warriors — IOC vs DI vs DIP*
 
 The terms above are closely related, but they're not the same thing. For anyone curious, I'll leave you a great, clear resource: definitely check out [Martin Fowler](https://martinfowler.com/)'s article, [DIP in the Wild](https://martinfowler.com/articles/dipInTheWild.html#YouMeanDependencyInversionRight).

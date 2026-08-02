@@ -6,13 +6,13 @@ date: "2022-11-19"
 category: "Engineering"
 excerpt: "Small, purpose-built interfaces instead of one giant one: the logic behind ISP, with a worked example in C#."
 readTime: "3"
-coverImage: "/images/blog/interface-segregation-principle-isp/img-01.png"
+coverImage: "/images/blog/interface-segregation-principle-isp/img-01.webp"
 mediumUrl: "https://medium.com/@hsynkrcf/interface-segregation-principle-isp-solid-f70747d905dc"
 tags: ["solid", "interface-segregation", "software-development"]
 ---
 **Rather than **one giant interface** that covers every responsibility, prefer **several small, focused interfaces** built around specific groups of methods.**
 
-![Interface Segregation Software Principle](/images/blog/interface-segregation-principle-isp/img-01.png)
+![Interface Segregation Software Principle](/images/blog/interface-segregation-principle-isp/img-01.webp)
 *Interface Segregation Software Principle*
 
 **Interface Segregation**, in short, is the design principle that tells us not to implement interfaces containing **methods** or **properties** our objects don't actually need. Much like [SRP](/en/writing/single-responsibility-principle-srp/), the goal of the **Interface Segregation Principle** is to split software into multiple independent pieces, reducing both the side effects and the frequency of changes we're forced to make.
@@ -21,7 +21,7 @@ tags: ["solid", "interface-segregation", "software-development"]
 
 As a project grows, **interface** classes tend to pick up more and more responsibilities. Over time, all those newly loaded responsibilities make these interfaces balloon into something unwieldy and hard to control.
 
-![](/images/blog/interface-segregation-principle-isp/img-02.png)
+![](/images/blog/interface-segregation-principle-isp/img-02.webp)
 
 To build genuinely sustainable projects, we have to be careful about how we use **interfaces**. That care is exactly what protects us from the complexity that a poorly implemented interface can create.
 
@@ -29,7 +29,7 @@ Let's work through an example to make this click — we always use phones as exa
 
 Say we have three kinds of animals, and one **Interface** that provides all their features.
 
-![Without ISP](/images/blog/interface-segregation-principle-isp/img-03.png)
+![Without ISP](/images/blog/interface-segregation-principle-isp/img-03.webp)
 *Without ISP*
 
 As you can see, we gave all our animals their features through a single interface.
@@ -46,7 +46,7 @@ Let's get to it right away!
 
 > *Note: interfaces usually take an "I" prefix and an "-able" suffix.*
 
-![With ISP](/images/blog/interface-segregation-principle-isp/img-04.png)
+![With ISP](/images/blog/interface-segregation-principle-isp/img-04.webp)
 *With ISP*
 
 As you can see, we created three new **Interfaces** and inherited them into the right classes. A dog can walk, but it can't fly, right? And finally, all of them still connect back to a **base** **IAnimal** Interface, because every animal eats and sleeps!
@@ -55,7 +55,7 @@ We don't even need more code — it's all pretty self-explanatory, isn't it? **I
 
 Doing it this way — where you never end up writing a method or feature nobody needs — turns out to be extremely useful when you circle back to the code later.
 
-![Happy Ending :)](/images/blog/interface-segregation-principle-isp/img-05.png)
+![Happy Ending :)](/images/blog/interface-segregation-principle-isp/img-05.webp)
 *Happy Ending :)*
 
 #### SUMMARY
