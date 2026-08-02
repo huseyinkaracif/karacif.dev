@@ -6,13 +6,13 @@ date: "2023-03-04"
 category: "Personal Growth"
 excerpt: "Big change through small, continuous improvement: how the Japanese Kaizen philosophy applies to life and work."
 readTime: "3"
-coverImage: "/images/blog/kaizen-nedir/img-01.jpg"
+coverImage: "/images/blog/kaizen-nedir/img-01.webp"
 mediumUrl: "https://medium.com/@hsynkrcf/kaizen-nedir-kaizen-felsefesi-ne-anlat%C4%B1r-30eb8b4d1dba"
 tags: ["kişisel-gelişim", "self-improvement", "personal-development"]
 ---
 Today I want to tell you about a Japanese philosophy that's popular in Japan and that can genuinely become part of your life too: **Kaizen**.
 
-![](/images/blog/kaizen-nedir/img-01.jpg)
+![](/images/blog/kaizen-nedir/img-01.webp)
 
 ### What is Kaizen?
 
@@ -32,7 +32,7 @@ The American experts realized that a purely mechanized, production-obsessed appr
 
 **That philosophy was Kaizen.**
 
-![](/images/blog/kaizen-nedir/img-02.jpg)
+![](/images/blog/kaizen-nedir/img-02.webp)
 
 ### **What Are the Principles of the Kaizen Philosophy?**
 
@@ -80,7 +80,7 @@ Instead of writing pages every day, write two lines. Add one more line the next 
 
 The Kaizen philosophy tries to operate according to the **PDCA** cycle. It's how you carry out improvement efforts, check the results, and make sure that progress actually sticks. It has four steps.
 
-![](/images/blog/kaizen-nedir/img-03.jpg)
+![](/images/blog/kaizen-nedir/img-03.webp)
 
 **Plan:** This is where goals, plans, and teams get defined. When setting goals, favor small goals over big ones. You notice a problem, analyze the current situation, and gather the data you need for an improvement plan.
 
