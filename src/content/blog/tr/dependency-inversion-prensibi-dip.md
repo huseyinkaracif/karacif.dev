@@ -6,13 +6,13 @@ date: "2023-01-13"
 category: "Mühendislik"
 excerpt: "Sınıflar arası bağımlılığı en aza indirin: üst sınıflar detaylara değil, soyutlamalara bağımlı olmalı."
 readTime: "4"
-coverImage: "/images/blog/dependency-inversion-prensibi-dip/img-01.png"
+coverImage: "/images/blog/dependency-inversion-prensibi-dip/img-01.webp"
 mediumUrl: "https://medium.com/@hsynkrcf/dependency-inversion-prensibi-dip-solid-ca05721c9059"
 tags: ["software-development", "dependency-inversion", "solid"]
 ---
 **Sınıflar arası bağımlılığın en aza indirgenmesini öneren prensiptir. Alt sınıfta yapılan değişiklikler üst sınıfları etkilememelidir.**
 
-![Dependency Inversion Yazılım Prensibi](/images/blog/dependency-inversion-prensibi-dip/img-01.png)
+![Dependency Inversion Yazılım Prensibi](/images/blog/dependency-inversion-prensibi-dip/img-01.webp)
 *Dependency Inversion Yazılım Prensibi*
 
 **Dependency Inversion (Bağımlılığın Tersine Çevrilmesi),** kısaca sınıflar arası bağımlılıkların minimal seviyeye indirgenmesi ve bağımlılıkların sınıflar ile değil **arayüzler (interface)** ile kurulması gerektiğine dayanır. Yani amacımız soyutlamaları detaylara değil aksine detayları soyutlamalarımıza bağlı olmasıdır.
@@ -21,7 +21,7 @@ tags: ["software-development", "dependency-inversion", "solid"]
 
 > Robert C.Martin (Uncle Bob)
 
-![](/images/blog/dependency-inversion-prensibi-dip/img-02.png)
+![](/images/blog/dependency-inversion-prensibi-dip/img-02.webp)
 
 **Dependency Inversion**, bu dizide tartıştığımız beşinci ve son tasarım prensibidir. Dikkat ediyorsanız tüm prensiplerimiz aynı mantığı taşıyor değil mi ? Amacımız projelerdeki maliyeti düşürmek, sonradan eklemeleri kolaylaştırmak, okunabilirliği ve esnekliği arttırmaktır.
 
@@ -49,7 +49,7 @@ public class Restaurant{      public void Prepare(){      Kebab kebab = new Keba
 İyi kötü bir restoranımız var ama sanki bir şeyler yanlış değil mi ? Restoranımız yemeklere bağımlı bir halde, kendisi yüksek seviyeli fakat yemeklerde bir değişiklik yaparsak etkilenecektir. Yani menümüzü değiştirirsek restoran sınıfımızda değişiklik yapmak zorundayız 😢  
 Bu durum **Dependency Inversion Prensibi**’ne aykırıdır dostlarım.
 
-![Üst sınıf, alt sınıfa bağlıdır.](/images/blog/dependency-inversion-prensibi-dip/img-03.png)
+![Üst sınıf, alt sınıfa bağlıdır.](/images/blog/dependency-inversion-prensibi-dip/img-03.webp)
 *Üst sınıf, alt sınıfa bağlıdır.*
 
 #### Ne yapmalıyız ?
@@ -85,14 +85,14 @@ Restoran sınıfımızıda buna uyarlayıp, bitiriyoruz.
 -   Bağımlılığı ayrıştırıp, DIP’e uygun hale getirdik.
 -   Kodu tekrar kullanılabilir yapıp, esnekliği artırdık.
 
-![Interface ile soyutlaştırarak, üst seviyeli sınıfın bağımlılığını tersine çevirdik.](/images/blog/dependency-inversion-prensibi-dip/img-04.png)
+![Interface ile soyutlaştırarak, üst seviyeli sınıfın bağımlılığını tersine çevirdik.](/images/blog/dependency-inversion-prensibi-dip/img-04.webp)
 *Interface ile soyutlaştırarak, üst seviyeli sınıfın bağımlılığını tersine çevirdik.*
 
 #### Yararlı Ek Bilgi
 
 Dostlarım bazen terimler kafa karıştırıcı olabiliyor. Araştırma yaparken bende çokca buna maruz kalıyorum. O yüzden güzel bir ek bilgi ihtiyacı hissettim.
 
-![Bağımlılık Savaşcıları — IOC vs DI vs DIP](/images/blog/dependency-inversion-prensibi-dip/img-05.png)
+![Bağımlılık Savaşcıları — IOC vs DI vs DIP](/images/blog/dependency-inversion-prensibi-dip/img-05.webp)
 *Bağımlılık Savaşcıları — IOC vs DI vs DIP*
 
 Yukarıdaki terimler birbirine çok yakın olsalar bile birbirlerinden farklıdırlar. Merak edenlere güzel ve açıklayıcı bir kaynak bırakıyorum. [Martin Fowler](https://martinfowler.com/)’in [DIP in the Wild](https://martinfowler.com/articles/dipInTheWild.html#YouMeanDependencyInversionRight) makalesine mutlaka göz gezdirin.

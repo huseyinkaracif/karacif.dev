@@ -6,13 +6,13 @@ date: "2022-11-19"
 category: "Mühendislik"
 excerpt: "Tek dev arayüz yerine ihtiyaca özel küçük arayüzler: ISP'nin mantığı ve C# üzerinde örnek uygulaması."
 readTime: "3"
-coverImage: "/images/blog/interface-segregation-principle-isp/img-01.png"
+coverImage: "/images/blog/interface-segregation-principle-isp/img-01.webp"
 mediumUrl: "https://medium.com/@hsynkrcf/interface-segregation-principle-isp-solid-f70747d905dc"
 tags: ["solid", "interface-segregation", "software-development"]
 ---
 **Tüm sorumlulukları kapsayan **tek bir arayüz** kullanmak yerine, metod gruplarına hizmet veren özelleştirilmiş **birkaç arayüz** tercih edilmelidir.**
 
-![Interface Segregation Yazılım Prensibi](/images/blog/interface-segregation-principle-isp/img-01.png)
+![Interface Segregation Yazılım Prensibi](/images/blog/interface-segregation-principle-isp/img-01.webp)
 *Interface Segregation Yazılım Prensibi*
 
 **Interface Segregation** (**Arayüz Ayrımı**), kısaca nesnelerin ihtiyaç duymadıkları **metot** veya **property** içeren interface’leri implement **etmememizi** söyleyen tasarım prensibidir. [SRP](/yazilar/single-responsibility-principle-srp/)’ye benzer şekilde, **Arayüz Ayırma** **Prensibinin** amacı, yazılımı birden çok bağımsız parçaya bölerek gerekli değişikliklerin yan etkilerini ve sıklığını azaltmaktır.
@@ -21,7 +21,7 @@ tags: ["solid", "interface-segregation", "software-development"]
 
 Projemiz büyürken birden fazla sorumluluğu olan **Interface**(Arayüz) sınıflar oluşur. Zaman içinde yüklenen yeni sorumluluklarla bu interface sınıflar çok büyür ve kontrol edilemez bir hale gelebilir.
 
-![](/images/blog/interface-segregation-principle-isp/img-02.png)
+![](/images/blog/interface-segregation-principle-isp/img-02.webp)
 
 Gerçekten sürdürülebilir projeler geliştirebilmek için **arayüzleri** (interface) dikkatli kullanmamız gerekiyor. Bu sayede nesne yönetimimizi kolaylaştırması için kullanmamız gereken interface’in hatalı uygulamalar nedeniyle ortaya çıkartacağı olası karmaşıklıkların önüne geçebiliriz.
 
@@ -29,7 +29,7 @@ Hadi bir örnek ile daha iyi anlayalım, sürekli telefon ile örnek veriyoruz, 
 
 Şöyle ki, elimizde üç çeşit hayvan cinsimiz var. Hepsinin özelliğini sağlayacak bir **Interface**’imiz var.
 
-![Without ISP](/images/blog/interface-segregation-principle-isp/img-03.png)
+![Without ISP](/images/blog/interface-segregation-principle-isp/img-03.webp)
 *Without ISP*
 
 Gördüğünüz gibi tek Interface ile hayvanlarımıza özelliklerini verdik.
@@ -46,7 +46,7 @@ O zaman hemen işe koyulalım!
 
 > *Not: Interface’ler genelde başlarında I takısı ve sonunda -able takısı almaktadır.*
 
-![With ISP](/images/blog/interface-segregation-principle-isp/img-04.png)
+![With ISP](/images/blog/interface-segregation-principle-isp/img-04.webp)
 *With ISP*
 
 Gördüğünüz gibi 3 yeni **Interface** oluşturduk. Sonrasında gerekli sınıflarımıza kalıtım sağladık. Köpek yürüyebilir ama uçamaz değil mi ?Son olarak hepsi **base** olan **IAnimal** Interface’ine bağlı çünkü tüm hayvanlar yemek yer ve uyur!
@@ -55,7 +55,7 @@ Kod yazmamıza gerek yok, herşey açık ortada değil mi ? **Interface Segrega
 
 Bu sayede gereksiz metot veya işlev yazılmadan dönüp bir bakmak, oldukça faydalı ve kullanışlı olabilir.
 
-![Happy Ending :)](/images/blog/interface-segregation-principle-isp/img-05.png)
+![Happy Ending :)](/images/blog/interface-segregation-principle-isp/img-05.webp)
 *Happy Ending :)*
 
 #### ÖZET

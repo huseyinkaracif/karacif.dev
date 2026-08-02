@@ -6,7 +6,7 @@ date: "2025-06-29"
 category: "Yapay Zeka"
 excerpt: "100'den fazla MCP agent denedim; günlük iş akışınızı gerçekten değiştiren 10 tanesini seçip nedenleriyle anlattım."
 readTime: "8"
-coverImage: "/images/blog/denemeniz-gereken-10-mcp-agent/img-01.png"
+coverImage: "/images/blog/denemeniz-gereken-10-mcp-agent/img-01.webp"
 mediumUrl: "https://medium.com/@hsynkrcf/yapay-zeka-ile-devrim-denemeniz-gereken-10-mcp-agent-c51e7655c4c7"
 tags: ["ai", "mcp-server", "software-development", "programming", "technology"]
 ---
@@ -14,7 +14,7 @@ tags: ["ai", "mcp-server", "software-development", "programming", "technology"]
 
 #### Bu açık kaynaklı yeni araçlar beni heyecanlandırıyor arkadaşlar! 😮
 
-![](/images/blog/denemeniz-gereken-10-mcp-agent/img-01.png)
+![](/images/blog/denemeniz-gereken-10-mcp-agent/img-01.webp)
 
 > Not: MCP’nin ne olduğunu bilmiyorsanız, alttaki yazım sizi aydınlatacaktır.
 
@@ -22,7 +22,7 @@ tags: ["ai", "mcp-server", "software-development", "programming", "technology"]
 
 **MCP Agentları** bünyesinde toplayan ve geliştiricilerin kolayca istediği aracı bulup kullanmasını kolaylaştıran, kısaca **(MCP HUB)** diye tanımladığım [**smithery.ai**](https://smithery.ai/) platformunu öneriyorum. Buraya göz gezdiriniz efenim 🙏
 
-![Smithery.AI](/images/blog/denemeniz-gereken-10-mcp-agent/img-02.png)
+![Smithery.AI](/images/blog/denemeniz-gereken-10-mcp-agent/img-02.webp)
 *Smithery.AI*
 
 Deneyimlediğim ve tecrübe edindiğim tüm araçların konstanre olanlarını sizler için topladım. **En iyi 10 MCP sunucusuna** hızlıca bir göz atalım;
