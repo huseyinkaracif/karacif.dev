@@ -6,11 +6,11 @@ date: "2022-11-06"
 category: "Mühendislik"
 excerpt: "Her sınıf ve metot tek bir sorumluluk taşımalı: SRP ile okunabilir ve sürdürülebilir kod."
 readTime: "3"
-coverImage: "/images/blog/single-responsibility-principle-srp/img-01.png"
+coverImage: "/images/blog/single-responsibility-principle-srp/img-01.webp"
 mediumUrl: "https://medium.com/@hsynkrcf/single-responsibility-prensibi-srp-solid-148cbc91b4c5"
 tags: []
 ---
-![Tek Sorumluluk Yazılım Prensibi](/images/blog/single-responsibility-principle-srp/img-01.png)
+![Tek Sorumluluk Yazılım Prensibi](/images/blog/single-responsibility-principle-srp/img-01.webp)
 *Tek Sorumluluk Yazılım Prensibi*
 
 **Single Responsibility Principle** (**Tek Sorumluluk Prensibi**), bağımlılık yönetiminin kötü olmasından kaynaklanan **sabit** (tekrar kullanılamayan) ve **kırılgan** (değişikliğin farklı yerleri etkilemesi) kodu daha modüler hale getirmeye yardımcı olmayı amaçlamaktadır.
@@ -19,13 +19,13 @@ Bob Amca der ki; [**Aynı nedenle değişenleri bir araya toplayın ve farklı n
 
 Sınıfımız ne kadar çok sorumluluk yüklenirse, o kadar fazla değişime uğramak zorunda kalır. Böylece ufak bir güncellemenin bile maliyeti katlanarak artar ve kod parçalarımız değişime direnmeye başlar.
 
-![Single Responsibility Prensibi (SRP) — SOLID](/images/blog/single-responsibility-principle-srp/img-02.png)
+![Single Responsibility Prensibi (SRP) — SOLID](/images/blog/single-responsibility-principle-srp/img-02.webp)
 
 Bizim amacımız “çalışıyorsa hiç dokunmayalım” konuşmasını yapmadan **sorumluluklarımızı azaltıp, değişime kolay adapte olmayı sağlamaktır.**
 
 Peki bu aslında ne anlama geliyor ? Aşağıdaki örneği ele alalım.
 
-![Single Responsibility Prensibi (SRP) — SOLID](/images/blog/single-responsibility-principle-srp/img-03.png)
+![Single Responsibility Prensibi (SRP) — SOLID](/images/blog/single-responsibility-principle-srp/img-03.webp)
 ```
 public class Fatura{     public void FaturaEkle()     {        // İş Kuralları     }     public void FaturaSil()     {        // İş Kuralları     }     public void RaporHazirla()     {        // İş Kuralları     }     public void EmailGonder()     {        // İş Kuralları     }}
 ```
@@ -42,8 +42,8 @@ RaporHazirla() ve EmailGonder() metodları için tamamen bağımsız ve farklı 
 
 O zaman hemen düzeltiyoruz!
 
-![Single Responsibility Prensibi (SRP) — SOLID](/images/blog/single-responsibility-principle-srp/img-04.png)
-![Single Responsibility Prensibi (SRP) — SOLID](/images/blog/single-responsibility-principle-srp/img-05.png)
+![Single Responsibility Prensibi (SRP) — SOLID](/images/blog/single-responsibility-principle-srp/img-04.webp)
+![Single Responsibility Prensibi (SRP) — SOLID](/images/blog/single-responsibility-principle-srp/img-05.webp)
 ```
 public class Fatura{     public void FaturaEkle()     {         // İş Kuralları     }          public void FaturaSil()     {         // İş Kuralları     }}public class Rapor{     public void RaporHazirla()     {         // İş Kuralları     }}   public class Email{     public void EmailGonder()     {         // İş Kuralları     }}
 ```

@@ -6,13 +6,13 @@ date: "2024-03-09"
 category: "Kişisel Gelişim"
 excerpt: "İyi öğrenenler değil, iyi uygulayanlar başarır. Zamanı bir yatırım aracı olarak yönetmek için pratik notlar."
 readTime: "9"
-coverImage: "/images/blog/zaman-yonetimi/img-01.png"
+coverImage: "/images/blog/zaman-yonetimi/img-01.webp"
 mediumUrl: "https://medium.com/@hsynkrcf/zaman-y%C3%B6netimi-ki%C5%9Fisel-geli%C5%9Fim-ceeaa44789d5"
 tags: ["education", "self-improvement", "time-management", "life"]
 ---
 İyi Öğrenenler Değil, İyi Uygulayanlar Başarır!
 
-![](/images/blog/zaman-yonetimi/img-01.png)
+![](/images/blog/zaman-yonetimi/img-01.webp)
 
 Bu makaleyi kendi zamanımı yönetmek istediğim için aldığım notlardan yola çıkarak yazdım. Umarım size de bir faydası olur. ❤
 
@@ -22,7 +22,7 @@ Bir kurs’a kayıt olduk veya bir ders çalışıyoruz. Beklentilerimizi ve biz
 
 Zaman yönetiminde planlamanın önemi çok büyüktür. Beyninize planı yedirebilirseniz zamanı algılamanız daha olası olacaktır. Bu sebep ile **dikkat becerilerimiz** aktifleşir ve **zaman yönetimini** yapmış oluruz.
 
-![via Genç Motto](/images/blog/zaman-yonetimi/img-02.png)
+![via Genç Motto](/images/blog/zaman-yonetimi/img-02.webp)
 *via Genç Motto*
 
 #### Aktivasyon Enerjisi (Striatum)
@@ -33,7 +33,7 @@ Bir olayın ve işin başlaması için gerekli **yüksek tetikleme enerjisidir.*
 
 > **İş size tehlikeli görünür. Beyin kendini korur ve size iş için izin vermez.**
 
-![Jack Dorsey (Twitter X Kurucusu) Haftalık Plan Örneği](/images/blog/zaman-yonetimi/img-03.png)
+![Jack Dorsey (Twitter X Kurucusu) Haftalık Plan Örneği](/images/blog/zaman-yonetimi/img-03.webp)
 *Jack Dorsey (Twitter X Kurucusu) Haftalık Plan Örneği*
 
 **Planlama** aktivasyon enerjisi için önünüzü görmenizi sağlar. İyi bir planlama ile aktivasyon enerjisini yakalamamıza yardımcı olur.
@@ -50,7 +50,7 @@ Bir olayın ve işin başlaması için gerekli **yüksek tetikleme enerjisidir.*
 -   Yapmanız gereken işin son tarihi uzaktaysa, beyin kendini korur buna şuan **efor** sarf etmeyi reddeder.
 -   Bir işi bitirmek **duygusal rahatlama** sağlar. Uzun işleriniz olduğunda onları bölün ve tek tek bitirin.
 
-![via Parkinson Yasası — Pierre Pichère](/images/blog/zaman-yonetimi/img-04.png)
+![via Parkinson Yasası — Pierre Pichère](/images/blog/zaman-yonetimi/img-04.webp)
 *via Parkinson Yasası — Pierre Pichère*
 
 Bu yasayı uygulamak için yapılacak işleri bölüp hedef adımları ile başlanması gerekir. Her gün için küçük parçaya böldükten sonra her gün yapmamız beklenir. Eğer yapamaz isek gerçekten istemediğimiz bir cezayı kendimize vermemiz işi yapmamız için teşvik eder.
@@ -69,7 +69,7 @@ Bu yasayı uygularken kendinize istemediğiniz bir şeyi ceza olarak verirseniz.
 
 Aşağıdaki fotoğraftan aslında daha net anlaşılabilir bu teknik verim konusunda size yardımcı olabilir. Yalnız tek kural ile; **mola zamanlarınızda sosyal medya veya farklı işlerden uzak durmalısınız.** Yürümek, uzanmak beyninizi ve vücudunuz dinlendirmek önemlidir.
 
-![via Boğaziçi Üniversitesi](/images/blog/zaman-yonetimi/img-05.png)
+![via Boğaziçi Üniversitesi](/images/blog/zaman-yonetimi/img-05.webp)
 *via Boğaziçi Üniversitesi*
 
 [En Etkili Zaman Yönetimi Teknikleri](https://istanbulbogazicienstitu.com/zaman-yonetimi-teknikleri-nelerdir)
@@ -98,14 +98,14 @@ Hedefimize yönelik başkalarının katılması bizi de motive eder. Sınırlar�
 
 > **İşleri Önem Sırasına ve Aciliyetine Göre Sıralamak — Eisenhower Matrisi**
 
-![via Boğaziçi Üniversitesi](/images/blog/zaman-yonetimi/img-06.png)
+![via Boğaziçi Üniversitesi](/images/blog/zaman-yonetimi/img-06.webp)
 *via Boğaziçi Üniversitesi*
 
 #### Takvim (Planlamamıza Yardımcı Olur)
 
 Takvime bakarak işlerimize ve son tarihleri görmek önümüzü görmemizi sağlar ve kafamızda neyi ne zaman yapacağımız hakkında fikir oluşur. **Son tarihleri hatırlatır beyninize ekstra hatırlama yükünü ortadan kaldırır.**
 
-![via Google Calendar](/images/blog/zaman-yonetimi/img-07.png)
+![via Google Calendar](/images/blog/zaman-yonetimi/img-07.webp)
 *via Google Calendar*
 
 Takvimler son tarihleri ve rutinleri girmek için çok verimlidir. Aksamayacak bir düzeniniz yok ise her işi takvime girmek bir işi aksattığınızda tüm planı aksatabilir. **Büyük işler ve rutin işleri girmek faydalıdır.**
@@ -114,7 +114,7 @@ Takvimler son tarihleri ve rutinleri girmek için çok verimlidir. Aksamayacak b
 
 Aklımıza gelen fikirleri ve genel olarak öğrendiğimiz şeyleri not almak **esktra eforu engelleyip beynimizi rahatlatıcaktır**. Bu sayede korku ve stresi kontrol altına alabiliriz. Notlarımızı düzgün ve düzenli bir şekilde tutmak ilerde bizi rahatlatıcaktır.
 
-![Notlarımızı Tekrarlamak İçin Örnek Program (ANKİ)](/images/blog/zaman-yonetimi/img-08.png)
+![Notlarımızı Tekrarlamak İçin Örnek Program (ANKİ)](/images/blog/zaman-yonetimi/img-08.webp)
 *Notlarımızı Tekrarlamak İçin Örnek Program (ANKİ)*
 
 > ***Düzenli kaydedilen bilgiler, düzenli takip edilir. Muhteşem 3’lü bize bunu sağlıyor. Aklınızda Bulunsun***🙂
@@ -123,7 +123,7 @@ Aklımıza gelen fikirleri ve genel olarak öğrendiğimiz şeyleri not almak **
 
 Belli bir rutin oluşturarak modumuzu yükseltip, her gün aynı saatte kalkıp aynı işleri yapmak, beynimizin ve vücudumuzun bizi destekmesine neden olur. Hepsini birden yapmak yerine sıra sıra tekrarlamak gerekir.
 
-![via Habits — Garrett Petticrew](/images/blog/zaman-yonetimi/img-09.png)
+![via Habits — Garrett Petticrew](/images/blog/zaman-yonetimi/img-09.webp)
 *via Habits — Garrett Petticrew*
 
 **Alışkanlık oluşturmak zordur. Başlarda zor gelir ve Süreklilik ister fakat bir kere yapabilirsek kazançlı çıkabiliriz.**

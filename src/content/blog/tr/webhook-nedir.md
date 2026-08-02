@@ -6,13 +6,13 @@ date: "2025-01-17"
 category: "Mühendislik"
 excerpt: "İki sistem arasında gerçek zamanlı iletişimi sağlayan sessiz kahraman: Webhook'un çalışma mantığı, kullanım alanları ve API'lerden farkı."
 readTime: "3"
-coverImage: "/images/blog/webhook-nedir/img-01.png"
+coverImage: "/images/blog/webhook-nedir/img-01.webp"
 mediumUrl: "https://medium.com/@hsynkrcf/entegrasyonun-vazge%C3%A7ilmezi-webhook-nedir-1eaacad9aa0d"
 tags: ["javascript", "development", "software-development", "webhooks"]
 ---
 **Teknoloji dünyasında** birçok terimle karşılaşıyoruz, fakat bazıları var ki adeta **sessiz kahramanlar** gibi. İşte **Webhook**’lar da tam olarak böyle bir kavram. Peki, **Webhook** nedir ve neden bu kadar önemli?
 
-![](/images/blog/webhook-nedir/img-01.png)
+![](/images/blog/webhook-nedir/img-01.webp)
 
 **Webhook**’lar, iki sistem arasında gerçek zamanlı iletişimi sağlayan otomatik bildirim mekanizmalarıdır. Basitçe açıklamam gerekirse, bir uygulamanın diğerine **“Hey, burada bir şeyler oldu, haberdar olmalısın!”** demesinin modern yoludur.
 
@@ -36,7 +36,7 @@ Büyük şirketlerden örnek uygulamaları aşağıda görebilirsiniz. Webhook�
 -   **Jenkins**’te otomatik build tetikleme, CI/CD için.
 -   Proje yönetiminde kolaylıklar **Jira**’da oto task güncelleme
 
-![Github WebHook Events](/images/blog/webhook-nedir/img-02.png)
+![Github WebHook Events](/images/blog/webhook-nedir/img-02.webp)
 *Github WebHook Events*
 
 [**Stripe**](https://docs.stripe.com/api/webhook_endpoints)**,** [**Paypal**](https://developer.paypal.com/api/rest/webhooks/)**,** [**Shopify**](https://shopify.dev/docs/api/webhooks?reference=toml)
@@ -48,7 +48,7 @@ Büyük şirketlerden örnek uygulamaları aşağıda görebilirsiniz. Webhook�
 -   **Shopify** — Stok güncellemelerinin tedarikçilere anlık iletimi
 -   **Shopify** — Yeni sipariş oluştuğunda kargo firmasına otomatik bildirim
 
-![Stripe, Paypal, Shopify Webhook Events](/images/blog/webhook-nedir/img-03.png)
+![Stripe, Paypal, Shopify Webhook Events](/images/blog/webhook-nedir/img-03.webp)
 *Stripe, Paypal, Shopify Webhook Events*
 
 [**Instagram**](https://developers.facebook.com/docs/messenger-platform/instagram/features/webhook/)
@@ -56,7 +56,7 @@ Büyük şirketlerden örnek uygulamaları aşağıda görebilirsiniz. Webhook�
 -   Yeni bir fotoğraf paylaşıldığında **Facebook’ta** otomatik paylaşım
 -   İşletme hesaplarında etkileşim analizlerinin **CRM** sistemlerine aktarımı
 
-![Instagram Webhook Events](/images/blog/webhook-nedir/img-04.png)
+![Instagram Webhook Events](/images/blog/webhook-nedir/img-04.webp)
 *Instagram Webhook Events*
 
 [**Slack Webhook Events**](https://api.slack.com/automation/triggers/webhook)
@@ -66,7 +66,7 @@ Büyük şirketlerden örnek uygulamaları aşağıda görebilirsiniz. Webhook�
 -   Takım içi iletişimde diğer uygulamalardan gelen bildirimlerin entegrasyonu
 -   Trello, Jira gibi proje yönetim araçlarıyla anlık senkronizasyon
 
-![Slack Webhook Events](/images/blog/webhook-nedir/img-05.png)
+![Slack Webhook Events](/images/blog/webhook-nedir/img-05.webp)
 *Slack Webhook Events*
 
 [**Incoming:**](https://slack.com/marketplace/A0F7XDUAZ-incoming-webhooks) Dış sistemlerden bildirim göndermek için
@@ -81,11 +81,60 @@ Büyük şirketlerden örnek uygulamaları aşağıda görebilirsiniz. Webhook�
 
 Javascript kullanarak ufak bir webhook örneği ile öğrendiklerimiz veya hatırladığımız bilgilerimizin pekişmesi için;
 
-<a href="https://medium.com/media/15dd0d06cc900abc1048749df96abb48/href">https://medium.com/media/15dd0d06cc900abc1048749df96abb48/href</a>
+```javascript
+const express = require('express');
+const app = express();
+
+app.use(express.json());
+
+app.post('/webhook', (req, res) => {
+    try {
+        const webhookData = req.body;
+        
+        console.log('Webhook verisi alındı:', webhookData);
+        
+        res.status(200).json({
+            durum: 'başarılı',
+            mesaj: 'Webhook verisi alındı'
+        });
+    } catch (hata) {
+        res.status(500).json({
+            durum: 'hata',
+            mesaj: hata.message
+        });
+    }
+});
+
+// Sunucuyu başlatıp dinliyoruz...
+const PORT = 3000;
+app.listen(PORT, () => {
+    console.log(`Sunucu ${PORT} portunda çalışıyor`);
+});
+```
 
 Bir **server** oluşturduk, **webhook** endpointini dinleyecek gelen **post** isteklerini işleyip **json** bir mesaj dönecek şekilde yazdık.
 
-<a href="https://medium.com/media/305ea728f69f8b955b98899dda054c37/href">https://medium.com/media/305ea728f69f8b955b98899dda054c37/href</a>
+```javascript
+const axios = require('axios');
+
+const test = {
+    olay: 'new_order',
+    sipariş_id: '12345',
+    müşteri: 'Hüseyin Karacif',
+    tutar: 150.99
+};
+
+async function webhookSend() {
+    try {
+        const response = await axios.post('http://localhost:3000/webhook', test);
+        console.log('Webhook yanıtı:', response.data);
+    } catch (err) {
+        console.error('Webhook hatası:', err.message);
+    }
+}
+
+webhookSend();
+```
 
 Burada **axios** yeni siparişimizi **http isteği** ile **webhook’a** iletir. Sunucudan gelen yanıtı konsola yazdırıyoruz. Burada gelen siparişi anlık bildirim ile sunucuya göndermeyi test ettik.
 

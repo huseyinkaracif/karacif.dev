@@ -6,7 +6,7 @@ date: "2025-06-16"
 category: "Mimari"
 excerpt: "Katmanlı mimariye taze bir alternatif: her özelliği kendi dikey dilimi içinde uçtan uca ele alan Vertical Slice Architecture."
 readTime: "6"
-coverImage: "/images/blog/vertical-slice-architecture/img-01.png"
+coverImage: "/images/blog/vertical-slice-architecture/img-01.webp"
 mediumUrl: "https://medium.com/@hsynkrcf/her-dilim-bir-%C3%B6zellik-vertical-slice-architecture-ile-mikro-yakla%C5%9F%C4%B1m-8daeeae4c17d"
 tags: ["architecture", "clean-code", "vertical-slice", "development", "software"]
 ---
@@ -14,7 +14,7 @@ tags: ["architecture", "clean-code", "vertical-slice", "development", "software"
 
 İşte tam bu noktada birisi sadeliğiyle ve işlevselliğiyle diğerlerinden ayrılıyor. Karşınızda **Dikey Dilim Mimarisi (Vertical Slice Architecture)**. Peki, bu **mimari** neyi farklı yapıyor ve neden gün geçtikçe **daha fazla tercih** ediliyor?
 
-![Vertical Slice Architecture (VSA)](/images/blog/vertical-slice-architecture/img-01.png)
+![Vertical Slice Architecture (VSA)](/images/blog/vertical-slice-architecture/img-01.webp)
 *Vertical Slice Architecture (VSA)*
 
 ### Vertical Slice Architecture (Dikey Dilim Mimarisi) Nedir? Önce Bir Anlayalım
@@ -29,7 +29,7 @@ Geleneksel yazılım mimarilerinde genellikle katmanlı bir yapı görürüz. En
 
 **Dikey Dilim Mimarisi** ise şöyle der: Bir özelliği, kullanıcı arayüzünden başlayıp veritabanına kadar uzanan tek bir dikey dilim olarak düşün. Yani, **“sipariş gösterme”** özelliği kendi içinde bir mini uygulama gibi, **tüm katmanları dikey olarak keserek kendi yolunu çizer.**
 
-![Tiered vs Vertical Slice](/images/blog/vertical-slice-architecture/img-02.png)
+![Tiered vs Vertical Slice](/images/blog/vertical-slice-architecture/img-02.webp)
 *Tiered vs Vertical Slice*
 
 #### Sade Bir Örnekle Anlatılırsa
@@ -43,7 +43,7 @@ Geleneksel yazılım mimarilerinde genellikle katmanlı bir yapı görürüz. En
 
 Her slice kendi Request, Handler, Validation, Persistence, UI mantığını içerir. **Kısaca her katmandan sadece ilgili özelliğe ait parçaları içeren bir yapı.**
 
-![What is a slice?](/images/blog/vertical-slice-architecture/img-03.png)
+![What is a slice?](/images/blog/vertical-slice-architecture/img-03.webp)
 *What is a slice?*
 
 ### Neden Dikey Dilim Mimarisi Kullanılır? Avantajları Nelerdir?
@@ -72,7 +72,7 @@ Araştırmalarıma göre bu mimarinin popülerleşmesinin iyi sebepleri var; **B
 
 #### Aşağıya örnek bir “slice” (dilim) bırakıyorum. Kafanızda neye benzer tarzı soru oluşmasın. Mantığı oturtalım 🙏
 
-![An Example](/images/blog/vertical-slice-architecture/img-04.png)
+![An Example](/images/blog/vertical-slice-architecture/img-04.webp)
 *An Example*
 
 ### Vertical Slice vs Onion (Clean) Architecture
@@ -85,11 +85,61 @@ Arkadaşlar uzun uzadıya **Clean Architecture** ile ilgili bilgi vermem mümkü
 
 #### Uzun uzun yazmak yerine bir tabloda sizler için topladım: (Dürüstçe)
 
-<a href="https://medium.com/media/dcb7debcc8e0f45523914916526d5f5f/href">https://medium.com/media/dcb7debcc8e0f45523914916526d5f5f/href</a>
+```csv
+Kriter,🧩Vertical Slice Architecture (VSA),🧅Onion / Clean Architecture
+Yaklaşım Biçimi,Özellik (feature)-bazlı,"Katman (layer)-bazlı, merkezde domain"
+Kod Organizasyonu,Her özellik ayrı dosya/folder yapısında,"Katmanlara göre organize edilir (Domain, App, Infra, UI vs.)"
+Bağımlılık Yönü,Her slice kendi iç bağımlılıklarına sahiptir,Dış katmanlar iç katmanlara bağlıdır
+Test Edilebilirlik,Slice’lar bağımsız olduğu için kolay test edilebilir,Domain merkezi yapı test için güçlüdür
+Anlaşılabilirlik,Yeni başlayanlar için basit ve anlaşılır,Başlangıçta soyut ve öğrenmesi zor olabilir
+Değişiklik Etkisi,Bir slice değiştirmek diğerlerini etkilemez,Katmanlar arası değişiklikler zincirleme etki yaratabilir
+Uygulama Tipi için Uygunluk,Monolith ya da mikroservis öncesi yapılar,"Karmaşık, kurumsal, çok katmanlı sistemler"
+Domain’e Odak,İş mantığı slice içinde dağılmış olabilir,Domain model her şeyin merkezindedir
+Yeniden Kullanılabilirlik,Kod tekrarına açık olabilir,Domain logic katmanlarda tekrar kullanıma açık
+İlk Kurulum ve Maliyet,Hızlı ve düşük kurulum maliyeti,İlk kurulum maliyeti ve soyutlama yükü fazladır
+Ölçeklenebilirlik,Özellik bazlı ölçekleme kolay,Mimariyi genişletmek sabit ama yapılandırılmış
+Uygulama Akışı,UI → Request → Handler → Result (dikey),UI → App Layer → Domain → Infra (yatay)
+CQRS Uygunluğu,Yüksek — her slice kolayca CQRS ile uyarlanabilir,Uygulanabilir ama daha fazla katman ve karmaşa gerekir
+```
 
 Aşağıda her iki mimaride kullanılan sizler için ufakta olsa betimlemeye çalıştığım dosya yapısını görebilirsiniz.
 
-<a href="https://medium.com/media/07eeab5d049e58f825c8b8f33ec5c169/href">https://medium.com/media/07eeab5d049e58f825c8b8f33ec5c169/href</a>
+```markdown
+# Onion ve Vertical Slice Mimarisinin Dosya Yapıları
+
+## Onion Architecture
+```
+📦 /Domain
+├── 📄 Entities/User.cs
+├── 📄 Interfaces/IUserRepository.cs
+
+📦 /Application
+├── 📁 Users
+│   ├── 📄 Commands/RegisterUserCommand.cs
+│   ├── 📄 Handlers/RegisterUserHandler.cs
+│   ├── 📄 Validators/RegisterUserValidator.cs
+
+📦 /Infrastructure  
+├── 📁 Repositories
+│   ├── 📄 UserRepository.cs
+
+📦 /API
+├── 📁 Controllers
+│   ├── 📄 UserController.cs
+```
+
+---
+
+## Vertical Slice Architecture
+```
+📦 /Features
+├── 📁 Users
+│   ├── 📄 RegisterUser.cs
+│   ├── 📄 RegisterUserValidator.cs
+│   ├── 📄 RegisterUserHandler.cs
+│   ├── 📄 RegisterUserResponse.cs
+```
+```
 
 ### Hüseyin Hangi Senaryoda Hangisini Kullanmalıyım?
 

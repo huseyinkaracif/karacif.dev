@@ -6,11 +6,11 @@ date: "2022-11-10"
 category: "Mühendislik"
 excerpt: "Gelişime açık, değişime kapalı: mevcut kodu bozmadan yeni davranış eklemenin yolu."
 readTime: "4"
-coverImage: "/images/blog/open-closed-principle-ocp/img-01.png"
+coverImage: "/images/blog/open-closed-principle-ocp/img-01.webp"
 mediumUrl: "https://medium.com/@hsynkrcf/open-closed-principle-ocp-solid-bafb791a9a61"
 tags: []
 ---
-![Open/Closed Yazılım Prensibi](/images/blog/open-closed-principle-ocp/img-01.png)
+![Open/Closed Yazılım Prensibi](/images/blog/open-closed-principle-ocp/img-01.webp)
 *Open/Closed Yazılım Prensibi*
 
 **Open-Closed Principle** (**Açık / Kapalı Prensibi**), modüllerin (sınıflar, metodlar vb.) “genişletilmeye açık, ancak değiştirilmeye kapalı olması” gerektiğini söyleyen bir tasarım prensibidir. Bu prensip, gelecekte kolayca değiştirilebilen ve bakımı yapılabilen **esnek(**Extendability) yazılımların oluşturulmasına yardımcı olur.
@@ -19,7 +19,7 @@ tags: []
 
 **“Madem değişmeyen tek şey değişimin kendisi ise o zaman biz de bu değişimi “en düşük maliyetli” hale getirmeliyiz değil mi?”**
 
-![Open-Closed Principle (OCP) — SOLID](/images/blog/open-closed-principle-ocp/img-02.png)
+![Open-Closed Principle (OCP) — SOLID](/images/blog/open-closed-principle-ocp/img-02.webp)
 
 Özet olarak bu prensip, sürdürülebilir ve tekrar kullanılabilir yapıda kod yazmanın temelini oluşturur. Yani bizim amacımız **bir nesnenin davranışını değiştirmeden, ona yeni özellikler kazandırabiliyor olmalıyız.**
 
@@ -37,7 +37,7 @@ Artık üretime geçiyoruz arkadaşlar. “Program.cs” sınıfımızda aşağ�
 
 ### Örneğimizin Ekran Çıktısı
 
-![Open-Closed Principle (OCP) — SOLID](/images/blog/open-closed-principle-ocp/img-03.png)
+![Open-Closed Principle (OCP) — SOLID](/images/blog/open-closed-principle-ocp/img-03.webp)
 
 Evet fabrikamız artık işler halde çalışıyor. Peki biz yarın bir gün yeter artık Xiaomi çok satıyor onuda üretelim dedik. **Problem yok**, hemen işe koyulup diğerlerini nasıl yaptıysak, bunuda yaparız diye girişiyoruz.
 
@@ -46,11 +46,11 @@ Evet fabrikamız artık işler halde çalışıyor. Peki biz yarın bir gün yet
 3.  **PhoneFactory** sınıfımıza yeni markamızı ekleyip, **MakeXiaomi** adlı Xiaomi üreten metodumuzu yazıyoruz.
 4.  Evet son olarak,Main metodumuzda yeni telefonumuzun üretimi için gerekli çağrıyı yapıyoruz.
 
-![Open-Closed Principle (OCP) — SOLID](/images/blog/open-closed-principle-ocp/img-04.png)
+![Open-Closed Principle (OCP) — SOLID](/images/blog/open-closed-principle-ocp/img-04.webp)
 
 ### Örneğimizin Yeni Ekran Çıktısı
 
-![Open-Closed Principle (OCP) — SOLID](/images/blog/open-closed-principle-ocp/img-05.png)
+![Open-Closed Principle (OCP) — SOLID](/images/blog/open-closed-principle-ocp/img-05.webp)
 
 Yeni markamızı üretim bandına ekledik. 👏 Peki ama bir marka eklemek için dokunmadığımız sınıf, yapmadığımız şey kalmadı. Ancak tam 4 farklı adımda yapabildik. Bir gün Huawei üretmek istesek aynı işlemleri mi yapmamız gerekicek ? Prensip gelişime açık, değişime kapalı olmalı diyordu hani ?
 
@@ -66,11 +66,11 @@ Main metodumuzda diğer örnekte olduğu gibi aynı şekilde kullanmamız bizim 
 
 Biraz daha iyi geldi değil mi ? Hadi Huawei markamızı da fabrikamıza ekleyip globalleşmeye doğru yol alalım. Bakalım Xiaomi gibi bizi uğraştıracak mı 😅
 
-![Open-Closed Principle (OCP) — SOLID](/images/blog/open-closed-principle-ocp/img-06.png)
+![Open-Closed Principle (OCP) — SOLID](/images/blog/open-closed-principle-ocp/img-06.webp)
 
 ### Örneğimizin Son Örnek Çıktısı
 
-![Open-Closed Principle (OCP) — SOLID](/images/blog/open-closed-principle-ocp/img-07.png)
+![Open-Closed Principle (OCP) — SOLID](/images/blog/open-closed-principle-ocp/img-07.webp)
 
 ### İşte bu kadar!
 

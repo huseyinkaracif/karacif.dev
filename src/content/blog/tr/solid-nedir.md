@@ -6,7 +6,7 @@ date: "2022-10-17"
 category: "Mühendislik"
 excerpt: "İş ilanlarında aranan, mülakatlarda sorulan ama çoğu zaman önemsenmeyen beş prensip: SOLID'e genel bakış."
 readTime: "3"
-coverImage: "/images/blog/solid-nedir/img-01.jpg"
+coverImage: "/images/blog/solid-nedir/img-01.webp"
 mediumUrl: "https://medium.com/@hsynkrcf/solid-nedir-solid-prensipleri-nelerdir-74b89a99479e"
 tags: []
 ---
@@ -16,7 +16,7 @@ tags: []
 
 **S.O.L.I.D, yazılım geliştirirken sürdürülebilir, ölçeklenebilir, test edilebilir ve yeniden kullanılabilir kod yazmamızı sağlayan prensipler bütünüdür.**
 
-![Solid Tasarım Prensipleri](/images/blog/solid-nedir/img-01.jpg)
+![Solid Tasarım Prensipleri](/images/blog/solid-nedir/img-01.webp)
 *Solid Tasarım Prensipleri*
 
 Kısaca prensiplerden bahsedeyim;
@@ -47,7 +47,7 @@ Değişiklik veya yeni özellik istekleri yazılım geliştirmenin bir parçası
 
 Peki burada suçlu kim? Açıkçası, uygulamanın tasarımıdır.
 
-![SOLID Nedir ? Solid Prensipleri Nelerdir ?](/images/blog/solid-nedir/img-02.jpg)
+![SOLID Nedir ? Solid Prensipleri Nelerdir ?](/images/blog/solid-nedir/img-02.webp)
 
 ## **SOLID Tasarım** Prensiplerinin **Avantajları**
 
