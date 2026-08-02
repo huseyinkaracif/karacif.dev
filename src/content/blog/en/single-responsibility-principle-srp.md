@@ -6,11 +6,11 @@ date: "2022-11-06"
 category: "Engineering"
 excerpt: "Every class and method should carry exactly one responsibility: writing readable, maintainable code with SRP."
 readTime: "3"
-coverImage: "/images/blog/single-responsibility-principle-srp/img-01.png"
+coverImage: "/images/blog/single-responsibility-principle-srp/img-01.webp"
 mediumUrl: "https://medium.com/@hsynkrcf/single-responsibility-prensibi-srp-solid-148cbc91b4c5"
 tags: []
 ---
-![Single Responsibility Software Principle](/images/blog/single-responsibility-principle-srp/img-01.png)
+![Single Responsibility Software Principle](/images/blog/single-responsibility-principle-srp/img-01.webp)
 *Single Responsibility Software Principle*
 
 The **Single Responsibility Principle** aims to make code — which becomes **rigid** (impossible to reuse) and **fragile** (a change in one place breaks something else) when dependency management goes wrong — more modular.
@@ -19,13 +19,13 @@ As Uncle Bob puts it: [**gather together the things that change for the same rea
 
 The more responsibilities we pile onto a class, the more often it has to change. And that means even a tiny update ends up costing more and more, until our code starts actively resisting change.
 
-![Single Responsibility Principle (SRP) — SOLID](/images/blog/single-responsibility-principle-srp/img-02.png)
+![Single Responsibility Principle (SRP) — SOLID](/images/blog/single-responsibility-principle-srp/img-02.webp)
 
 Our goal isn't to shrug and say "it works, don't touch it" — it's to **shrink our responsibilities down so the code can adapt to change easily.**
 
 So what does that actually mean in practice? Let's look at an example.
 
-![Single Responsibility Principle (SRP) — SOLID](/images/blog/single-responsibility-principle-srp/img-03.png)
+![Single Responsibility Principle (SRP) — SOLID](/images/blog/single-responsibility-principle-srp/img-03.webp)
 ```
 public class Fatura{     public void FaturaEkle()     {        // İş Kuralları     }     public void FaturaSil()     {        // İş Kuralları     }     public void RaporHazirla()     {        // İş Kuralları     }     public void EmailGonder()     {        // İş Kuralları     }}
 ```
@@ -42,8 +42,8 @@ Since `FaturaEkle()` and `FaturaSil()` deal with the same kind of functionality,
 
 Let's fix it right now!
 
-![Single Responsibility Principle (SRP) — SOLID](/images/blog/single-responsibility-principle-srp/img-04.png)
-![Single Responsibility Principle (SRP) — SOLID](/images/blog/single-responsibility-principle-srp/img-05.png)
+![Single Responsibility Principle (SRP) — SOLID](/images/blog/single-responsibility-principle-srp/img-04.webp)
+![Single Responsibility Principle (SRP) — SOLID](/images/blog/single-responsibility-principle-srp/img-05.webp)
 ```
 public class Fatura{     public void FaturaEkle()     {         // İş Kuralları     }          public void FaturaSil()     {         // İş Kuralları     }}public class Rapor{     public void RaporHazirla()     {         // İş Kuralları     }}   public class Email{     public void EmailGonder()     {         // İş Kuralları     }}
 ```

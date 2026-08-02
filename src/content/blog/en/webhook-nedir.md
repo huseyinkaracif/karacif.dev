@@ -6,13 +6,13 @@ date: "2025-01-17"
 category: "Engineering"
 excerpt: "The silent hero that enables real-time communication between two systems: how webhooks work, where they're used, and how they differ from APIs."
 readTime: "3"
-coverImage: "/images/blog/webhook-nedir/img-01.png"
+coverImage: "/images/blog/webhook-nedir/img-01.webp"
 mediumUrl: "https://medium.com/@hsynkrcf/entegrasyonun-vazge%C3%A7ilmezi-webhook-nedir-1eaacad9aa0d"
 tags: ["javascript", "development", "software-development", "webhooks"]
 ---
 **In the world of technology** we run into a lot of terms, but some of them are basically **silent heroes**. **Webhooks** are exactly that kind of concept. So what is a **Webhook**, and why does it matter so much?
 
-![](/images/blog/webhook-nedir/img-01.png)
+![](/images/blog/webhook-nedir/img-01.webp)
 
 **Webhooks** are automated notification mechanisms that enable real-time communication between two systems. Put simply, they're the modern way for one application to tell another, **"Hey, something just happened here, you should know about it!"**
 
@@ -36,7 +36,7 @@ You can see example implementations from big companies below. Webhooks are every
 -   Triggering automatic builds in **Jenkins**, for CI/CD.
 -   Making project management easier — auto-updating tasks in **Jira**
 
-![Github WebHook Events](/images/blog/webhook-nedir/img-02.png)
+![Github WebHook Events](/images/blog/webhook-nedir/img-02.webp)
 *Github WebHook Events*
 
 [**Stripe**](https://docs.stripe.com/api/webhook_endpoints)**,** [**Paypal**](https://developer.paypal.com/api/rest/webhooks/)**,** [**Shopify**](https://shopify.dev/docs/api/webhooks?reference=toml)
@@ -48,7 +48,7 @@ You can see example implementations from big companies below. Webhooks are every
 -   **Shopify** — Instantly relaying stock updates to suppliers
 -   **Shopify** — Automatically notifying the shipping company when a new order is created
 
-![Stripe, Paypal, Shopify Webhook Events](/images/blog/webhook-nedir/img-03.png)
+![Stripe, Paypal, Shopify Webhook Events](/images/blog/webhook-nedir/img-03.webp)
 *Stripe, Paypal, Shopify Webhook Events*
 
 [**Instagram**](https://developers.facebook.com/docs/messenger-platform/instagram/features/webhook/)
@@ -56,7 +56,7 @@ You can see example implementations from big companies below. Webhooks are every
 -   Automatically cross-posting to **Facebook** when a new photo is shared
 -   Feeding engagement analytics from business accounts into **CRM** systems
 
-![Instagram Webhook Events](/images/blog/webhook-nedir/img-04.png)
+![Instagram Webhook Events](/images/blog/webhook-nedir/img-04.webp)
 *Instagram Webhook Events*
 
 [**Slack Webhook Events**](https://api.slack.com/automation/triggers/webhook)
@@ -66,7 +66,7 @@ When people think of **webhooks**, one of the first big companies that comes to 
 -   Integrating notifications from other apps into team communication
 -   Real-time syncing with project management tools like Trello and Jira
 
-![Slack Webhook Events](/images/blog/webhook-nedir/img-05.png)
+![Slack Webhook Events](/images/blog/webhook-nedir/img-05.webp)
 *Slack Webhook Events*
 
 [**Incoming:**](https://slack.com/marketplace/A0F7XDUAZ-incoming-webhooks) For sending notifications from external systems
@@ -81,11 +81,60 @@ When people think of **webhooks**, one of the first big companies that comes to 
 
 Here's a small webhook example in JavaScript, to reinforce what we've learned — or remembered;
 
-<a href="https://medium.com/media/15dd0d06cc900abc1048749df96abb48/href">https://medium.com/media/15dd0d06cc900abc1048749df96abb48/href</a>
+```javascript
+const express = require('express');
+const app = express();
+
+app.use(express.json());
+
+app.post('/webhook', (req, res) => {
+    try {
+        const webhookData = req.body;
+        
+        console.log('Webhook verisi alındı:', webhookData);
+        
+        res.status(200).json({
+            durum: 'başarılı',
+            mesaj: 'Webhook verisi alındı'
+        });
+    } catch (hata) {
+        res.status(500).json({
+            durum: 'hata',
+            mesaj: hata.message
+        });
+    }
+});
+
+// Sunucuyu başlatıp dinliyoruz...
+const PORT = 3000;
+app.listen(PORT, () => {
+    console.log(`Sunucu ${PORT} portunda çalışıyor`);
+});
+```
 
 We set up a **server**, wrote it to listen on the webhook endpoint, process incoming **POST** requests, and return a **json** message.
 
-<a href="https://medium.com/media/305ea728f69f8b955b98899dda054c37/href">https://medium.com/media/305ea728f69f8b955b98899dda054c37/href</a>
+```javascript
+const axios = require('axios');
+
+const test = {
+    olay: 'new_order',
+    sipariş_id: '12345',
+    müşteri: 'Hüseyin Karacif',
+    tutar: 150.99
+};
+
+async function webhookSend() {
+    try {
+        const response = await axios.post('http://localhost:3000/webhook', test);
+        console.log('Webhook yanıtı:', response.data);
+    } catch (err) {
+        console.error('Webhook hatası:', err.message);
+    }
+}
+
+webhookSend();
+```
 
 Here, **axios** delivers our new order to the **webhook** via an **HTTP request**. We log the server's response to the console. This is us testing sending a new order to the server via a real-time notification.
 

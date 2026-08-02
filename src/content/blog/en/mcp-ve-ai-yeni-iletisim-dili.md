@@ -6,13 +6,13 @@ date: "2025-06-24"
 category: "AI"
 excerpt: "MCP is the common language that lets AI connect to the outside world. From the USB-C analogy to a smart home scenario: what MCP is and why it matters."
 readTime: "6"
-coverImage: "/images/blog/mcp-ve-ai-yeni-iletisim-dili/img-01.png"
+coverImage: "/images/blog/mcp-ve-ai-yeni-iletisim-dili/img-01.webp"
 mediumUrl: "https://medium.com/@hsynkrcf/mcp-ve-ai-ak%C4%B1ll%C4%B1-sistemlerin-yeni-i%CC%87leti%C5%9Fim-dili-b93d06db1848"
 tags: ["programming", "technology", "data-science", "mcp-server", "artificial-intelligence"]
 ---
 AI's need to interact with the outside world has been one of the biggest technological challenges of our time. That is, until the **Model Context Protocol (MCP)** came along. **MCP** doesn't just let smart systems **"think"** — it lets them **"connect"** to the outside world and **"take action."** With this new communication language, **Skynet** takes one step closer to reality 🤖
 
-![](/images/blog/mcp-ve-ai-yeni-iletisim-dili/img-01.png)
+![](/images/blog/mcp-ve-ai-yeni-iletisim-dili/img-01.webp)
 
 #### Our Smart, But Slightly "Naive" Friends
 
@@ -39,7 +39,7 @@ Why does this analogy work so well?
 -   **It's a standard:** Just like USB-C lets you charge your phone, laptop, and headphones with the same cable, MCP aims to let AI connect to different tools **(weather, smart lamps, your calendar, a database)** using the same standard language. It doesn't need a separate "translator" for every single tool.
 -   **It's bidirectional:** USB-C doesn't just deliver power — it transfers data too. MCP does exactly the same thing. It doesn't just send commands; it also receives information **(that is, context)** coming back from the outside world and its tools.
 
-![MCP looks likes USB-C but for AI applications by Norah Sakal](/images/blog/mcp-ve-ai-yeni-iletisim-dili/img-02.png)
+![MCP looks likes USB-C but for AI applications by Norah Sakal](/images/blog/mcp-ve-ai-yeni-iletisim-dili/img-02.webp)
 *MCP looks likes USB-C but for AI applications by Norah Sakal*
 
 But I want to take this analogy one step further: **MCP** isn't just the **"input port"** itself — it's also the **smart cable** plugged into that port. This cable whispers what the data flowing through it actually **is**, **why** it was sent, and **how** important it is.
@@ -56,7 +56,7 @@ But I want to take this analogy one step further: **MCP** isn't just the **"inpu
 
 > **Outgoing Context (What Should Happen Now?):** The moment the central AI receives this rich gossip packet, it understands the situation. It figures out the intent is **"turn the lights on."** But which lights? This is where MCP's **"USB-C"** side kicks in. **The AI** connects, through MCP, to the tools it has on hand **(smart lamps, the music system, etc.)**:
 
-![Created with ImageFX by Labs.Google](/images/blog/mcp-ve-ai-yeni-iletisim-dili/img-03.png)
+![Created with ImageFX by Labs.Google](/images/blog/mcp-ve-ai-yeni-iletisim-dili/img-03.webp)
 *Created with ImageFX by Labs.Google*
 
 -   *"Hey* ***Philips Hue API****, Hüseyin has a scene called* ***'Evening Mood'****. Mind running it?* ***Set the living room lamp to 50% warm yellow.****"*
@@ -78,7 +78,7 @@ If an approach like MCP becomes widespread, it's going to fundamentally change t
 
 The **Model Context Protocol (MCP)** makes AI more **interactive and aware** by giving it access to environmental context. By pulling together information from different sources **(email, calendar, files, etc.)**, it lets AI systems engage with users on a more meaningful, personal level. Thanks to **MCP**, AI no longer just speaks in **data — it speaks in context too** — which turns it from something that merely answers into something that truly **understands.**
 
-![Model Context Protocol, as I call it, is the arms of the octopus called Artificial Intelligence. (Hüseyin Karacif)](/images/blog/mcp-ve-ai-yeni-iletisim-dili/img-04.png)
+![Model Context Protocol, as I call it, is the arms of the octopus called Artificial Intelligence. (Hüseyin Karacif)](/images/blog/mcp-ve-ai-yeni-iletisim-dili/img-04.webp)
 *Model Context Protocol, as I call it, is the arms of the octopus called Artificial Intelligence. (Hüseyin Karacif)*
 
 ### **To me, MCP is the arms of that octopus we call Artificial Intelligence. — Hüseyin Karacif**

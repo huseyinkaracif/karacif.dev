@@ -6,13 +6,13 @@ date: "2024-03-09"
 category: "Personal Growth"
 excerpt: "It's not the best learners who succeed — it's the best doers. Practical notes on managing time as an investment."
 readTime: "9"
-coverImage: "/images/blog/zaman-yonetimi/img-01.png"
+coverImage: "/images/blog/zaman-yonetimi/img-01.webp"
 mediumUrl: "https://medium.com/@hsynkrcf/zaman-y%C3%B6netimi-ki%C5%9Fisel-geli%C5%9Fim-ceeaa44789d5"
 tags: ["education", "self-improvement", "time-management", "life"]
 ---
 It's Not the Best Learners Who Succeed — It's the Best Doers!
 
-![](/images/blog/zaman-yonetimi/img-01.png)
+![](/images/blog/zaman-yonetimi/img-01.webp)
 
 I wrote this article based on notes I took while trying to manage my own time better. I hope it helps you too. ❤
 
@@ -22,7 +22,7 @@ Say we sign up for a course, or we're studying something. We need to write down 
 
 Planning matters enormously in time management. If you can get the plan to sink into your brain, you become far more likely to actually perceive time. This is what activates our **attention skills**, and that's how we end up actually **managing our time**.
 
-![via Genç Motto](/images/blog/zaman-yonetimi/img-02.png)
+![via Genç Motto](/images/blog/zaman-yonetimi/img-02.webp)
 *via Genç Motto*
 
 #### Activation Energy (the Striatum)
@@ -33,7 +33,7 @@ This is the **high triggering energy** required to get an event or task started.
 
 > **The task starts to look dangerous. The brain protects itself, and it won't give you permission to do it.**
 
-![Jack Dorsey (Founder of Twitter/X) — Example Weekly Plan](/images/blog/zaman-yonetimi/img-03.png)
+![Jack Dorsey (Founder of Twitter/X) — Example Weekly Plan](/images/blog/zaman-yonetimi/img-03.webp)
 *Jack Dorsey (Founder of Twitter/X) — Example Weekly Plan*
 
 **Planning** lets you see what's ahead for that activation energy. Good planning helps us actually capture it.
@@ -50,7 +50,7 @@ This is the **high triggering energy** required to get an event or task started.
 -   If the deadline for a task is far away, the brain protects itself and refuses to spend effort on it right now.
 -   Finishing a task brings **emotional relief**. When you have long tasks ahead of you, break them up and finish them one at a time.
 
-![via Parkinson's Law — Pierre Pichère](/images/blog/zaman-yonetimi/img-04.png)
+![via Parkinson's Law — Pierre Pichère](/images/blog/zaman-yonetimi/img-04.webp)
 *via Parkinson's Law — Pierre Pichère*
 
 To apply this law, you need to break your work down and start with concrete target steps. Once you've split it into small daily pieces, you're expected to do your piece every day. If you don't, giving yourself a penalty you genuinely don't want gives you the push you need to actually do the work.
@@ -69,7 +69,7 @@ When applying this law, if you set something you don't want as the penalty for y
 
 The photo below actually makes this technique clearer than words can, and it can genuinely help your productivity. There's just one rule: **during your breaks, stay away from social media or other tasks.** Walking, lying down — resting your brain and body — really matters.
 
-![via Boğaziçi University](/images/blog/zaman-yonetimi/img-05.png)
+![via Boğaziçi University](/images/blog/zaman-yonetimi/img-05.webp)
 *via Boğaziçi University*
 
 [The Most Effective Time Management Techniques](https://istanbulbogazicienstitu.com/zaman-yonetimi-teknikleri-nelerdir)
@@ -98,14 +98,14 @@ It comes with perks like **motivation, fun, and a healthy sense of obligation.**
 
 > **Ranking Tasks by Importance and Urgency — the Eisenhower Matrix**
 
-![via Boğaziçi University](/images/blog/zaman-yonetimi/img-06.png)
+![via Boğaziçi University](/images/blog/zaman-yonetimi/img-06.webp)
 *via Boğaziçi University*
 
 #### Calendar (Helps Us Plan)
 
 Looking at a calendar to see our tasks and deadlines lets us see what's ahead and gives us a clear sense of what to do and when. **It reminds you of deadlines and takes the extra burden of remembering off your brain.**
 
-![via Google Calendar](/images/blog/zaman-yonetimi/img-07.png)
+![via Google Calendar](/images/blog/zaman-yonetimi/img-07.webp)
 *via Google Calendar*
 
 Calendars are great for tracking deadlines and routines. If your system isn't rock solid, putting every single task on the calendar means that one delay can throw off your entire plan. **It's more useful to put in the big tasks and the routine ones.**
@@ -114,7 +114,7 @@ Calendars are great for tracking deadlines and routines. If your system isn't ro
 
 Writing down the ideas that come to us, and generally the things we learn, **saves extra mental effort and relaxes our brain**. This way, we can keep fear and stress under control. Keeping our notes clean and organized will make life easier for us down the road.
 
-![An Example App for Reviewing Our Notes (Anki)](/images/blog/zaman-yonetimi/img-08.png)
+![An Example App for Reviewing Our Notes (Anki)](/images/blog/zaman-yonetimi/img-08.webp)
 *An Example App for Reviewing Our Notes (Anki)*
 
 > ***Information recorded consistently gets tracked consistently. The Fantastic Trio gives us exactly that. Keep it in mind*** 🙂
@@ -123,7 +123,7 @@ Writing down the ideas that come to us, and generally the things we learn, **sav
 
 Building a specific routine — waking up at the same time and doing the same things every day — lifts our mood and gets our brain and body actually supporting us. Instead of doing everything at once, it has to be done one thing at a time.
 
-![via Habits — Garrett Petticrew](/images/blog/zaman-yonetimi/img-09.png)
+![via Habits — Garrett Petticrew](/images/blog/zaman-yonetimi/img-09.webp)
 *via Habits — Garrett Petticrew*
 
 **Building a habit is hard. It feels difficult at first and demands consistency, but once you can pull it off even once, you come out ahead.**

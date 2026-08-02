@@ -6,7 +6,7 @@ date: "2022-10-17"
 category: "Engineering"
 excerpt: "Five principles that show up in job postings, get asked in interviews, and are ignored far too often: a look at SOLID."
 readTime: "3"
-coverImage: "/images/blog/solid-nedir/img-01.jpg"
+coverImage: "/images/blog/solid-nedir/img-01.webp"
 mediumUrl: "https://medium.com/@hsynkrcf/solid-nedir-solid-prensipleri-nelerdir-74b89a99479e"
 tags: []
 ---
@@ -16,7 +16,7 @@ tags: []
 
 **S.O.L.I.D is a set of principles that lets us write software that's sustainable, scalable, testable, and reusable.**
 
-![SOLID Design Principles](/images/blog/solid-nedir/img-01.jpg)
+![SOLID Design Principles](/images/blog/solid-nedir/img-01.webp)
 *SOLID Design Principles*
 
 Let me give you a quick rundown of each one.
@@ -47,7 +47,7 @@ Change requests and new feature requests are just part of building software. We 
 
 So who's to blame here? Honestly — it's the application's design.
 
-![What is SOLID? The SOLID Principles Explained](/images/blog/solid-nedir/img-02.jpg)
+![What is SOLID? The SOLID Principles Explained](/images/blog/solid-nedir/img-02.webp)
 
 ## **The Advantages** of the **SOLID** Principles
 

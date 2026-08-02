@@ -6,11 +6,11 @@ date: "2022-11-10"
 category: "Engineering"
 excerpt: "Open for extension, closed for modification: how to add new behavior without breaking the code you already have."
 readTime: "4"
-coverImage: "/images/blog/open-closed-principle-ocp/img-01.png"
+coverImage: "/images/blog/open-closed-principle-ocp/img-01.webp"
 mediumUrl: "https://medium.com/@hsynkrcf/open-closed-principle-ocp-solid-bafb791a9a61"
 tags: []
 ---
-![Open/Closed Software Principle](/images/blog/open-closed-principle-ocp/img-01.png)
+![Open/Closed Software Principle](/images/blog/open-closed-principle-ocp/img-01.webp)
 *Open/Closed Software Principle*
 
 The **Open-Closed Principle** says that modules — classes, methods, and so on — should be "open for extension, but closed for modification." This principle helps us build **flexible** software (extendability) that's easy to change and maintain down the line.
@@ -19,7 +19,7 @@ The **Open-Closed Principle** says that modules — classes, methods, and so on 
 
 **"If the one thing that never changes is change itself, shouldn't we be making that change as cheap as possible?"**
 
-![Open-Closed Principle (OCP) — SOLID](/images/blog/open-closed-principle-ocp/img-02.png)
+![Open-Closed Principle (OCP) — SOLID](/images/blog/open-closed-principle-ocp/img-02.webp)
 
 In short, this principle is the foundation of writing sustainable, reusable code. Our goal is simple: **we should be able to give an object new capabilities without changing its existing behavior.**
 
@@ -37,7 +37,7 @@ Time to go into production, friends. In our `Program.cs`, we use the classes abo
 
 ### The Output of Our Example
 
-![Open-Closed Principle (OCP) — SOLID](/images/blog/open-closed-principle-ocp/img-03.png)
+![Open-Closed Principle (OCP) — SOLID](/images/blog/open-closed-principle-ocp/img-03.webp)
 
 Great, our factory is up and running. But then one day we decide: enough is enough, Xiaomi is selling like crazy, let's manufacture that too. **No problem**, we think — we'll just do whatever we did for the others.
 
@@ -46,11 +46,11 @@ Great, our factory is up and running. But then one day we decide: enough is enou
 3.  Add the new brand to our **PhoneFactory** class and write a **MakeXiaomi** method to produce it.
 4.  Finally, call the new phone's production logic from our Main method.
 
-![Open-Closed Principle (OCP) — SOLID](/images/blog/open-closed-principle-ocp/img-04.png)
+![Open-Closed Principle (OCP) — SOLID](/images/blog/open-closed-principle-ocp/img-04.webp)
 
 ### The New Output of Our Example
 
-![Open-Closed Principle (OCP) — SOLID](/images/blog/open-closed-principle-ocp/img-05.png)
+![Open-Closed Principle (OCP) — SOLID](/images/blog/open-closed-principle-ocp/img-05.webp)
 
 We got our new brand onto the production line. 👏 But think about it — there wasn't a single class we didn't have to touch, a single step we could skip. We needed exactly four separate changes. If we wanted to add Huawei tomorrow, would we really have to go through all of that again? Wasn't the whole point of this principle to be open for extension and closed for modification?
 
@@ -66,11 +66,11 @@ Using it in our Main method stays exactly the same as before.
 
 Feels a bit better already, doesn't it? Let's add Huawei to our factory too and go global. Let's see if it gives us as much trouble as Xiaomi did 😅
 
-![Open-Closed Principle (OCP) — SOLID](/images/blog/open-closed-principle-ocp/img-06.png)
+![Open-Closed Principle (OCP) — SOLID](/images/blog/open-closed-principle-ocp/img-06.webp)
 
 ### The Final Output of Our Example
 
-![Open-Closed Principle (OCP) — SOLID](/images/blog/open-closed-principle-ocp/img-07.png)
+![Open-Closed Principle (OCP) — SOLID](/images/blog/open-closed-principle-ocp/img-07.webp)
 
 ### And that's it!
 

@@ -6,7 +6,7 @@ date: "2025-06-16"
 category: "Architecture"
 excerpt: "A fresh alternative to layered architecture: Vertical Slice Architecture, which handles each feature end-to-end within its own vertical slice."
 readTime: "6"
-coverImage: "/images/blog/vertical-slice-architecture/img-01.png"
+coverImage: "/images/blog/vertical-slice-architecture/img-01.webp"
 mediumUrl: "https://medium.com/@hsynkrcf/her-dilim-bir-%C3%B6zellik-vertical-slice-architecture-ile-mikro-yakla%C5%9F%C4%B1m-8daeeae4c17d"
 tags: ["architecture", "clean-code", "vertical-slice", "development", "software"]
 ---
@@ -14,7 +14,7 @@ The **software** world offers us countless **architectural patterns** and **appr
 
 This is exactly where one approach stands apart with its simplicity and functionality. Meet **Vertical Slice Architecture**. So what does this **architecture** do differently, and why is it being chosen **more and more** every day?
 
-![Vertical Slice Architecture (VSA)](/images/blog/vertical-slice-architecture/img-01.png)
+![Vertical Slice Architecture (VSA)](/images/blog/vertical-slice-architecture/img-01.webp)
 *Vertical Slice Architecture (VSA)*
 
 ### What Is Vertical Slice Architecture? Let's Understand It First
@@ -29,7 +29,7 @@ In **Vertical Slice**, when you want to add a new feature **(say, "show order")*
 
 **Vertical Slice Architecture** says something different: think of a feature as a single vertical slice that runs from the user interface all the way down to the database. In other words, the **"show order"** feature acts like its own mini application, **cutting through all the layers vertically and carving its own path.**
 
-![Tiered vs Vertical Slice](/images/blog/vertical-slice-architecture/img-02.png)
+![Tiered vs Vertical Slice](/images/blog/vertical-slice-architecture/img-02.webp)
 *Tiered vs Vertical Slice*
 
 #### To Put It Simply
@@ -43,7 +43,7 @@ In **Vertical Slice Architecture**, a **"slice"** means handling a **feature** w
 
 Each slice contains its own Request, Handler, Validation, Persistence, and UI logic. **In short, it's a structure that pulls in only the pieces of each layer relevant to that specific feature.**
 
-![What is a slice?](/images/blog/vertical-slice-architecture/img-03.png)
+![What is a slice?](/images/blog/vertical-slice-architecture/img-03.webp)
 *What is a slice?*
 
 ### Why Use Vertical Slice Architecture? What Are the Advantages?
@@ -72,7 +72,7 @@ From what I've researched, there are good reasons this architecture has grown po
 
 #### Below I've left an example "slice." No need for a "what does that look like" question in your head — let's get the logic locked in 🙏
 
-![An Example](/images/blog/vertical-slice-architecture/img-04.png)
+![An Example](/images/blog/vertical-slice-architecture/img-04.webp)
 *An Example*
 
 ### Vertical Slice vs Onion (Clean) Architecture
@@ -85,11 +85,61 @@ Now let's compare this newly learned architecture with the one I love and use th
 
 #### Instead of a long write-up, I've put it together for you in a table: (honestly)
 
-<a href="https://medium.com/media/dcb7debcc8e0f45523914916526d5f5f/href">https://medium.com/media/dcb7debcc8e0f45523914916526d5f5f/href</a>
+```csv
+Kriter,🧩Vertical Slice Architecture (VSA),🧅Onion / Clean Architecture
+Yaklaşım Biçimi,Özellik (feature)-bazlı,"Katman (layer)-bazlı, merkezde domain"
+Kod Organizasyonu,Her özellik ayrı dosya/folder yapısında,"Katmanlara göre organize edilir (Domain, App, Infra, UI vs.)"
+Bağımlılık Yönü,Her slice kendi iç bağımlılıklarına sahiptir,Dış katmanlar iç katmanlara bağlıdır
+Test Edilebilirlik,Slice’lar bağımsız olduğu için kolay test edilebilir,Domain merkezi yapı test için güçlüdür
+Anlaşılabilirlik,Yeni başlayanlar için basit ve anlaşılır,Başlangıçta soyut ve öğrenmesi zor olabilir
+Değişiklik Etkisi,Bir slice değiştirmek diğerlerini etkilemez,Katmanlar arası değişiklikler zincirleme etki yaratabilir
+Uygulama Tipi için Uygunluk,Monolith ya da mikroservis öncesi yapılar,"Karmaşık, kurumsal, çok katmanlı sistemler"
+Domain’e Odak,İş mantığı slice içinde dağılmış olabilir,Domain model her şeyin merkezindedir
+Yeniden Kullanılabilirlik,Kod tekrarına açık olabilir,Domain logic katmanlarda tekrar kullanıma açık
+İlk Kurulum ve Maliyet,Hızlı ve düşük kurulum maliyeti,İlk kurulum maliyeti ve soyutlama yükü fazladır
+Ölçeklenebilirlik,Özellik bazlı ölçekleme kolay,Mimariyi genişletmek sabit ama yapılandırılmış
+Uygulama Akışı,UI → Request → Handler → Result (dikey),UI → App Layer → Domain → Infra (yatay)
+CQRS Uygunluğu,Yüksek — her slice kolayca CQRS ile uyarlanabilir,Uygulanabilir ama daha fazla katman ve karmaşa gerekir
+```
 
 Below you can see a small breakdown I put together of the file structure used in both architectures.
 
-<a href="https://medium.com/media/07eeab5d049e58f825c8b8f33ec5c169/href">https://medium.com/media/07eeab5d049e58f825c8b8f33ec5c169/href</a>
+```markdown
+# Onion ve Vertical Slice Mimarisinin Dosya Yapıları
+
+## Onion Architecture
+```
+📦 /Domain
+├── 📄 Entities/User.cs
+├── 📄 Interfaces/IUserRepository.cs
+
+📦 /Application
+├── 📁 Users
+│   ├── 📄 Commands/RegisterUserCommand.cs
+│   ├── 📄 Handlers/RegisterUserHandler.cs
+│   ├── 📄 Validators/RegisterUserValidator.cs
+
+📦 /Infrastructure  
+├── 📁 Repositories
+│   ├── 📄 UserRepository.cs
+
+📦 /API
+├── 📁 Controllers
+│   ├── 📄 UserController.cs
+```
+
+---
+
+## Vertical Slice Architecture
+```
+📦 /Features
+├── 📁 Users
+│   ├── 📄 RegisterUser.cs
+│   ├── 📄 RegisterUserValidator.cs
+│   ├── 📄 RegisterUserHandler.cs
+│   ├── 📄 RegisterUserResponse.cs
+```
+```
 
 ### Hüseyin, Which One Should I Use in Which Scenario?
 
