@@ -1,4 +1,5 @@
 import React from "react";
+import "prismjs/themes/prism-tomorrow.css";
 import "./src/styles/global.css";
 import { SiteProvider } from "./src/context/SiteContext";
 
