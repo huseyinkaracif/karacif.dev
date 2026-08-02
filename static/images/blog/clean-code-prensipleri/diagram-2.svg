@@ -1,0 +1,77 @@
+<svg viewBox="0 0 1600 900" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="One tangled function refactored into five small, single-purpose functions">
+  <rect width="1600" height="900" fill="#FAFAF8"/>
+
+  <g font-family="Inter, system-ui, sans-serif">
+    <text x="800" y="90" font-size="34" font-weight="800" text-anchor="middle" fill="#18181B">One Function, Five Jobs → Five Functions, One Job Each</text>
+
+    <!-- divider -->
+    <line x1="800" y1="140" x2="800" y2="830" stroke="#18181B" stroke-width="2" stroke-dasharray="3,10" opacity="0.4"/>
+
+    <!-- arrow between sides -->
+    <g stroke="#A16207" stroke-width="4" fill="none">
+      <line x1="735" y1="480" x2="792" y2="480" marker-end="url(#arrow)"/>
+    </g>
+    <defs>
+      <marker id="arrow" markerWidth="14" markerHeight="14" refX="8" refY="5" orient="auto">
+        <path d="M0,0 L10,5 L0,10 z" fill="#A16207"/>
+      </marker>
+    </defs>
+    <text x="763" y="450" font-size="20" font-weight="700" fill="#A16207" text-anchor="middle">refactor</text>
+
+    <!-- BEFORE -->
+    <circle cx="220" cy="175" r="24" fill="none" stroke="#18181B" stroke-width="3"/>
+    <text x="220" y="184" font-size="26" text-anchor="middle" fill="#18181B" font-weight="800">&#10005;</text>
+    <text x="270" y="184" font-size="28" font-weight="800" fill="#18181B">BEFORE</text>
+    <text x="220" y="215" font-size="20" fill="#A16207">ProcessOrder() &#8212; 25+ lines, 5 jobs tangled together</text>
+
+    <g stroke="#18181B" stroke-width="2.5" fill="#FAFAF8">
+      <rect x="120" y="245" width="560" height="86" rx="10" transform="rotate(-2 400 288)"/>
+      <rect x="140" y="345" width="560" height="86" rx="10" transform="rotate(1.5 420 388)"/>
+      <rect x="110" y="445" width="560" height="86" rx="10" transform="rotate(-1 390 488)"/>
+      <rect x="150" y="545" width="560" height="86" rx="10" transform="rotate(2 430 588)"/>
+      <rect x="125" y="645" width="560" height="86" rx="10" transform="rotate(-1.5 405 688)"/>
+    </g>
+    <g font-size="19" fill="#18181B" font-weight="600" text-anchor="middle">
+      <text x="400" y="292" transform="rotate(-2 400 288)">Loop items, sum subtotal</text>
+      <text x="420" y="392" transform="rotate(1.5 420 388)">Apply premium + bulk discount</text>
+      <text x="390" y="492" transform="rotate(-1 390 488)">Calculate and add 18% tax</text>
+      <text x="430" y="592" transform="rotate(2 430 588)">Print invoice line to console</text>
+      <text x="405" y="692" transform="rotate(-1.5 405 688)">Save to DB, then email customer</text>
+    </g>
+    <text x="400" y="770" font-size="20" text-anchor="middle" fill="#A16207" font-weight="700">one function, one giant reason to break</text>
+
+    <!-- AFTER -->
+    <circle cx="1050" cy="175" r="24" fill="#EAB308"/>
+    <text x="1050" y="184" font-size="24" text-anchor="middle" fill="#18181B" font-weight="800">&#10003;</text>
+    <text x="1100" y="184" font-size="28" font-weight="800" fill="#18181B">AFTER</text>
+    <text x="1050" y="215" font-size="20" fill="#A16207">ProcessOrder() &#8212; orchestrates only</text>
+
+    <rect x="920" y="240" width="560" height="66" rx="10" fill="#18181B"/>
+    <text x="1200" y="280" font-size="20" font-weight="700" text-anchor="middle" fill="#FAFAF8">ProcessOrder()</text>
+
+    <g stroke="#A16207" stroke-width="2" fill="none">
+      <line x1="1200" y1="306" x2="1200" y2="326"/>
+    </g>
+
+    <g stroke="#A16207" stroke-width="2.5" fill="#FAFAF8">
+      <rect x="920" y="330" width="560" height="76" rx="10"/>
+      <rect x="920" y="420" width="560" height="76" rx="10"/>
+      <rect x="920" y="510" width="560" height="76" rx="10"/>
+      <rect x="920" y="600" width="560" height="76" rx="10"/>
+      <rect x="920" y="690" width="560" height="76" rx="10"/>
+    </g>
+    <g font-size="19" fill="#18181B" font-weight="600" text-anchor="middle">
+      <text x="1200" y="362">CalculateSubtotal()</text>
+      <text x="1200" y="385" font-size="16" font-weight="500" fill="#A16207">sums the line items</text>
+      <text x="1200" y="452">ApplyDiscounts()</text>
+      <text x="1200" y="475" font-size="16" font-weight="500" fill="#A16207">premium &amp; bulk rules</text>
+      <text x="1200" y="542">ApplyTax()</text>
+      <text x="1200" y="565" font-size="16" font-weight="500" fill="#A16207">adds the tax rate</text>
+      <text x="1200" y="632">IssueInvoice()</text>
+      <text x="1200" y="655" font-size="16" font-weight="500" fill="#A16207">logs the invoice</text>
+      <text x="1200" y="722">NotifyCustomer()</text>
+      <text x="1200" y="745" font-size="16" font-weight="500" fill="#A16207">sends the confirmation</text>
+    </g>
+    <text x="1200" y="800" font-size="20" text-anchor="middle" fill="#A16207" font-weight="700">each piece has one job, one name, one reason to change</text>
+  </g>
+</svg>
