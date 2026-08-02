@@ -8,7 +8,9 @@ import { SITE_URL } from "../i18n/routes";
 export default function BlogPost({ data, pageContext }) {
   const { lang, altPath } = pageContext;
   const t = translations[lang] || translations.tr;
-  const { frontmatter, html, fields } = data.markdownRemark;
+  const { frontmatter, html: rawHtml, fields } = data.markdownRemark;
+  // inline article images load lazily — they're all below the fold
+  const html = rawHtml.replace(/<img /g, `<img loading="lazy" decoding="async" `);
   const all = data.allPosts.nodes;
 
   const idx = all.findIndex((p) => p.fields.slug === fields.slug);
@@ -159,7 +161,7 @@ export default function BlogPost({ data, pageContext }) {
 }
 
 export const Head = ({ data, pageContext }) => {
-  const { lang, trPath, enPath } = pageContext;
+  const { lang, trPath, enPath, ogImage } = pageContext;
   const { frontmatter, fields, excerpt } = data.markdownRemark;
   return (
     <Seo
@@ -169,7 +171,7 @@ export const Head = ({ data, pageContext }) => {
       pathname={fields.slug}
       trPath={trPath}
       enPath={enPath}
-      image={frontmatter.coverImage}
+      image={ogImage || frontmatter.coverImage}
       article={{
         publishedTime: frontmatter.date,
         tags: frontmatter.tags || [],
