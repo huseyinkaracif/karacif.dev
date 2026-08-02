@@ -6,11 +6,11 @@ date: "2026-01-14"
 category: "AI"
 excerpt: "Instead of asking one model to do everything, build a team of specialized AI agents: the logic, architecture, and practical setup of Agent Orchestration."
 readTime: "8"
-coverImage: "/images/blog/kendi-yapay-zeka-ekibinizi-nasil-kurarsiniz/img-01.png"
+coverImage: "/images/blog/kendi-yapay-zeka-ekibinizi-nasil-kurarsiniz/img-01.webp"
 mediumUrl: "https://medium.com/@hsynkrcf/kendi-yapay-zeka-ekibinizi-agent-orchestration-nas%C4%B1l-kurars%C4%B1n%C4%B1z-795fb65055ae"
 tags: ["programming", "ai", "ai-agent", "artificial-intelligence", "technology"]
 ---
-![](/images/blog/kendi-yapay-zeka-ekibinizi-nasil-kurarsiniz/img-01.png)
+![](/images/blog/kendi-yapay-zeka-ekibinizi-nasil-kurarsiniz/img-01.webp)
 
 We've all lived this moment at least once: you hand Claude, or a similar model, a complex, multi-step task. At first everything seems fine, but as the conversation drags on the model starts "forgetting" — **it loses context** — or worse, it confidently makes things up. (We politely call this **"hallucination"** [(ai-hallucination)](https://en.wikipedia.org/wiki/Hallucination_\(artificial_intelligence\)).)
 
@@ -24,7 +24,7 @@ And this is exactly where the new star of the AI world steps onto the stage: **A
 
 Picture autonomous AIs that can make their own decisions and take action. The **Agent** concept is about giving that "brain" hands and feet — tools — so it can actually act.
 
-![](/images/blog/kendi-yapay-zeka-ekibinizi-nasil-kurarsiniz/img-02.jpg)
+![](/images/blog/kendi-yapay-zeka-ekibinizi-nasil-kurarsiniz/img-02.webp)
 
 **Agent Orchestration** goes beyond the capabilities of a single agent — it's multiple agents working in coordination toward a shared goal.
 
@@ -46,7 +46,7 @@ I like to explain this with a **construction site** metaphor:
 
 There are massive tools on the market doing this job. Which one you pick depends on you and how complex your idea is. I pulled together a bunch of sources, ran them through AI for a close, tightly-woven comparison, and put together the table below.
 
-![Made By AI with My Infos](/images/blog/kendi-yapay-zeka-ekibinizi-nasil-kurarsiniz/img-03.png)
+![Made By AI with My Infos](/images/blog/kendi-yapay-zeka-ekibinizi-nasil-kurarsiniz/img-03.webp)
 *Made By AI with My Infos*
 
 ### Cut to the Chase, Hüseyin: Which One Should I Pick?
@@ -80,14 +80,14 @@ Think of it as a magazine editorial office. Three employees:
 -   **Writer Agent:** Takes what the researcher hands over and turns it into flowing prose. Doesn't fact-check — it just "writes."
 -   **Editor Agent:** Takes the written text, fixes spelling and grammar, and gets it ready to publish.
 
-![You can grab the project from GitHub and spin it up yourself. (My example Orchestration project)](/images/blog/kendi-yapay-zeka-ekibinizi-nasil-kurarsiniz/img-04.png)
+![You can grab the project from GitHub and spin it up yourself. (My example Orchestration project)](/images/blog/kendi-yapay-zeka-ekibinizi-nasil-kurarsiniz/img-04.webp)
 *You can grab the project from GitHub and spin it up yourself. (My example Orchestration project)*
 
 I got the app above up and running quickly. Feel free to fork the project, run it locally, and try it out — it produces genuinely good results. 🙏
 
 [GitHub - huseyinkaracif/ai-blog-team](https://github.com/huseyinkaracif/ai-blog-team)
 
-<a href="https://medium.com/media/672dfbbb5f89856c2fadd21f572e2471/href">https://medium.com/media/672dfbbb5f89856c2fadd21f572e2471/href</a>
+🎥 [Watch the example in action (YouTube)](https://youtu.be/VDGG3Lf2RKo)
 
 ### What Happened Behind the Scenes?
 
@@ -126,7 +126,7 @@ This is where **"Agent Observability"** tools come in: (this part matters, pleas
 -   [**LangSmith:**](https://www.langchain.com/langsmith/observability) Built by the LangChain team, this tool lets you look "inside the brain" of your agents. It shows you exactly which step (Trace) the error occurred at, second by second.
 -   [**Automaker:**](https://automaker.app/) The industry is rapidly shifting "from code to interface." Developers are increasingly managing agents not from the terminal, but through AI-focused interfaces like **Automaker**, or via **Kanban** boards (assigning tasks the way you'd drag a Trello card). It's a preview of a future where even non-technical PMs can manage AI teams.
 
-![Agent Orchestration & Development & Observability](/images/blog/kendi-yapay-zeka-ekibinizi-nasil-kurarsiniz/img-06.jpg)
+![Agent Orchestration & Development & Observability](/images/blog/kendi-yapay-zeka-ekibinizi-nasil-kurarsiniz/img-06.webp)
 *Agent Orchestration & Development & Observability*
 
 ### Conclusion
